@@ -5,10 +5,12 @@ using UnityEngine;
 public class TestDude : MonoBehaviour
 {
 
-    float horizontal;
-    float vertical;
+    float _horizontal;
+    float _vertical;
 
-    public float speed = 3.0f;
+    Vector2 _position;
+
+    public float _speed = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,14 @@ public class TestDude : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        _horizontal = Input.GetAxis("Horizontal");
+        _vertical = Input.GetAxis("Vertical");
 
-        Vector2 position = transform.position;
+        _position = transform.position;
 
-        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 3.0f * vertical * Time.deltaTime;
-        transform.position = position;
+        _position.x = _position.x + _speed * _horizontal * Time.deltaTime;
+        _position.y = _position.y + _speed * _vertical * Time.deltaTime;
+        transform.position = _position;
     }
 }
   
