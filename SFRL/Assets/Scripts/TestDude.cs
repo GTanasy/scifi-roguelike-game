@@ -8,27 +8,37 @@ public class TestDude : MonoBehaviour
     float _horizontal;
     float _vertical;
 
-    Vector2 _position;
+    Vector2 _movement;
+    Vector2 _mousePos;
 
-    public float _speed = 3.0f;
+    public Rigidbody2D _rb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Camera _cam;
+
+    public float _speed = 3.0f;    
 
     // Update is called once per frame
     void Update()
     {
-        _horizontal = Input.GetAxis("Horizontal");
-        _vertical = Input.GetAxis("Vertical");
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        _vertical = Input.GetAxisRaw("Vertical");
 
-        _position = transform.position;
+        _movement.x = _horizontal;
+        _movement.y = _vertical;
 
-        _position.x = _position.x + _speed * _horizontal * Time.deltaTime;
-        _position.y = _position.y + _speed * _vertical * Time.deltaTime;
-        transform.position = _position;
+        _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    void FixedUpdate()
+    {
+        _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);
+
+        Vector2 _lookDirection = _mousePos - _rb.position;
+
+        // This gets the angle required to rotate the player using Atan2 and converts it into degrees
+        float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 180f;
+
+        _rb.rotation = _angle;
     }
 }
   
