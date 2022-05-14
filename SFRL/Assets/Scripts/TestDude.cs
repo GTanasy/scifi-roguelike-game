@@ -36,7 +36,7 @@ public class TestDude : MonoBehaviour
         Vector2 _lookDirection = _mousePos - _rb.position;
 
         // This gets the angle required to rotate the player using Atan2 and converts it into degrees
-        float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 180f;
+        float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
 
         _rb.rotation = _angle;
     }

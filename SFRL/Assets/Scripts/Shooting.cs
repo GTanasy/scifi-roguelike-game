@@ -25,6 +25,6 @@ using UnityEngine;
 
             Rigidbody2D _rb = _bullet.GetComponent<Rigidbody2D>();
 
-            _rb.AddForce(-_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+            _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
         }
     }
