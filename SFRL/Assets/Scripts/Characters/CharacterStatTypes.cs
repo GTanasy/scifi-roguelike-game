@@ -9,7 +9,7 @@ namespace CG.SFRL.Characters
         [System.Serializable]
             public class Base
         {
-            public float _atkSpeed, _atkRange, _attack, _health, _armor;
+            public float _atkSpeed, _atkRange, _damage, _health, _armor, _shield, _projSpeed;
         }
         
     }
