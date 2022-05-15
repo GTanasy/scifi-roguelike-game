@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CG.SFRL.Characters
+namespace CG.SFRL.Enemy
 {
-    public class Norman : MonoBehaviour
+    public class TestEnemy : MonoBehaviour
     {
+
         [SerializeField] int _maxHealth = 100;
         [SerializeField] int _currentHealth;
         [SerializeField] int _maxShield = 100;
@@ -19,7 +20,20 @@ namespace CG.SFRL.Characters
         public HealthBar _healthBar;
         public ShieldBar _shieldBar;
 
-        // Start is called before the first frame update
+        public Transform _firePoint;
+        public Transform _player;
+
+        public Camera _cam;
+
+        Vector2 _playerPosition;
+
+        public GameObject _bulletPrefab;
+        public Rigidbody2D _rb;
+
+        public float _bulletForce = 20f;
+
+        public float _cooldown;
+
         void Start()
         {
             _currentHealth = _maxHealth;
@@ -27,17 +41,39 @@ namespace CG.SFRL.Characters
 
             _currentShield = _maxShield;
             _shieldBar.SetMaxShield(_maxShield);
-            
+
+            StartCoroutine(ShootPlayer());         
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                TakeHealthDamage(20);
-            }
+            Debug.Log("Health: " + _currentHealth);
+            Debug.Log("Shield: " + _currentShield);
         }
+
+        void FixedUpdate()
+        {           
+            Vector2 _targetPosition = _player.position - _rb.transform.position;           
+
+            float _angle = Mathf.Atan2(_targetPosition.y, _targetPosition.x) * Mathf.Rad2Deg - 0f;
+            _rb.rotation = _angle;          
+        }
+
+        IEnumerator ShootPlayer()
+        {
+                yield return new WaitForSeconds(_cooldown);
+            if(_player != null)
+            {            
+                
+
+                GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+                _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+
+                StartCoroutine(ShootPlayer());
+            }
+
+        }
+
         public void TakeDamage(int damage)
         {
             if (_currentShield <= 0)
@@ -49,11 +85,17 @@ namespace CG.SFRL.Characters
             {
                 TakeShieldDamage(damage);
             }
+
             if (_regen != null)
             {
                 StopCoroutine(_regen);
             }
             _regen = StartCoroutine(RegenShield());
+
+            if(_currentHealth <= 0)
+            {
+                Die();
+            }
         }
 
         void TakeHealthDamage(int damage)
@@ -67,7 +109,7 @@ namespace CG.SFRL.Characters
             _currentShield -= damage;
             _shieldBar.SetShield(_currentShield);
         }
-        
+
         IEnumerator RegenShield()
         {
             yield return new WaitForSeconds(2);
@@ -78,6 +120,12 @@ namespace CG.SFRL.Characters
                 _shieldBar.SetShield(_currentShield);
                 yield return _shieldRegenRate;
             }
+        }
+
+        void Die()
+        {
+            Destroy(gameObject);
+            StopAllCoroutines();
         }
     }
 }

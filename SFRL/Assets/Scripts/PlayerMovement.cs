@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestDude : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     float _horizontal;
