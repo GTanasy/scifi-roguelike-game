@@ -10,9 +10,8 @@ namespace CG.SFRL.Characters
         [SerializeField] int _currentHealth;
         [SerializeField] int _maxShield = 100;
         [SerializeField] int _currentShield;
-        [SerializeField] float _sheildRegen = 5.0f;
 
-        WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.5f);
+        WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
 
         Coroutine _regen;
 

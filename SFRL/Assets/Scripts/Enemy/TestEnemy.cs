@@ -25,8 +25,6 @@ namespace CG.SFRL.Enemy
 
         public Camera _cam;
 
-        Vector2 _playerPosition;
-
         public GameObject _bulletPrefab;
         public Rigidbody2D _rb;
 

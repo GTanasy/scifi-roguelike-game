@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D _rb;
 
+    public Rigidbody2D _firepoint;
+
     public Camera _cam;
 
     public float _speed = 3.0f;    
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);
+        
 
         Vector2 _lookDirection = _mousePos - _rb.position;
 
