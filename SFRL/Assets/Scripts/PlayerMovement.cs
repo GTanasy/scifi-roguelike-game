@@ -9,11 +9,8 @@ public class PlayerMovement : MonoBehaviour
     float _vertical;
 
     Vector2 _movement;
-    Vector2 _mousePos;
 
     public Rigidbody2D _rb;
-
-    public Rigidbody2D _firepoint;
 
     public Camera _cam;
 
@@ -27,21 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
         _movement.x = _horizontal;
         _movement.y = _vertical;
-
-        _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);
-        
-
-        Vector2 _lookDirection = _mousePos - _rb.position;
-
-        // This gets the angle required to rotate the player using Atan2 and converts it into degrees
-        float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
-
-        //_rb.rotation = _angle;
+        _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);       
     }
 }
   
