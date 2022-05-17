@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         // This gets the angle required to rotate the player using Atan2 and converts it into degrees
         float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
 
-        _rb.rotation = _angle;
+        //_rb.rotation = _angle;
     }
 }
   
