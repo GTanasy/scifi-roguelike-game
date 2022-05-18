@@ -80,9 +80,5 @@ namespace CG.SFRL.Characters
                 yield return _shieldRegenRate;
             }
         }
-
-
     }
 }
-
-

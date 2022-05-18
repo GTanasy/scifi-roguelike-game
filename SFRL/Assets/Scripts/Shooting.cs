@@ -6,6 +6,7 @@ using UnityEngine;
     {
         public Transform _firePoint;
         public GameObject _bulletPrefab;
+        public GameObject _piercingShotPrefab;
 
         public float _bulletForce = 20f;
         public float _timeBetweenShots = 0.5f;
@@ -20,7 +21,10 @@ using UnityEngine;
             {
                 Shoot();
             }
-            Debug.Log(_readyToShoot);
+            if (Input.GetButtonDown("Fire2"))
+            {
+                ShootPiercing();
+            }
 
         }
 
@@ -41,4 +45,13 @@ using UnityEngine;
         {
             _readyToShoot = true;
         }
-    }
+
+        void ShootPiercing()
+        {
+            GameObject _piercingShot = Instantiate(_piercingShotPrefab, _firePoint.position, _firePoint.rotation);
+
+            Rigidbody2D _rb = _piercingShot.GetComponent<Rigidbody2D>();
+
+            _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+        }
+}
