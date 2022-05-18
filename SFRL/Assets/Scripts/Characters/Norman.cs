@@ -11,6 +11,8 @@ namespace CG.SFRL.Characters
         [SerializeField] int _maxShield = 100;
         [SerializeField] int _currentShield;
 
+        public GameObject _grenade;
+
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
 
         Coroutine _regen;
@@ -32,9 +34,9 @@ namespace CG.SFRL.Characters
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                TakeHealthDamage(20);
+                Instantiate(_grenade, transform.position, Quaternion.identity);
             }
         }
         public void TakeDamage(int damage)
@@ -78,6 +80,8 @@ namespace CG.SFRL.Characters
                 yield return _shieldRegenRate;
             }
         }
+
+
     }
 }
 

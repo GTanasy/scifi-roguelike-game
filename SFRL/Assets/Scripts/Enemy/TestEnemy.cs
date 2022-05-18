@@ -28,6 +28,8 @@ namespace CG.SFRL.Enemy
 
         public float _cooldown;
 
+        private bool _explosion;
+
         void Start()
         {
             _currentHealth = _maxHealth;
@@ -36,7 +38,7 @@ namespace CG.SFRL.Enemy
             _currentShield = _maxShield;
             _shieldBar.SetMaxShield(_maxShield);
 
-            StartCoroutine(ShootPlayer());         
+            StartCoroutine(ShootPlayer());              
         }
 
         IEnumerator ShootPlayer()
@@ -86,6 +88,22 @@ namespace CG.SFRL.Enemy
         {
             _currentShield -= damage;
             _shieldBar.SetShield(_currentShield);
+        }
+
+        public void ExplosionDamage(int damage)
+        {
+            if (!_explosion)
+            {
+                _explosion = true;
+                TakeDamage(damage);
+                StartCoroutine(CoolDown());
+            }
+        }
+
+        IEnumerator CoolDown()
+        {
+            yield return new WaitForSeconds(1.0f);
+            _explosion = false;
         }
 
         IEnumerator RegenShield()
