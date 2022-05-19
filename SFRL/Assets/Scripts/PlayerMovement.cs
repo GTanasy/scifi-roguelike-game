@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera _cam;
 
+    public Animator _animator;
+
     public float _speed = 3.0f;    
 
     // Update is called once per frame
@@ -24,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
         _movement.x = _horizontal;
         _movement.y = _vertical;
+
+        _animator.SetFloat("Horizontal", _movement.x);
+        _animator.SetFloat("Vertical", _movement.y);
+        _animator.SetFloat("Speed", _movement.sqrMagnitude);
     }
 
     void FixedUpdate()

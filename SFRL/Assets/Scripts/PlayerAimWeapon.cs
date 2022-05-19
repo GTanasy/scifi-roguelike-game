@@ -18,6 +18,16 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
+        HandleAim();
+    }
+
+    void HandleAim()
+    {
         _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 _lookDirection = (_mousePos - transform.position).normalized;
@@ -25,12 +35,18 @@ public class PlayerAimWeapon : MonoBehaviour
         // This gets the angle required to rotate the player using Atan2 and converts it into degrees
         float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
         _aimTransform.eulerAngles = new Vector3(0, 0, _angle);
-        FlipGun(_angle);
-    }
 
-    void FixedUpdate()
-    {
-        
+        Vector3 _scale = Vector3.one;
+
+        if (_angle < -90 || _angle > 90)
+        {
+            _scale.y = -1.0f;
+        }
+        else
+        {
+            _scale.y = +1.0f;
+        }
+        _aimTransform.localScale = _scale;
     }
 
     void FlipGun(float angle)

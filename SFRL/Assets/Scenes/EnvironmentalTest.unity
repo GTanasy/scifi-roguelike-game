@@ -469,7 +469,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.3237097, b: 0.46226418, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -486,7 +486,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.505317
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1613,9 +1613,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _piercingShotPrefab
+      propertyPath: _bulletPrefab
       value: 
-      objectReference: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
+      objectReference: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
+    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _timeBetweenShots
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363340, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _cam
       value: 
