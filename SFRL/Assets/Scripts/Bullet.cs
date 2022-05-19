@@ -12,20 +12,24 @@ public class Bullet : MonoBehaviour
         Norman norman = hitInfo.GetComponent<Norman>();
         TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
+        NormanGrenade normanGrenade = hitInfo.GetComponent<NormanGrenade>();
        
         if (norman != null)
         {
             norman.TakeDamage(20);
-            Destroy(gameObject);
         }
         if (testEnemy != null)
         {
             testEnemy.TakeDamage(20);
-            Destroy(gameObject);
         }
-        if (_bulletType.Equals("notNorman") && normanGunShield != null)
+        if (_bulletType.Equals("Norman") && normanGunShield != null)
         {
-            Destroy(gameObject);
-        }                
+            return;
+        }
+        if (normanGrenade != null)
+        {
+            return;
+        }
+        Destroy(gameObject);
     }
 }

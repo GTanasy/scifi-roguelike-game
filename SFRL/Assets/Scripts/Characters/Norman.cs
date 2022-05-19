@@ -12,12 +12,12 @@ namespace CG.SFRL.Characters
         [SerializeField] int _currentShield;
 
         public GameObject _grenade;
-
         public GameObject _gunShield;
 
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
+        public float _gunShieldDuration;
 
-        float _gunShieldCooldown = 10.0f;
+        float _gunShieldCooldown = 0;
 
         Coroutine _regen;
 
@@ -45,17 +45,10 @@ namespace CG.SFRL.Characters
 
             if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
             {
-                _gunShieldCooldown = 10;
+                _gunShieldCooldown = 10.0f;
                 StartCoroutine(GunShieldUp());               
             }
-            if (_gunShieldCooldown > 0)
-            {
-                _gunShieldCooldown -= Time.deltaTime;
-            }
-            if (_gunShieldCooldown < 0)
-            {
-                _gunShieldCooldown = 0;
-            }
+            GunShieldCooldown();
             
             Debug.Log("GunShield Cooldown: " + _gunShieldCooldown);
         }
@@ -88,9 +81,17 @@ namespace CG.SFRL.Characters
             _currentShield -= damage;
             _shieldBar.SetShield(_currentShield);
         }
-        void GunShieldDown()
+
+        void GunShieldCooldown()
         {
-            _gunShield.SetActive(false);
+            if (_gunShieldCooldown > 0)
+            {
+                _gunShieldCooldown -= Time.deltaTime;
+            }
+            if (_gunShieldCooldown < 0)
+            {
+                _gunShieldCooldown = 0;
+            }
         }
         
         IEnumerator RegenShield()
@@ -110,7 +111,7 @@ namespace CG.SFRL.Characters
             yield return new WaitForSeconds(0);
             _gunShield.SetActive(true);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(_gunShieldDuration);
             _gunShield.SetActive(false);
         }
     }

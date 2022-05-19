@@ -1653,6 +1653,10 @@ PrefabInstance:
       propertyPath: _shieldBar
       value: 
       objectReference: {fileID: 1777404564}
+    - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _gunShieldDuration
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
 --- !u!1001 &8602219728734940830

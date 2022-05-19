@@ -10,13 +10,19 @@ public class NormanPiercingShot : MonoBehaviour
     {
         Norman norman = hitInfo.GetComponent<Norman>();
         TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
+        NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
         if (testEnemy != null)
         {
             testEnemy.TakeDamage(80);
         }
-        if (!testEnemy && !norman)
+        if (testEnemy || norman)
         {
-            Destroy(gameObject);
-        }        
+            return;
+        }
+        if (normanGunShield != null)
+        {
+            return;
+        }
+        Destroy(gameObject);
     }
 }

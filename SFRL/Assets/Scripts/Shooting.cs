@@ -11,8 +11,7 @@ using UnityEngine;
         public float _bulletForce = 20f;
         public float _timeBetweenShots = 0.5f;
 
-        bool _readyToShoot = true;
-        
+        bool _readyToShoot = true;       
 
         // Update is called once per frame
         void Update()
