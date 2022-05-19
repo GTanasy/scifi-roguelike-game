@@ -128,6 +128,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5345921042105363337, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
   m_PrefabInstance: {fileID: 5345921042037651729}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &89364636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 89364636, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+  m_PrefabInstance: {fileID: 5345921042037651729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &89364640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89364636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608f187dc94ccc344b8dcc23a398e656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &178229060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1577,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 89364636, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89364636, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_TagString
+      value: Norman
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: m_Name
       value: TestDude
@@ -1612,18 +1637,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _bulletPrefab
-      value: 
-      objectReference: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
-    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _timeBetweenShots
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363340, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _cam
       value: 
       objectReference: {fileID: 534832636}
+    - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _gunShield
+      value: 
+      objectReference: {fileID: 89364636}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _healthBar
       value: 

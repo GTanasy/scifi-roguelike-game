@@ -22,18 +22,16 @@ public class EnemyAimWeapon : MonoBehaviour
         // This gets the angle required to rotate the player using Atan2 and converts it into degrees
         float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
         _aimTransform.eulerAngles = new Vector3(0, 0, _angle);
-        FlipGun(_angle);
-    }
+        Vector3 _scale = Vector3.one;
 
-    void FlipGun(float angle)
-    {
-        if (angle < -90 || angle > 90)
+        if (_angle < -90 || _angle > 90)
         {
-            _gun.flipY = true;
+            _scale.y = -1.0f;
         }
         else
         {
-            _gun.flipY = false;
+            _scale.y = +1.0f;
         }
+        _aimTransform.localScale = _scale;
     }
 }

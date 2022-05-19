@@ -47,17 +47,5 @@ public class PlayerAimWeapon : MonoBehaviour
             _scale.y = +1.0f;
         }
         _aimTransform.localScale = _scale;
-    }
-
-    void FlipGun(float angle)
-    {
-        if (angle < -90 || angle > 90)
-        {
-            _gun.flipY = true;
-        }
-        else
-        {
-            _gun.flipY = false;
-        }
-    }
+    }   
 }

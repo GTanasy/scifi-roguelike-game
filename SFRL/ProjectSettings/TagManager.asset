@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Enemy
+  - Norman
   layers:
   - Default
   - TransparentFX
