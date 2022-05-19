@@ -145,6 +145,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f187dc94ccc344b8dcc23a398e656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &89364644
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89364636}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9e43d31da841024caa19c0ff0f31df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &178229060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1605,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Norman
       objectReference: {fileID: 0}
+    - target: {fileID: 89364639, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 39e7f1afada13d94a9f1f32104e8584f, type: 3}
+    - target: {fileID: 89364639, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: m_Name
       value: TestDude
@@ -1641,6 +1669,10 @@ PrefabInstance:
       propertyPath: _cam
       value: 
       objectReference: {fileID: 534832636}
+    - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 89364644}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _gunShield
       value: 

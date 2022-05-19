@@ -14,6 +14,8 @@ namespace CG.SFRL.Characters
         public GameObject _grenade;
         public GameObject _gunShield;
 
+        public Animator _animator;
+
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
         public float _gunShieldDuration;
 
@@ -46,7 +48,7 @@ namespace CG.SFRL.Characters
             if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
             {
                 _gunShieldCooldown = 10.0f;
-                StartCoroutine(GunShieldUp());               
+                StartCoroutine(GunShieldUp());
             }
             GunShieldCooldown();
             
@@ -110,8 +112,11 @@ namespace CG.SFRL.Characters
         {
             yield return new WaitForSeconds(0);
             _gunShield.SetActive(true);
+            _animator.SetFloat("GunShieldUp", 1);
 
             yield return new WaitForSeconds(_gunShieldDuration);
+            _animator.SetFloat("GunShieldUp", -1);
+            yield return new WaitForSeconds(0.2f);
             _gunShield.SetActive(false);
         }
     }
