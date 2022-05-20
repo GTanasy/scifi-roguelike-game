@@ -17,6 +17,14 @@ public class EnemyAimWeapon : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_player != null)
+        {
+            HandleAim();
+        }       
+    }
+
+    void HandleAim()
+    {
         Vector3 _lookDirection = (_player.position - transform.position).normalized;
 
         // This gets the angle required to rotate the player using Atan2 and converts it into degrees

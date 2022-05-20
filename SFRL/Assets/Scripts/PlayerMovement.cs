@@ -21,6 +21,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleMovement();
+    }
+
+    void FixedUpdate()
+    {
+        _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);       
+    }
+
+    void HandleMovement()
+    {
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
 
@@ -30,11 +40,6 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Horizontal", _movement.x);
         _animator.SetFloat("Vertical", _movement.y);
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
-    }
-
-    void FixedUpdate()
-    {
-        _rb.MovePosition(_rb.position + _movement * _speed * Time.fixedDeltaTime);       
     }
 }
   

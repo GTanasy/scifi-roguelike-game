@@ -40,18 +40,12 @@ namespace CG.SFRL.Characters
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Instantiate(_grenade, transform.position, Quaternion.identity);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
-            {
-                _gunShieldCooldown = 10.0f;
-                StartCoroutine(GunShieldUp());
-            }
+            NormanInput();
             GunShieldCooldown();
-            
+            if(_currentHealth <= 0)
+            {
+                Die();
+            }
             Debug.Log("GunShield Cooldown: " + _gunShieldCooldown);
         }
         public void TakeDamage(int damage)
@@ -94,6 +88,26 @@ namespace CG.SFRL.Characters
             {
                 _gunShieldCooldown = 0;
             }
+        }
+
+        void NormanInput()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Instantiate(_grenade, transform.position, Quaternion.identity);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
+            {
+                _gunShieldCooldown = 10.0f;
+                StartCoroutine(GunShieldUp());
+            }
+        }
+
+        void Die()
+        {
+            StopAllCoroutines();
+            Destroy(gameObject);
         }
         
         IEnumerator RegenShield()
