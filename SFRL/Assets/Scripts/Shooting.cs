@@ -4,6 +4,8 @@ using UnityEngine;
 
     public class Shooting : MonoBehaviour
     {
+        [SerializeField] private NormanPiercingShot _pShot;
+
         public Transform _firePoint;
         public GameObject _bulletPrefab;
         public GameObject _piercingShotPrefab;
@@ -16,11 +18,15 @@ using UnityEngine;
         public float _bulletForce = 20f;
         public float _timeBetweenShots = 0.5f;
 
+        private float _rightClickStartHeld;
+
+        private float _pDamage;
+
         public int _maxMagCapacity;
         public int _magCapacity;
 
         bool _readyToShoot = true;
-        bool _reloading = false;
+        bool _reloading = false;        
 
         // Update is called once per frame
         void Update()
@@ -50,9 +56,19 @@ using UnityEngine;
 
         void ShootPiercing()
         {
+            if (_magCapacity > 10)
+            {
+                _magCapacity = _magCapacity - 10;
+            }
+            else
+            {
+                _magCapacity = 0;
+            }
             GameObject _piercingShot = Instantiate(_piercingShotPrefab, _firePoint.position, _firePoint.rotation);
 
             Rigidbody2D _rb = _piercingShot.GetComponent<Rigidbody2D>();
+
+            _piercingShot.GetComponent<NormanPiercingShot>()._damage = (int)_pDamage;
 
             _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
         }
@@ -63,9 +79,17 @@ using UnityEngine;
             {
                 Shoot();
             }
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && _magCapacity >= 10)
             {
+                _rightClickStartHeld = Time.time;
+                _animator.SetBool("isCharging", true);
+            }
+            if (Input.GetButtonUp("Fire2") && _magCapacity >= 10)
+            {
+                float _rightClickHeld = Time.time - _rightClickStartHeld;
+                PiercingDamage(_rightClickHeld);
                 ShootPiercing();
+                _animator.SetBool("isCharging", false);
             }
             if (Input.GetKeyDown(KeyCode.R) && _magCapacity != _maxMagCapacity)
             {
@@ -73,6 +97,18 @@ using UnityEngine;
                 _animator.SetBool("isReloading", true);                
                 StartCoroutine(Reload());
                 _reloading = true;
+            }
+        }
+
+        void PiercingDamage(float time)
+        {
+            if (time >= 4.0f)
+            {
+                _pDamage = 100;
+            }
+            else
+            {
+                _pDamage = time * 25.0f;
             }
         }
 

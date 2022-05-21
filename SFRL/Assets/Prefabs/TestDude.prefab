@@ -202,12 +202,12 @@ GameObject:
   - component: {fileID: 5345921042105363337}
   - component: {fileID: 5345921042105363334}
   - component: {fileID: 5345921042105363335}
-  - component: {fileID: 5345921042105363336}
-  - component: {fileID: 5345921042105363339}
   - component: {fileID: 5345921042105363338}
-  - component: {fileID: 5345921042105363341}
-  - component: {fileID: 5345921042105363340}
   - component: {fileID: 385695162}
+  - component: {fileID: 5345921042105363341}
+  - component: {fileID: 5345921042105363336}
+  - component: {fileID: 5345921042105363340}
+  - component: {fileID: 5345921042105363339}
   m_Layer: 0
   m_Name: TestDude
   m_TagString: Player
@@ -304,39 +304,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5345921042105363336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5345921042105363332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09ed61382a432c4a801fffa1422f5d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 5345921042105363335}
-  _cam: {fileID: 0}
-  _animator: {fileID: 385695162}
-  _speed: 3
---- !u!114 &5345921042105363339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5345921042105363332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0778f9bf045d42f4fb5c95ae2d90e879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _firePoint: {fileID: 5345921042969418074}
-  _bulletPrefab: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
-  _piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
-  _bulletForce: 20
-  _timeBetweenShots: 0.25
 --- !u!61 &5345921042105363338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -363,39 +330,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4086969, y: 0.92473674}
   m_EdgeRadius: 0
---- !u!114 &5345921042105363341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5345921042105363332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 623d9d43397d3844aa5cf5b3e0afbb61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 0
-  _maxShield: 100
-  _currentShield: 0
-  _grenade: {fileID: 2385580351567414731, guid: 1055349be76b5644fbffbb42510014d8, type: 3}
-  _healthBar: {fileID: 0}
-  _shieldBar: {fileID: 0}
---- !u!114 &5345921042105363340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5345921042105363332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74b1a3e69fe5394e9a201ca223f8e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gun: {fileID: 5345921042359221545}
-  _cam: {fileID: 0}
 --- !u!95 &385695162
 Animator:
   serializedVersion: 4
@@ -416,6 +350,80 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5345921042105363341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623d9d43397d3844aa5cf5b3e0afbb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _currentHealth: 0
+  _maxShield: 100
+  _currentShield: 0
+  _grenade: {fileID: 2385580351567414731, guid: 1055349be76b5644fbffbb42510014d8, type: 3}
+  _gunShield: {fileID: 0}
+  _animator: {fileID: 0}
+  _gunShieldDuration: 0
+  _healthBar: {fileID: 0}
+  _shieldBar: {fileID: 0}
+--- !u!114 &5345921042105363336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09ed61382a432c4a801fffa1422f5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 5345921042105363335}
+  _cam: {fileID: 0}
+  _animator: {fileID: 385695162}
+  _speed: 3
+--- !u!114 &5345921042105363340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b1a3e69fe5394e9a201ca223f8e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gun: {fileID: 5345921042359221545}
+  _cam: {fileID: 0}
+--- !u!114 &5345921042105363339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0778f9bf045d42f4fb5c95ae2d90e879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firePoint: {fileID: 5345921042969418074}
+  _bulletPrefab: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
+  _piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
+  _animator: {fileID: 0}
+  _reloadAnim: {fileID: 0}
+  _reloadDuration: 2
+  _bulletForce: 20
+  _timeBetweenShots: 0.25
+  _maxMagCapacity: 0
+  _magCapacity: 0
 --- !u!1 &5345921042359221543
 GameObject:
   m_ObjectHideFlags: 0

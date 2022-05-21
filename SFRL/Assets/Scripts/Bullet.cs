@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         if (normanGrenade != null)
         {
             return;
-        }
+        }        
         Destroy(gameObject);
     }
 }
