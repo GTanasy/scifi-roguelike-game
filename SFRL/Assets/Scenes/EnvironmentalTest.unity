@@ -1090,6 +1090,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207997612}
   m_CullTransparentMesh: 1
+--- !u!1 &1651863787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5345921042359221543, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+  m_PrefabInstance: {fileID: 5345921042037651729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1651863790
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651863787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38dbbd61a8a43ea47afab06148e3bd61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1754820066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1689,22 @@ PrefabInstance:
     - target: {fileID: 5345921042105363337, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1651863790}
+    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _reloadAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 233b3eea06c54a342bdcb5670a8b175b, type: 2}
+    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _magCapacity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345921042105363339, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: _maxMagCapacity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363340, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _cam

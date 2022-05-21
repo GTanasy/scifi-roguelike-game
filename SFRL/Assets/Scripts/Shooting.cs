@@ -8,6 +8,9 @@ using UnityEngine;
         public GameObject _bulletPrefab;
         public GameObject _piercingShotPrefab;
 
+        public Animator _animator;
+        public AnimationClip _reloadAnim;
+
         public float _reloadDuration = 2.0f;
 
         public float _bulletForce = 20f;
@@ -16,7 +19,8 @@ using UnityEngine;
         public int _maxMagCapacity;
         public int _magCapacity;
 
-        bool _readyToShoot = true;       
+        bool _readyToShoot = true;
+        bool _reloading = false;
 
         // Update is called once per frame
         void Update()
@@ -55,7 +59,7 @@ using UnityEngine;
 
         void ShootInput()
         {
-            if (Input.GetButton("Fire1") && _readyToShoot == true && _magCapacity > 0)
+            if (Input.GetButton("Fire1") && _readyToShoot == true && _magCapacity > 0 && _reloading == false)
             {
                 Shoot();
             }
@@ -65,13 +69,18 @@ using UnityEngine;
             }
             if (Input.GetKeyDown(KeyCode.R) && _magCapacity != _maxMagCapacity)
             {
+                _animator.speed = _reloadAnim.length / _reloadDuration;
+                _animator.SetBool("isReloading", true);                
                 StartCoroutine(Reload());
+                _reloading = true;
             }
         }
 
         IEnumerator Reload()
-        {
+        {            
             yield return new WaitForSeconds(_reloadDuration);
             _magCapacity = _maxMagCapacity;
+            _reloading = false;
+            _animator.SetBool("isReloading", false);
         }
     }
