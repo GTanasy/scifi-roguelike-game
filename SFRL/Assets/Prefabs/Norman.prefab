@@ -426,8 +426,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 5345921042105363335}
   _hitBox: {fileID: 5345921042105363338}
+  _imageCoolDownDash: {fileID: 0}
+  _textCoolDownDash: {fileID: 0}
   _cam: {fileID: 0}
   _animator: {fileID: 385695162}
+  _rollAnim: {fileID: 7400000, guid: 2b9fc4fc6233af44dbd7d1127b3dbf7f, type: 2}
   _normalSpeed: 3
   _dashSpeed: 5
   _dashLength: 0.2
@@ -459,6 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pShot: {fileID: 7953999433156109323, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
+  _textAmmoCount: {fileID: 0}
   _firePoint: {fileID: 5345921042969418074}
   _bulletPrefab: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
   _piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}

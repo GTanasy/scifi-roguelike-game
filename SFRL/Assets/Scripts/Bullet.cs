@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
         Norman norman = hitInfo.GetComponent<Norman>();
         TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
-        NormanGrenade normanGrenade = hitInfo.GetComponent<NormanGrenade>();        
+        NormanGrenade normanGrenade = hitInfo.GetComponent<NormanGrenade>();
+        Bullet bullet = hitInfo.GetComponent<Bullet>();
+        NormanPiercingShot normanPiercing = hitInfo.GetComponent<NormanPiercingShot>();
        
         if (norman != null)
         {
@@ -21,6 +23,10 @@ public class Bullet : MonoBehaviour
         if (testEnemy != null && _bulletType.Equals("Norman"))
         {
             testEnemy.TakeDamage(20);          
+        }
+        if (bullet != null || normanPiercing != null)
+        {
+            return;
         }
         if (testEnemy != null && _bulletType.Equals("notNorman"))
         {

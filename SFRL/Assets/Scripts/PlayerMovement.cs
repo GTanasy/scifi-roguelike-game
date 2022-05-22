@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,9 +15,13 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D _rb;
     public BoxCollider2D _hitBox;
 
+    [SerializeField] private Image _imageCoolDownDash;
+    [SerializeField] private TMP_Text _textCoolDownDash;
+
     public Camera _cam;
 
     public Animator _animator;
+    public AnimationClip _rollAnim;
 
     float _currentMoveSpeed;
 
@@ -31,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _currentMoveSpeed = _normalSpeed;
+
+        _textCoolDownDash.gameObject.SetActive(false);
+        _imageCoolDownDash.fillAmount = 0.0f;
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_dashCool <= 0 && _dashCounter <= 0)
         {
+            _animator.speed = _rollAnim.length / _dashLength;
+            _animator.SetBool("isRolling", true);
             _hitBox.enabled = !_hitBox.enabled;
             _currentMoveSpeed = _dashSpeed;
             _dashCounter = _dashLength;
@@ -75,19 +86,25 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_dashCounter > 0)
         {
-            _dashCounter -= Time.deltaTime;
+            _dashCounter -= Time.deltaTime;           
 
             if (_dashCounter <= 0)
             {
                 _hitBox.enabled = !_hitBox.enabled;
                 _currentMoveSpeed = _normalSpeed;
+                _animator.SetBool("isRolling", false);
+                _animator.speed = 1;
                 _dashCool = _dashCoolDown;
+                _textCoolDownDash.gameObject.SetActive(false);
+                _imageCoolDownDash.fillAmount = 0.0f;
             }
         }
 
         if (_dashCool > 0)
         {
             _dashCool -= Time.deltaTime;
+            _textCoolDownDash.text = Mathf.RoundToInt(_dashCool).ToString();
+            _imageCoolDownDash.fillAmount = _dashCool / _dashCoolDown;
         }
     }
 }

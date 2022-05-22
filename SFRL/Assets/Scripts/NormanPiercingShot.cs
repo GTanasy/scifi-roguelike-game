@@ -12,9 +12,15 @@ public class NormanPiercingShot : MonoBehaviour
         Norman norman = hitInfo.GetComponent<Norman>();
         TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
+        Bullet bullet = hitInfo.GetComponent<Bullet>();
+
         if (testEnemy != null)
         {
             testEnemy.TakeDamage(_damage);
+        }
+        if (bullet != null)
+        {
+            return;
         }
         if (testEnemy || norman)
         {

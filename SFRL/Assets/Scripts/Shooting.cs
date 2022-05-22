@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
     public class Shooting : MonoBehaviour
     {
         [SerializeField] private NormanPiercingShot _pShot;
+
+        [SerializeField] private TMP_Text _textAmmoCount;
 
         public Transform _firePoint;
         public GameObject _bulletPrefab;
@@ -18,9 +22,9 @@ using UnityEngine;
         public float _bulletForce = 20f;
         public float _timeBetweenShots = 0.5f;
 
-        private float _rightClickStartHeld;
+        float _rightClickStartHeld;
 
-        private float _pDamage;
+        float _pDamage;
 
         public int _maxMagCapacity;
         public int _magCapacity;
@@ -32,7 +36,7 @@ using UnityEngine;
         void Update()
         {
             ShootInput();
-        Debug.Log("Ammo: " + _magCapacity + "/" + _maxMagCapacity);
+            _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity;
         }
 
         void Shoot()

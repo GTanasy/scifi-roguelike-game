@@ -61,8 +61,7 @@ namespace CG.SFRL.Characters
             if(_currentHealth <= 0)
             {
                 Die();
-            }
-            Debug.Log("Grenade Cooldown: " + _grenadeCooldown);
+            }           
         }
         public void TakeDamage(int damage)
         {
