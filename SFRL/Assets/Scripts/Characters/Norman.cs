@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace CG.SFRL.Characters
 {
@@ -11,6 +13,12 @@ namespace CG.SFRL.Characters
         [SerializeField] int _maxShield = 100;
         [SerializeField] int _currentShield;
 
+        [SerializeField] private Image _imageCoolDownGrenade;
+        [SerializeField] private TMP_Text _textCoolDownGrenade;
+
+        [SerializeField] private Image _imageCoolDownGunShield;
+        [SerializeField] private TMP_Text _textCoolDownGunShield;
+
         public GameObject _grenade;
         public GameObject _gunShield;
 
@@ -19,7 +27,10 @@ namespace CG.SFRL.Characters
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
         public float _gunShieldDuration;
 
-        float _gunShieldCooldown = 0;
+        public float _maxGunShieldCooldown;
+        public float _maxGrenadeCooldown;
+        float _gunShieldCooldown;
+        float _grenadeCooldown;
 
         Coroutine _regen;
 
@@ -34,7 +45,11 @@ namespace CG.SFRL.Characters
 
             _currentShield = _maxShield;
             _shieldBar.SetMaxShield(_maxShield);
-            
+
+            _textCoolDownGrenade.gameObject.SetActive(false);
+            _imageCoolDownGrenade.fillAmount = 0.0f;
+            _textCoolDownGunShield.gameObject.SetActive(false);
+            _imageCoolDownGunShield.fillAmount = 0.0f;
         }
 
         // Update is called once per frame
@@ -42,11 +57,12 @@ namespace CG.SFRL.Characters
         {
             NormanInput();
             GunShieldCooldown();
+            GrenadeCooldown();
             if(_currentHealth <= 0)
             {
                 Die();
             }
-            Debug.Log("GunShield Cooldown: " + _gunShieldCooldown);
+            Debug.Log("Grenade Cooldown: " + _grenadeCooldown);
         }
         public void TakeDamage(int damage)
         {
@@ -83,24 +99,47 @@ namespace CG.SFRL.Characters
             if (_gunShieldCooldown > 0)
             {
                 _gunShieldCooldown -= Time.deltaTime;
+                _textCoolDownGunShield.text = Mathf.RoundToInt(_gunShieldCooldown).ToString();
+                _imageCoolDownGunShield.fillAmount = _gunShieldCooldown / _maxGunShieldCooldown;
             }
             if (_gunShieldCooldown < 0)
             {
                 _gunShieldCooldown = 0;
+                _textCoolDownGunShield.gameObject.SetActive(false);
+                _imageCoolDownGunShield.fillAmount = 0.0f;
+            }
+        }
+
+        void GrenadeCooldown()
+        {
+            if (_grenadeCooldown > 0)
+            {
+                _grenadeCooldown -= Time.deltaTime;
+                _textCoolDownGrenade.text = Mathf.RoundToInt(_grenadeCooldown).ToString();
+                _imageCoolDownGrenade.fillAmount = _grenadeCooldown / _maxGrenadeCooldown;
+            }
+            if (_grenadeCooldown < 0)
+            {
+                _grenadeCooldown = 0;
+                _textCoolDownGrenade.gameObject.SetActive(false);
+                _imageCoolDownGrenade.fillAmount = 0.0f;
             }
         }
 
         void NormanInput()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && _grenadeCooldown == 0)
             {
+                _grenadeCooldown = _maxGrenadeCooldown;
                 Instantiate(_grenade, transform.position, Quaternion.identity);
+                _textCoolDownGrenade.gameObject.SetActive(true);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
             {
-                _gunShieldCooldown = 10.0f;
+                _gunShieldCooldown = _maxGunShieldCooldown;
                 StartCoroutine(GunShieldUp());
+                _textCoolDownGunShield.gameObject.SetActive(true);
             }
         }
 
@@ -112,8 +151,7 @@ namespace CG.SFRL.Characters
         
         IEnumerator RegenShield()
         {
-            yield return new WaitForSeconds(2);
-
+            yield return new WaitForSeconds(2);            
             while (_currentShield < _maxShield)
             {
                 _currentShield++;

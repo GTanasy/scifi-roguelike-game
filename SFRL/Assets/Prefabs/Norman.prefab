@@ -11,13 +11,15 @@ GameObject:
   - component: {fileID: 89364637}
   - component: {fileID: 89364639}
   - component: {fileID: 89364638}
+  - component: {fileID: 89364644}
+  - component: {fileID: 89364640}
   m_Layer: 0
   m_Name: NormanGunShield
-  m_TagString: Untagged
+  m_TagString: Norman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &89364637
 Transform:
   m_ObjectHideFlags: 0
@@ -126,6 +128,38 @@ PolygonCollider2D:
       - {x: 0.35364294, y: 0.09971118}
       - {x: 0.24550363, y: 0.42081797}
       - {x: -0.043930292, y: 0.6900629}
+--- !u!95 &89364644
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89364636}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9e43d31da841024caa19c0ff0f31df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &89364640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89364636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608f187dc94ccc344b8dcc23a398e656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214824744
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +243,7 @@ GameObject:
   - component: {fileID: 5345921042105363340}
   - component: {fileID: 5345921042105363339}
   m_Layer: 0
-  m_Name: TestDude
+  m_Name: Norman
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,10 +400,16 @@ MonoBehaviour:
   _currentHealth: 0
   _maxShield: 100
   _currentShield: 0
+  _imageCoolDownGrenade: {fileID: 0}
+  _textCoolDownGrenade: {fileID: 0}
+  _imageCoolDownGunShield: {fileID: 0}
+  _textCoolDownGunShield: {fileID: 0}
   _grenade: {fileID: 2385580351567414731, guid: 1055349be76b5644fbffbb42510014d8, type: 3}
-  _gunShield: {fileID: 0}
-  _animator: {fileID: 0}
-  _gunShieldDuration: 0
+  _gunShield: {fileID: 89364636}
+  _animator: {fileID: 89364644}
+  _gunShieldDuration: 5
+  _maxGunShieldCooldown: 10
+  _maxGrenadeCooldown: 5
   _healthBar: {fileID: 0}
   _shieldBar: {fileID: 0}
 --- !u!114 &5345921042105363336
@@ -385,9 +425,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 5345921042105363335}
+  _hitBox: {fileID: 5345921042105363338}
   _cam: {fileID: 0}
   _animator: {fileID: 385695162}
-  _speed: 3
+  _normalSpeed: 3
+  _dashSpeed: 5
+  _dashLength: 0.2
+  _dashCoolDown: 1
 --- !u!114 &5345921042105363340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,16 +458,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0778f9bf045d42f4fb5c95ae2d90e879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pShot: {fileID: 7953999433156109323, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
   _firePoint: {fileID: 5345921042969418074}
   _bulletPrefab: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
   _piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
-  _animator: {fileID: 0}
-  _reloadAnim: {fileID: 0}
-  _reloadDuration: 2
+  _animator: {fileID: 1651863790}
+  _reloadAnim: {fileID: 7400000, guid: 233b3eea06c54a342bdcb5670a8b175b, type: 2}
+  _reloadDuration: 1
   _bulletForce: 20
   _timeBetweenShots: 0.25
-  _maxMagCapacity: 0
-  _magCapacity: 0
+  _maxMagCapacity: 30
+  _magCapacity: 30
 --- !u!1 &5345921042359221543
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5345921042359221542}
   - component: {fileID: 5345921042359221545}
+  - component: {fileID: 1651863790}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -509,6 +555,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1651863790
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042359221543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38dbbd61a8a43ea47afab06148e3bd61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5345921042969418075
 GameObject:
   m_ObjectHideFlags: 0

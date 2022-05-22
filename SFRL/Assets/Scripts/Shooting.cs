@@ -104,7 +104,7 @@ using UnityEngine;
         {
             if (time >= 4.0f)
             {
-                _pDamage = 100;
+                _pDamage = 100.0f;
             }
             else
             {
