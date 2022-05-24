@@ -8,13 +8,13 @@ public class ShieldBar : MonoBehaviour
 
     public Slider _slider;
 
-    public void SetMaxShield(int shield)
+    public void SetMaxShield(float shield)
     {
         _slider.maxValue = shield;
         _slider.value = shield;
     }
 
-    public void SetShield(int shield)
+    public void SetShield(float shield)
     {
         _slider.value = shield;
     }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CG.SFRL.Characters;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public BasicCharacter _moveStats;
 
     float _horizontal;
     float _vertical;
@@ -25,21 +27,26 @@ public class PlayerMovement : MonoBehaviour
 
     float _currentMoveSpeed;
 
-    public float _normalSpeed = 3.0f;
+    float _normalSpeed;
 
-    public float _dashSpeed = 9.0f;
-    public float _dashLength = 0.5f;
-    public float _dashCoolDown = 1.0f;
+    float _dashSpeed;
+    float _dashLength;
+    float _dashCoolDown;
 
     float _dashCool;
     float _dashCounter;
 
     void Start()
     {
+        _normalSpeed = _moveStats.normalSpeed;
         _currentMoveSpeed = _normalSpeed;
 
         _textCoolDownDash.gameObject.SetActive(false);
         _imageCoolDownDash.fillAmount = 0.0f;
+
+        _dashSpeed = _moveStats.dashSpeed;
+        _dashLength = _moveStats.dashLength;
+        _dashCoolDown = _moveStats.dashCooldown;
     }
     // Update is called once per frame
     void Update()

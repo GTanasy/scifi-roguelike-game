@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CG.SFRL.Characters;
 
     public class Shooting : MonoBehaviour
     {
+        public BasicCharacter _weaponStats;
+
         [SerializeField] private NormanPiercingShot _pShot;
 
         [SerializeField] private TMP_Text _textAmmoCount;
@@ -17,20 +20,29 @@ using TMPro;
         public Animator _animator;
         public AnimationClip _reloadAnim;
 
-        public float _reloadDuration = 2.0f;
+        float _reloadDuration;
 
-        public float _bulletForce = 20f;
-        public float _timeBetweenShots = 0.5f;
+        float _bulletForce;
+        float _timeBetweenShots;
 
         float _rightClickStartHeld;
 
         float _pDamage;
 
-        public int _maxMagCapacity;
-        public int _magCapacity;
+        int _maxMagCapacity;
+        int _magCapacity;
 
         bool _readyToShoot = true;
-        bool _reloading = false;        
+        bool _reloading = false;
+
+        void Start()
+        {
+            _maxMagCapacity = _weaponStats.magCapacity;
+            _bulletForce = _weaponStats.projectileSpeed;
+            _reloadDuration = _weaponStats.reloadTime;
+            _timeBetweenShots = 1 / _weaponStats.attackSpeed;
+            _magCapacity = _maxMagCapacity;
+        }
 
         // Update is called once per frame
         void Update()

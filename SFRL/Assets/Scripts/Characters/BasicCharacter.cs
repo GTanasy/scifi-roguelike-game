@@ -20,17 +20,46 @@ namespace CG.SFRL.Characters
 
         [Space(15)]
         [Header("Character Settings")]
-        public characterType _type;       
-        
-        public GameObject _playerPrefab;
-        public GameObject _icon;        
+        public characterType _type;
+
+        public GameObject _characterPrefab;
+        public GameObject _icon;
 
         [Space(15)]
         [Header("Character Base Stats")]
         [Space(15)]
+        [Header("Character Main Stats")]
+        [Space (15)]
 
-        public CharacterStatTypes.Base _baseStats;
+        public float health;
+        public float shield;
+        public float armor;
+        public float qCooldown;
+        public float eCooldown;
 
+        [Space(15)]
+        [Header("Weapon Stats")]
+        [Space(15)]
+
+        public float damage;
+        public float attackSpeed;
+        public float attackRange;
+        public float projectileSpeed;
+        public float reloadTime;
+        public int magCapacity;
+
+        [Space(15)]
+        [Header("Move Stats")]
+        [Space(15)]
+
+        public float dashCooldown;
+        public float dashLength;
+        public float dashSpeed;
+        public float normalSpeed;
+        
+        
+
+        
     }
 }
 

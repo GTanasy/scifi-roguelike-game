@@ -8,10 +8,10 @@ namespace CG.SFRL.Characters
 {
     public class Norman : MonoBehaviour
     {
-        [SerializeField] int _maxHealth = 100;
-        [SerializeField] int _currentHealth;
-        [SerializeField] int _maxShield = 100;
-        [SerializeField] int _currentShield;
+        float _maxHealth;
+        float _currentHealth;
+        float _maxShield;
+        float _currentShield;
 
         [SerializeField] private Image _imageCoolDownGrenade;
         [SerializeField] private TMP_Text _textCoolDownGrenade;
@@ -27,8 +27,8 @@ namespace CG.SFRL.Characters
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
         public float _gunShieldDuration;
 
-        public float _maxGunShieldCooldown;
-        public float _maxGrenadeCooldown;
+        float _maxGunShieldCooldown;
+        float _maxGrenadeCooldown;
         float _gunShieldCooldown;
         float _grenadeCooldown;
 
@@ -37,9 +37,17 @@ namespace CG.SFRL.Characters
         public HealthBar _healthBar;
         public ShieldBar _shieldBar;
 
+        public BasicCharacter _characterStats;
+
         // Start is called before the first frame update
         void Start()
         {
+            _maxHealth = _characterStats.health;
+            _maxShield = _characterStats.shield;
+
+            _maxGunShieldCooldown = _characterStats.qCooldown;
+            _maxGrenadeCooldown = _characterStats.eCooldown;
+
             _currentHealth = _maxHealth;
             _healthBar.SetMaxHealth(_maxHealth);
 
@@ -49,7 +57,7 @@ namespace CG.SFRL.Characters
             _textCoolDownGrenade.gameObject.SetActive(false);
             _imageCoolDownGrenade.fillAmount = 0.0f;
             _textCoolDownGunShield.gameObject.SetActive(false);
-            _imageCoolDownGunShield.fillAmount = 0.0f;
+            _imageCoolDownGunShield.fillAmount = 0.0f;            
         }
 
         // Update is called once per frame

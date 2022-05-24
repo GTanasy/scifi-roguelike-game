@@ -7,6 +7,12 @@ using CG.SFRL.Enemy;
 public class Bullet : MonoBehaviour
 {
     public string _bulletType;
+    public BasicCharacter _bulletDamage;
+    float _damage;
+    void Start()
+    {
+        _damage = _bulletDamage.damage;
+    }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Norman norman = hitInfo.GetComponent<Norman>();
@@ -22,7 +28,7 @@ public class Bullet : MonoBehaviour
         }
         if (testEnemy != null && _bulletType.Equals("Norman"))
         {
-            testEnemy.TakeDamage(20);          
+            testEnemy.TakeDamage(_damage);          
         }
         if (bullet != null || normanPiercing != null)
         {

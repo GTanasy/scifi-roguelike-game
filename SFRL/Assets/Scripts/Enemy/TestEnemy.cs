@@ -7,10 +7,10 @@ namespace CG.SFRL.Enemy
     public class TestEnemy : MonoBehaviour
     {
 
-        [SerializeField] int _maxHealth = 100;
-        [SerializeField] int _currentHealth;
-        [SerializeField] int _maxShield = 100;
-        [SerializeField] int _currentShield;
+        [SerializeField] float _maxHealth = 100;
+        [SerializeField] float _currentHealth;
+        [SerializeField] float _maxShield = 100;
+        [SerializeField] float _currentShield;
 
         WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.5f);
 
@@ -54,7 +54,7 @@ namespace CG.SFRL.Enemy
 
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             if (_currentShield <= 0)
             {
@@ -78,13 +78,13 @@ namespace CG.SFRL.Enemy
             }
         }
 
-        void TakeHealthDamage(int damage)
+        void TakeHealthDamage(float damage)
         {
             _currentHealth -= damage;
             _healthBar.SetHealth(_currentHealth);
         }
 
-        void TakeShieldDamage(int damage)
+        void TakeShieldDamage(float damage)
         {
             _currentShield -= damage;
             _shieldBar.SetShield(_currentShield);
