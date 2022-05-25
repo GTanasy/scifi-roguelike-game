@@ -15,15 +15,15 @@ public class EnemyAimWeapon : MonoBehaviour
         _aimTransform = transform.Find("Aim");
     }
 
-    void FixedUpdate()
-    {
-        if (_player != null)
-        {
-            HandleAim();
-        }       
-    }
+    //void FixedUpdate()
+    //{
+    //    if (_player != null)
+    //    {
+    //        HandleAim();
+    //    }       
+    //}
 
-    void HandleAim()
+    public void HandleAim()
     {
         Vector3 _lookDirection = (_player.position - transform.position).normalized;
 

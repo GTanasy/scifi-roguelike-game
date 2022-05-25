@@ -26,8 +26,6 @@ namespace CG.SFRL.Enemy
 
         public float _bulletForce = 20f;
 
-        public float _cooldown;
-
         private bool _explosion;
 
         void Start()
@@ -36,23 +34,10 @@ namespace CG.SFRL.Enemy
             _healthBar.SetMaxHealth(_maxHealth);
 
             _currentShield = _maxShield;
-            _shieldBar.SetMaxShield(_maxShield);
-
-            StartCoroutine(ShootPlayer());              
+            _shieldBar.SetMaxShield(_maxShield);              
         }
 
-        IEnumerator ShootPlayer()
-        {
-                yield return new WaitForSeconds(_cooldown);
-            if(_player != null)
-            {                          
-                GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-                _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
-
-                StartCoroutine(ShootPlayer());
-            }
-
-        }
+        
 
         public void TakeDamage(float damage)
         {
@@ -98,6 +83,12 @@ namespace CG.SFRL.Enemy
                 TakeDamage(damage);
                 StartCoroutine(CoolDown());
             }
+        }
+
+        public void Shoot()
+        {                        
+            GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+            _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);           
         }
 
         IEnumerator CoolDown()
