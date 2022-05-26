@@ -430,7 +430,7 @@ MonoBehaviour:
   _hitBox: {fileID: 5345921042105363338}
   _imageCoolDownDash: {fileID: 0}
   _textCoolDownDash: {fileID: 0}
-  _cam: {fileID: 0}
+  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
   _animator: {fileID: 385695162}
   _rollAnim: {fileID: 7400000, guid: 2b9fc4fc6233af44dbd7d1127b3dbf7f, type: 2}
 --- !u!114 &5345921042105363340
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gun: {fileID: 5345921042359221545}
-  _cam: {fileID: 0}
+  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
 --- !u!114 &5345921042105363339
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,10 @@ public class AIMovement : MonoBehaviour
     {
         _enemyAimWeapon = gameObject.GetComponent<EnemyAimWeapon>();
         _testEnemy = gameObject.GetComponent<TestEnemy>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (GameObject.FindGameObjectWithTag("Player").transform != null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }      
     }
 
     // Start is called before the first frame update
