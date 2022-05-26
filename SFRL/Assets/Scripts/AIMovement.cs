@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using CG.SFRL.Enemy;
+using CG.SFRL.Characters;
 
 public class AIMovement : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    Transform target;
     [SerializeField] float _timeBetweenShots;
     [SerializeField] float _attackSpeed;
     NavMeshAgent agent;
 
     Vector3 _startingPosition;
-    public EnemyAimWeapon _enemyAimWeapon;
-    public TestEnemy _testEnemy;
+    EnemyAimWeapon _enemyAimWeapon;
+    TestEnemy _testEnemy;
 
     State _state;
 
@@ -25,7 +26,9 @@ public class AIMovement : MonoBehaviour
 
     void Awake()
     {
-        
+        _enemyAimWeapon = gameObject.GetComponent<EnemyAimWeapon>();
+        _testEnemy = gameObject.GetComponent<TestEnemy>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Start is called before the first frame update
@@ -49,24 +52,26 @@ public class AIMovement : MonoBehaviour
                 FindTarget();
                 break;
             case State.ChaseTarget:
-                agent.SetDestination(target.position);
-
-                _enemyAimWeapon.HandleAim();
-
-                float _attackRange = 5f;
-                if (Vector3.Distance(transform.position, target.position) < _attackRange)
+                if (target != null)
                 {
-                    if (Time.time > _timeBetweenShots)
+                    agent.SetDestination(target.position);
+                    _enemyAimWeapon.HandleAim();
+
+                    float _attackRange = 5f;
+                    if (Vector3.Distance(transform.position, target.position) < _attackRange)
                     {
-                        agent.isStopped = true;
-                        _testEnemy.Shoot();
-                        _timeBetweenShots = Time.time + (1 / _attackSpeed);
+                        if (Time.time > _timeBetweenShots)
+                        {
+                            agent.isStopped = true;
+                            _testEnemy.Shoot();
+                            _timeBetweenShots = Time.time + (1 / _attackSpeed);                           
+                        }
+
                     }
-                    
-                }
-                else
-                {
-                    agent.isStopped = false;
+                    else
+                    {
+                        agent.isStopped = false;
+                    }
                 }
                 break;
         }
@@ -75,11 +80,13 @@ public class AIMovement : MonoBehaviour
     void FindTarget()
     {
         float _targetRange = 10f;
-        if (Vector3.Distance(transform.position, target.position) < _targetRange)
+        if (target != null)
         {
-            Debug.Log(Vector3.Distance(transform.position, target.position));
-            _state = State.ChaseTarget;
-        }
+            if (Vector3.Distance(transform.position, target.position) < _targetRange)
+            {
+                _state = State.ChaseTarget;
+            }
+        }       
     }
     
 }

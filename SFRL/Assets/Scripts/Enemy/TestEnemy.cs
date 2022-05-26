@@ -20,7 +20,6 @@ namespace CG.SFRL.Enemy
         public ShieldBar _shieldBar;
 
         public Transform _firePoint;
-        public Transform _player;
 
         public GameObject _bulletPrefab;
 

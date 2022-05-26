@@ -25,7 +25,7 @@ namespace CG.SFRL.Enemy
         [Header("Enemy Base Stats")]
         [Space(15)]
 
-        public EnemyStatTypes.Base _baseStats;
+        public float attackSpeed;
     }
 }
 
