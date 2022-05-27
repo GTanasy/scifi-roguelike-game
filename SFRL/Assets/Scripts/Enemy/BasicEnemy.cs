@@ -9,9 +9,16 @@ namespace CG.SFRL.Enemy
     {
         public enum enemyType
         {
-            Runt,
+            Walker,
             Runner,
-            Gunman
+            PistolBot,
+            RifleBot,
+            SniperBot,
+            DemoBot,
+            MachineGunnerBot,
+            ProtectorBot,
+            DroneBot,
+            TankBot
         };
 
         [Space(15)]
@@ -25,7 +32,15 @@ namespace CG.SFRL.Enemy
         [Header("Enemy Base Stats")]
         [Space(15)]
 
+        public bool canFly;
+        public float damage;
         public float attackSpeed;
+        public float attackRange;
+        public float projectileSpeed;
+        public float health;
+        public float shield;
+        public float armor;
+        public float speed;       
     }
 }
 

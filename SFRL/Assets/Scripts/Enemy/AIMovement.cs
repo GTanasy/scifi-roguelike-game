@@ -7,18 +7,17 @@ using CG.SFRL.Characters;
 
 public class AIMovement : MonoBehaviour
 {
-    Transform target;
-    [SerializeField] float _timeBetweenShots;
     [SerializeField] float _attackSpeed;
+    float _timeBetweenShots;
+
+    Transform target;
     NavMeshAgent agent;
 
-    Vector3 _startingPosition;
     EnemyAimWeapon _enemyAimWeapon;
-    TestEnemy _testEnemy;
-
+    
     State _state;
 
-    private enum State
+    enum State
     {
         Idle,
         ChaseTarget,
@@ -27,7 +26,6 @@ public class AIMovement : MonoBehaviour
     void Awake()
     {
         _enemyAimWeapon = gameObject.GetComponent<EnemyAimWeapon>();
-        _testEnemy = gameObject.GetComponent<TestEnemy>();
         if (GameObject.FindGameObjectWithTag("Player").transform != null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -41,8 +39,8 @@ public class AIMovement : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        _startingPosition = transform.position;
-        _state = State.Idle;       
+        _state = State.Idle;
+        _timeBetweenShots = 1 / _attackSpeed;
     }
 
     // Update is called once per frame
@@ -66,7 +64,7 @@ public class AIMovement : MonoBehaviour
                         if (Time.time > _timeBetweenShots)
                         {
                             agent.isStopped = true;
-                            _testEnemy.Shoot();
+                            _enemyAimWeapon.Shoot();
                             _timeBetweenShots = Time.time + (1 / _attackSpeed);                           
                         }
 

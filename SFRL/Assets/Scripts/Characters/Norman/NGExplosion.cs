@@ -14,10 +14,10 @@ public class NGExplosion : MonoBehaviour
 
         foreach (Collider2D col in _enemyHit)
         {
-            TestEnemy _testEnemy = col.GetComponent<TestEnemy>();
-            if (_testEnemy != null)
+            EnemyDamageHandler _enemy = col.GetComponent<EnemyDamageHandler>();
+            if (_enemy != null)
             {
-                _testEnemy.ExplosionDamage(80);               
+                _enemy.ExplosionDamage(80);               
             }
         }
         Invoke("Destroy", 0.5f);

@@ -8,11 +8,6 @@ namespace CG.SFRL.Characters
 {
     public class Norman : MonoBehaviour
     {
-        float _maxHealth;
-        float _currentHealth;
-        float _maxShield;
-        float _currentShield;
-
         [SerializeField] private Image _imageCoolDownGrenade;
         [SerializeField] private TMP_Text _textCoolDownGrenade;
 
@@ -24,7 +19,6 @@ namespace CG.SFRL.Characters
 
         public Animator _animator;
 
-        WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
         public float _gunShieldDuration;
 
         float _maxGunShieldCooldown;
@@ -32,27 +26,13 @@ namespace CG.SFRL.Characters
         float _gunShieldCooldown;
         float _grenadeCooldown;
 
-        Coroutine _regen;
-
-        public HealthBar _healthBar;
-        public ShieldBar _shieldBar;
-
         public BasicCharacter _characterStats;
 
         // Start is called before the first frame update
         void Start()
-        {
-            _maxHealth = _characterStats.health;
-            _maxShield = _characterStats.shield;
-
+        {           
             _maxGunShieldCooldown = _characterStats.qCooldown;
-            _maxGrenadeCooldown = _characterStats.eCooldown;
-
-            _currentHealth = _maxHealth;
-            _healthBar.SetMaxHealth(_maxHealth);
-
-            _currentShield = _maxShield;
-            _shieldBar.SetMaxShield(_maxShield);
+            _maxGrenadeCooldown = _characterStats.eCooldown;            
 
             _textCoolDownGrenade.gameObject.SetActive(false);
             _imageCoolDownGrenade.fillAmount = 0.0f;
@@ -65,42 +45,9 @@ namespace CG.SFRL.Characters
         {
             NormanInput();
             GunShieldCooldown();
-            GrenadeCooldown();
-            if(_currentHealth <= 0)
-            {
-                Die();
-            }           
+            GrenadeCooldown();                    
         }
-        public void TakeDamage(int damage)
-        {
-            if (_currentShield <= 0)
-            {
-                _currentShield = 0;
-                TakeHealthDamage(damage);
-            }
-            else
-            {
-                TakeShieldDamage(damage);
-            }
-            if (_regen != null)
-            {
-                StopCoroutine(_regen);
-            }
-            _regen = StartCoroutine(RegenShield());
-        }
-
-        void TakeHealthDamage(int damage)
-        {
-            _currentHealth -= damage;
-            _healthBar.SetHealth(_currentHealth);
-        }
-
-        void TakeShieldDamage(int damage)
-        {
-            _currentShield -= damage;
-            _shieldBar.SetShield(_currentShield);
-        }
-
+        
         void GunShieldCooldown()
         {
             if (_gunShieldCooldown > 0)
@@ -149,24 +96,7 @@ namespace CG.SFRL.Characters
                 _textCoolDownGunShield.gameObject.SetActive(true);
             }
         }
-
-        void Die()
-        {
-            StopAllCoroutines();
-            Destroy(gameObject);
-        }
-        
-        IEnumerator RegenShield()
-        {
-            yield return new WaitForSeconds(2);            
-            while (_currentShield < _maxShield)
-            {
-                _currentShield++;
-                _shieldBar.SetShield(_currentShield);
-                yield return _shieldRegenRate;
-            }
-        }
-
+                    
         IEnumerator GunShieldUp()
         {
             yield return new WaitForSeconds(0);

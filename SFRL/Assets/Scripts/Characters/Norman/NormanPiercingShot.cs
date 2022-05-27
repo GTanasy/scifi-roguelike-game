@@ -10,19 +10,19 @@ public class NormanPiercingShot : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Norman norman = hitInfo.GetComponent<Norman>();
-        TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
+        EnemyDamageHandler enemy = hitInfo.GetComponent<EnemyDamageHandler>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
         Bullet bullet = hitInfo.GetComponent<Bullet>();
 
-        if (testEnemy != null)
+        if (enemy != null)
         {
-            testEnemy.TakeDamage(_damage);
+            enemy.TakeDamage(_damage);
         }
         if (bullet != null)
         {
             return;
         }
-        if (testEnemy || norman)
+        if (enemy || norman)
         {
             return;
         }

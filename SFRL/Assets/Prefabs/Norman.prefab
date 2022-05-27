@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 5345921042105363340}
   - component: {fileID: 5345921042105363339}
   - component: {fileID: 859669320}
+  - component: {fileID: 8594734679647018602}
   m_Layer: 0
   m_Name: Norman
   m_TagString: Player
@@ -493,6 +494,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6219744, y: 0.26919997}
   m_EdgeRadius: 0
+--- !u!114 &8594734679647018602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806e59754d08706458d9abfed65658a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 385695162}
+  _healthBar: {fileID: 0}
+  _shieldBar: {fileID: 0}
+  _characterStats: {fileID: 0}
 --- !u!1 &5345921042359221543
 GameObject:
   m_ObjectHideFlags: 0

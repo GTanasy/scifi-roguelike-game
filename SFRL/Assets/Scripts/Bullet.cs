@@ -15,26 +15,26 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Norman norman = hitInfo.GetComponent<Norman>();
-        TestEnemy testEnemy = hitInfo.GetComponent<TestEnemy>();
+        PlayerDamageHandler player = hitInfo.GetComponent<PlayerDamageHandler>();
+        EnemyDamageHandler enemy = hitInfo.GetComponent<EnemyDamageHandler>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
         NormanGrenade normanGrenade = hitInfo.GetComponent<NormanGrenade>();
         Bullet bullet = hitInfo.GetComponent<Bullet>();
         NormanPiercingShot normanPiercing = hitInfo.GetComponent<NormanPiercingShot>();
        
-        if (norman != null)
+        if (player != null)
         {
-            norman.TakeDamage(20);
+            player.TakeDamage(20);
         }
-        if (testEnemy != null && _bulletType.Equals("Norman"))
+        if (enemy != null && _bulletType.Equals("Norman"))
         {
-            testEnemy.TakeDamage(_damage);          
+            enemy.TakeDamage(_damage);          
         }
         if (bullet != null || normanPiercing != null)
         {
             return;
         }
-        if (testEnemy != null && _bulletType.Equals("notNorman"))
+        if (enemy != null && _bulletType.Equals("notNorman"))
         {
             return;
         }

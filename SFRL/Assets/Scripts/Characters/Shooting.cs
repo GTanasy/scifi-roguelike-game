@@ -48,7 +48,7 @@ using CG.SFRL.Characters;
         void Update()
         {
             ShootInput();
-            _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity;
+            _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity;            
         }
 
         void Shoot()
@@ -91,9 +91,19 @@ using CG.SFRL.Characters;
 
         void ShootInput()
         {
-            if (Input.GetButton("Fire1") && _readyToShoot == true && _magCapacity > 0 && _reloading == false)
+            if (Input.GetButton("Fire1") && _readyToShoot == true && _reloading == false)
             {
-                Shoot();
+                if (_magCapacity == 0)
+                {
+                    _animator.speed = _reloadAnim.length / _reloadDuration;
+                    _animator.SetBool("isReloading", true);
+                    StartCoroutine(Reload());
+                    _reloading = true;
+                }
+                else
+                {
+                    Shoot();
+                }               
             }
             if (Input.GetButtonDown("Fire2") && _magCapacity >= 10)
             {
