@@ -14,7 +14,7 @@ using CG.SFRL.Characters;
         [SerializeField] private TMP_Text _textAmmoCount;
 
         public Transform _firePoint;
-        public GameObject _bulletPrefab;
+        GameObject _bulletPrefab;
         public GameObject _piercingShotPrefab;
 
         public Animator _animator;
@@ -27,6 +27,8 @@ using CG.SFRL.Characters;
 
         float _rightClickStartHeld;
 
+        float _bulletDamage;
+        bool _isPlayerBullet;
         float _pDamage;
 
         int _maxMagCapacity;
@@ -42,6 +44,9 @@ using CG.SFRL.Characters;
             _reloadDuration = _weaponStats.reloadTime;
             _timeBetweenShots = 1 / _weaponStats.attackSpeed;
             _magCapacity = _maxMagCapacity;
+            _bulletDamage = _weaponStats.damage;
+            _bulletPrefab = _weaponStats.playerBulletType;
+            _isPlayerBullet = true;
         }
 
         // Update is called once per frame
@@ -58,6 +63,9 @@ using CG.SFRL.Characters;
             GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
 
             Rigidbody2D _rb = _bullet.GetComponent<Rigidbody2D>();
+
+            _bullet.GetComponent<Bullet>()._damage = _bulletDamage;
+            _bullet.GetComponent<Bullet>()._isPlayerBullet = _isPlayerBullet;
 
             _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);        
             

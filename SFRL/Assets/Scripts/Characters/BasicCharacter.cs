@@ -33,6 +33,7 @@ namespace CG.SFRL.Characters
 
         public float health;
         public float shield;
+        public float shieldRegenRate;
         public float armor;
         public float qCooldown;
         public float eCooldown;
@@ -41,6 +42,7 @@ namespace CG.SFRL.Characters
         [Header("Weapon Stats")]
         [Space(15)]
 
+        public GameObject playerBulletType;
         public float damage;
         public float attackSpeed;
         public float attackRange;

@@ -7,13 +7,16 @@ using CG.SFRL.Characters;
 
 public class AIMovement : MonoBehaviour
 {
-    [SerializeField] float _attackSpeed;
+    public BasicEnemy _enemyStats;
+    float _attackSpeed;
     float _timeBetweenShots;
+    float _engagementRange;
 
     Transform target;
     NavMeshAgent agent;
 
     EnemyAimWeapon _enemyAimWeapon;
+    
     
     State _state;
 
@@ -39,6 +42,9 @@ public class AIMovement : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+        _engagementRange = _enemyStats.engagementRange;
+        _attackSpeed = _enemyStats.attackSpeed;
+
         _state = State.Idle;
         _timeBetweenShots = 1 / _attackSpeed;
     }
@@ -57,9 +63,8 @@ public class AIMovement : MonoBehaviour
                 {
                     agent.SetDestination(target.position);
                     _enemyAimWeapon.HandleAim();
-
-                    float _attackRange = 5f;
-                    if (Vector3.Distance(transform.position, target.position) < _attackRange)
+                   
+                    if (Vector3.Distance(transform.position, target.position) < _engagementRange)
                     {
                         if (Time.time > _timeBetweenShots)
                         {

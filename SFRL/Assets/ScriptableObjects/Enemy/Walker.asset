@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcaf8954871336a45b9612d5d0c9a0f4, type: 3}
-  m_Name: Runt
+  m_Name: Walker
   m_EditorClassIdentifier: 
   _type: 0
-  _enemyPrefab: {fileID: 0}
+  _enemyPrefab: {fileID: 122720783521692107, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}
   _icon: {fileID: 0}
-  _baseStats:
-    _atkSpeed: 0
-    _atkRange: 0
-    _attack: 0
-    _health: 0
-    _armor: 0
-    _aggroRange: 0
-    _speed: 0
+  canFly: 0
+  health: 300
+  shield: 20
+  shieldRegenRate: 0.1
+  armor: 0
+  speed: 0
+  bulletPrefab: {fileID: 0}
+  enemyAttackType: Melee
+  damage: 10
+  attackSpeed: 0.5
+  attackRange: 20
+  engagementRange: 2
+  projectileSpeed: 0

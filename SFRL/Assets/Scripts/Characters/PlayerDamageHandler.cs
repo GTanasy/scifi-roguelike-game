@@ -12,8 +12,8 @@ namespace CG.SFRL.Characters
         float _currentShield;
 
         public Animator _animator;
-
-        WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.1f);
+        
+        float _shieldRegenRate; 
 
         Coroutine _regen;
 
@@ -27,6 +27,7 @@ namespace CG.SFRL.Characters
         {
             _maxHealth = _characterStats.health;
             _maxShield = _characterStats.shield;
+            _shieldRegenRate = 1 / _characterStats.shieldRegenRate;            
 
             _currentHealth = _maxHealth;
             _healthBar.SetMaxHealth(_maxHealth);
@@ -39,12 +40,14 @@ namespace CG.SFRL.Characters
         // Update is called once per frame
         void Update()
         {
+            Debug.Log("Current Shield: " + _currentShield);
+            Debug.Log("Current Health: " + _currentHealth);
             if (_currentHealth <= 0)
             {
                 Die();
             }
         }
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             if (_currentShield <= 0)
             {
@@ -62,13 +65,13 @@ namespace CG.SFRL.Characters
             _regen = StartCoroutine(RegenShield());
         }
 
-        void TakeHealthDamage(int damage)
+        void TakeHealthDamage(float damage)
         {
             _currentHealth -= damage;
             _healthBar.SetHealth(_currentHealth);
         }
 
-        void TakeShieldDamage(int damage)
+        void TakeShieldDamage(float damage)
         {
             _currentShield -= damage;
             _shieldBar.SetShield(_currentShield);
@@ -87,7 +90,7 @@ namespace CG.SFRL.Characters
             {
                 _currentShield++;
                 _shieldBar.SetShield(_currentShield);
-                yield return _shieldRegenRate;
+                yield return new WaitForSeconds(_shieldRegenRate);
             }
         }
     }

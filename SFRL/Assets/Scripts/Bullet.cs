@@ -6,13 +6,9 @@ using CG.SFRL.Enemy;
 
 public class Bullet : MonoBehaviour
 {
-    public string _bulletType;
-    public BasicCharacter _bulletDamage;
-    float _damage;
-    void Start()
-    {
-        _damage = _bulletDamage.damage;
-    }
+    public bool _isPlayerBullet;
+    public float _damage;
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerDamageHandler player = hitInfo.GetComponent<PlayerDamageHandler>();
@@ -24,9 +20,9 @@ public class Bullet : MonoBehaviour
        
         if (player != null)
         {
-            player.TakeDamage(20);
+            player.TakeDamage(_damage);
         }
-        if (enemy != null && _bulletType.Equals("Norman"))
+        if (enemy != null && _isPlayerBullet)
         {
             enemy.TakeDamage(_damage);          
         }
@@ -34,11 +30,11 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-        if (enemy != null && _bulletType.Equals("notNorman"))
+        if (enemy != null && !_isPlayerBullet)
         {
             return;
         }
-        if (_bulletType.Equals("Norman") && normanGunShield != null)
+        if (_isPlayerBullet && normanGunShield != null)
         {
             return;
         }

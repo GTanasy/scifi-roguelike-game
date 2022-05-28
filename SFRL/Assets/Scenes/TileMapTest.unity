@@ -551,14 +551,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 733002365}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _healthBar
-      value: 
-      objectReference: {fileID: 387217734}
-    - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _shieldBar
-      value: 
-      objectReference: {fileID: 952275460}
-    - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _textCoolDownGrenade
       value: 
       objectReference: {fileID: 1014017587}
@@ -582,10 +574,6 @@ PrefabInstance:
       propertyPath: _shieldBar
       value: 
       objectReference: {fileID: 952275460}
-    - target: {fileID: 8594734679647018602, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-      propertyPath: _characterStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
 --- !u!114 &634018651 stripped
@@ -20314,10 +20302,6 @@ PrefabInstance:
     - target: {fileID: 122720784666212794, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4167443907779232579, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}
-      propertyPath: _attackSpeed
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}

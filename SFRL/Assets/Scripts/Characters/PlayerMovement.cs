@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera _cam;
 
-    public Animator _animator;
+    Animator _animator;
     public AnimationClip _rollAnim;
 
     float _currentMoveSpeed;
@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
         _dashSpeed = _moveStats.dashSpeed;
         _dashLength = _moveStats.dashLength;
         _dashCoolDown = _moveStats.dashCooldown;
+
+        _animator = gameObject.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()

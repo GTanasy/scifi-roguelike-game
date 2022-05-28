@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 122720783521691957}
   - component: {fileID: 122720783521691953}
   - component: {fileID: 4167443907779232579}
-  - component: {fileID: 4167443907779232580}
   - component: {fileID: 7005283167690185339}
+  - component: {fileID: 4167443907779232580}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Enemy
@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce144db1110a5894a90916df3f5e16ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: Melee
+  _enemyStats: {fileID: 11400000, guid: 532bb2e8c40d10946af69367ef38bed3, type: 2}
+  _enemyType: 
   _gun: {fileID: 122720784115973916}
   _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
   _firePoint: {fileID: 122720783911161065}
@@ -170,8 +171,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cfbe1efaa8bb5438f731f5c12ab3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBetweenShots: 0.25
-  _attackSpeed: 4
+  _enemyStats: {fileID: 11400000, guid: 532bb2e8c40d10946af69367ef38bed3, type: 2}
+--- !u!114 &7005283167690185339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122720783521692107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cfa9920334d1440bf55d777617e10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 532bb2e8c40d10946af69367ef38bed3, type: 2}
+  _healthBar: {fileID: 122720784603515210}
+  _shieldBar: {fileID: 122720784589355743}
 --- !u!195 &4167443907779232580
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -194,24 +209,6 @@ NavMeshAgent:
   m_BaseOffset: 1.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7005283167690185339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122720783521692107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cfa9920334d1440bf55d777617e10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 0
-  _maxShield: 100
-  _currentShield: 0
-  _healthBar: {fileID: 122720784603515210}
-  _shieldBar: {fileID: 122720784589355743}
 --- !u!1 &122720783615360198
 GameObject:
   m_ObjectHideFlags: 0

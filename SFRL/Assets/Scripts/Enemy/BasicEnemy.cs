@@ -31,16 +31,31 @@ namespace CG.SFRL.Enemy
         [Space(15)]
         [Header("Enemy Base Stats")]
         [Space(15)]
+       
+        public bool canFly;       
+        public float health;
+        public float shield;
+        public float shieldRegenRate;
+        public float armor;
+        
 
-        public bool canFly;
+        [Space(15)]
+        [Header("Enemy AI Stats")]
+        [Space(15)]
+
+        public float speed;
+
+        [Space(15)]
+        [Header("Enemy Attack Stats")]
+        [Space(15)]
+
+        public GameObject bulletPrefab;
+        public string enemyAttackType;
         public float damage;
         public float attackSpeed;
         public float attackRange;
+        public float engagementRange;
         public float projectileSpeed;
-        public float health;
-        public float shield;
-        public float armor;
-        public float speed;       
     }
 }
 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaf8954871336a45b9612d5d0c9a0f4, type: 3}
+  m_Name: PistolBot
+  m_EditorClassIdentifier: 
+  _type: 2
+  _enemyPrefab: {fileID: 4064008007264555947, guid: 2addf22ffa11a914dba2761ef2c24ad4, type: 3}
+  _icon: {fileID: 0}
+  canFly: 0
+  health: 100
+  shield: 100
+  shieldRegenRate: 10
+  armor: 0
+  speed: 0
+  bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
+  enemyAttackType: Shooter
+  damage: 20
+  attackSpeed: 4
+  attackRange: 5
+  engagementRange: 5
+  projectileSpeed: 20

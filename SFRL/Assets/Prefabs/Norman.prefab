@@ -242,12 +242,12 @@ GameObject:
   - component: {fileID: 5345921042105363334}
   - component: {fileID: 5345921042105363335}
   - component: {fileID: 5345921042105363338}
+  - component: {fileID: 859669320}
   - component: {fileID: 385695162}
   - component: {fileID: 5345921042105363341}
   - component: {fileID: 5345921042105363336}
   - component: {fileID: 5345921042105363340}
   - component: {fileID: 5345921042105363339}
-  - component: {fileID: 859669320}
   - component: {fileID: 8594734679647018602}
   m_Layer: 0
   m_Name: Norman
@@ -371,6 +371,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49225968, y: 1.1694565}
   m_EdgeRadius: 0
+--- !u!61 &859669320
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000029802322, y: -0.46540004}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.3}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6219744, y: 0.26919997}
+  m_EdgeRadius: 0
 --- !u!95 &385695162
 Animator:
   serializedVersion: 4
@@ -411,8 +437,6 @@ MonoBehaviour:
   _gunShield: {fileID: 89364636}
   _animator: {fileID: 89364644}
   _gunShieldDuration: 5
-  _healthBar: {fileID: 0}
-  _shieldBar: {fileID: 0}
   _characterStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
 --- !u!114 &5345921042105363336
 MonoBehaviour:
@@ -431,8 +455,7 @@ MonoBehaviour:
   _hitBox: {fileID: 5345921042105363338}
   _imageCoolDownDash: {fileID: 0}
   _textCoolDownDash: {fileID: 0}
-  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
-  _animator: {fileID: 385695162}
+  _cam: {fileID: 0}
   _rollAnim: {fileID: 7400000, guid: 2b9fc4fc6233af44dbd7d1127b3dbf7f, type: 2}
 --- !u!114 &5345921042105363340
 MonoBehaviour:
@@ -447,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gun: {fileID: 5345921042359221545}
-  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
+  _cam: {fileID: 0}
 --- !u!114 &5345921042105363339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,32 +491,6 @@ MonoBehaviour:
   _piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
   _animator: {fileID: 1651863790}
   _reloadAnim: {fileID: 7400000, guid: 233b3eea06c54a342bdcb5670a8b175b, type: 2}
---- !u!61 &859669320
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5345921042105363332}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000000029802322, y: -0.46540004}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6219744, y: 0.26919997}
-  m_EdgeRadius: 0
 --- !u!114 &8594734679647018602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +506,7 @@ MonoBehaviour:
   _animator: {fileID: 385695162}
   _healthBar: {fileID: 0}
   _shieldBar: {fileID: 0}
-  _characterStats: {fileID: 0}
+  _characterStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
 --- !u!1 &5345921042359221543
 GameObject:
   m_ObjectHideFlags: 0

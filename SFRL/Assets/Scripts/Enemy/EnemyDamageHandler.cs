@@ -6,13 +6,14 @@ namespace CG.SFRL.Enemy
 {
     public class EnemyDamageHandler : MonoBehaviour
     {
+        public BasicEnemy _enemyStats;
 
-        [SerializeField] float _maxHealth = 100;
-        [SerializeField] float _currentHealth;
-        [SerializeField] float _maxShield = 100;
-        [SerializeField] float _currentShield;
+        float _maxHealth;
+        float _currentHealth;
+        float _maxShield;
+        float _currentShield;
 
-        WaitForSeconds _shieldRegenRate = new WaitForSeconds(0.5f);
+        float _shieldRegenRate;
 
         Coroutine _regen;
 
@@ -23,6 +24,10 @@ namespace CG.SFRL.Enemy
 
         void Start()
         {
+            _maxHealth = _enemyStats.health;
+            _maxShield = _enemyStats.shield;
+            _shieldRegenRate = _enemyStats.shieldRegenRate;
+
             _currentHealth = _maxHealth;
             _healthBar.SetMaxHealth(_maxHealth);
 
@@ -87,7 +92,7 @@ namespace CG.SFRL.Enemy
             {
                 _currentShield++;
                 _shieldBar.SetShield(_currentShield);
-                yield return _shieldRegenRate;
+                yield return new WaitForSeconds(_shieldRegenRate);
             }
         }
         void Die()

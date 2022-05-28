@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CG.SFRL.Characters;
+using CG.SFRL.Enemy;
 
 public class EnemyAimWeapon : MonoBehaviour
 {
+    public BasicEnemy _enemyStats;
+
     Transform _aimTransform;
     Transform _player;
 
-    public string enemyType;
+    public string _enemyType;
 
     public SpriteRenderer _gun;
     public Camera _cam;
@@ -19,11 +22,21 @@ public class EnemyAimWeapon : MonoBehaviour
 
     public float _bulletForce = 20f;
     public float _attackRange = 20f;
+    float _damage;
 
     void Awake()
     {
         _aimTransform = transform.Find("Aim");
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Start()
+    {
+        _bulletPrefab = _enemyStats.bulletPrefab;
+        _bulletForce = _enemyStats.projectileSpeed;
+        _attackRange = _enemyStats.attackRange;
+        _damage = _enemyStats.damage;
+        _enemyType = _enemyStats.enemyAttackType;
     }
 
     public void HandleAim()
@@ -52,12 +65,14 @@ public class EnemyAimWeapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (enemyType.Equals("Shooter"))
+        if (_enemyType.Equals("Shooter"))
         {
-        GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-        _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+            GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+            _bullet.GetComponent<Bullet>()._damage = _damage;
+            _bullet.GetComponent<Bullet>()._isPlayerBullet = false;
+            _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
         }
-        else if (enemyType.Equals("Melee"))
+        else if (_enemyType.Equals("Melee"))
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_firePoint.position, _attackRange);
 
@@ -66,7 +81,7 @@ public class EnemyAimWeapon : MonoBehaviour
                 PlayerDamageHandler _player = col.GetComponent<PlayerDamageHandler>();
                 if (_player != null)
                 {
-                    _player.TakeDamage(50);
+                    _player.TakeDamage(_damage / 2f);
                 }
             }
         }
