@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public bool _isPlayerBullet;
     public float _damage;
 
+    public bool isCriticalHit;        
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerDamageHandler player = hitInfo.GetComponent<PlayerDamageHandler>();
@@ -24,7 +26,8 @@ public class Bullet : MonoBehaviour
         }
         if (enemy != null && _isPlayerBullet)
         {
-            enemy.TakeDamage(_damage);          
+            enemy.TakeDamage(_damage);           
+            DamagePopup.Create(enemy.transform.position, _damage, isCriticalHit, enemy._hasShield);           
         }
         if (bullet != null || normanPiercing != null)
         {

@@ -44,6 +44,7 @@ public class AIMovement : MonoBehaviour
 
         _engagementRange = _enemyStats.engagementRange;
         _attackSpeed = _enemyStats.attackSpeed;
+        agent.speed = _enemyStats.speed;
 
         _state = State.Idle;
         _timeBetweenShots = 1 / _attackSpeed;

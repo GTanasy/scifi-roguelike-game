@@ -17,6 +17,7 @@ public class NormanPiercingShot : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(_damage);
+            DamagePopup.Create(enemy.transform.position, _damage, false, enemy._hasShield);
         }
         if (bullet != null)
         {

@@ -33,6 +33,7 @@ using CG.SFRL.Characters;
 
         int _maxMagCapacity;
         int _magCapacity;
+        int _criticalChance;
 
         bool _readyToShoot = true;
         bool _reloading = false;
@@ -44,6 +45,7 @@ using CG.SFRL.Characters;
             _reloadDuration = _weaponStats.reloadTime;
             _timeBetweenShots = 1 / _weaponStats.attackSpeed;
             _magCapacity = _maxMagCapacity;
+            _criticalChance = _weaponStats.criticalChance;
             _bulletDamage = _weaponStats.damage;
             _bulletPrefab = _weaponStats.playerBulletType;
             _isPlayerBullet = true;
@@ -63,7 +65,18 @@ using CG.SFRL.Characters;
             GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
 
             Rigidbody2D _rb = _bullet.GetComponent<Rigidbody2D>();
-
+            bool _isCriticalHit = Random.Range(0, 100) < _criticalChance;
+            if (_isCriticalHit == true)
+            {
+                _bulletDamage = _weaponStats.damage;
+                _bullet.GetComponent<Bullet>().isCriticalHit = true;
+                _bulletDamage *= 2;
+            }
+            else
+            {
+                _bullet.GetComponent<Bullet>().isCriticalHit = false;
+                _bulletDamage = _weaponStats.damage;
+            }
             _bullet.GetComponent<Bullet>()._damage = _bulletDamage;
             _bullet.GetComponent<Bullet>()._isPlayerBullet = _isPlayerBullet;
 

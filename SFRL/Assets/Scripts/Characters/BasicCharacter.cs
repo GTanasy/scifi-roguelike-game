@@ -43,6 +43,7 @@ namespace CG.SFRL.Characters
         [Space(15)]
 
         public GameObject playerBulletType;
+        public int criticalChance;
         public float damage;
         public float attackSpeed;
         public float attackRange;

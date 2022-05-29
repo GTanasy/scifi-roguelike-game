@@ -14,13 +14,13 @@ public class RoundSpawner : MonoBehaviour
     [System.Serializable]
     public class Round
     {
-        public string name;
-        public Transform enemy;
+        public string name;       
         public int amount;
         public float rate;
     }
 
     public Round[] rounds;
+    public Transform[] enemyPool;
     int nextRound = 0;
 
     public Transform[] spawnPoints;
@@ -107,7 +107,7 @@ public class RoundSpawner : MonoBehaviour
 
         for (int i = 0; i < _round.amount; i++)
         {
-            SpawnEnemy(_round.enemy);
+            SpawnEnemy(enemyPool[Random.Range(0, enemyPool.Length)]);
             yield return new WaitForSeconds(1f / _round.rate);
         }
 

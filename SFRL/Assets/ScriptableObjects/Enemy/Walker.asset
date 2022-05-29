@@ -20,7 +20,7 @@ MonoBehaviour:
   shield: 20
   shieldRegenRate: 0.1
   armor: 0
-  speed: 0
+  speed: 3
   bulletPrefab: {fileID: 0}
   enemyAttackType: Melee
   damage: 10

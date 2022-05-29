@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcaf8954871336a45b9612d5d0c9a0f4, type: 3}
-  m_Name: PistolBot
+  m_Name: RifleBot
   m_EditorClassIdentifier: 
-  _type: 2
-  _enemyPrefab: {fileID: 4064008007264555947, guid: 2addf22ffa11a914dba2761ef2c24ad4, type: 3}
+  _type: 3
+  _enemyPrefab: {fileID: 0}
   _icon: {fileID: 0}
   canFly: 0
-  health: 100
-  shield: 100
-  shieldRegenRate: 10
+  health: 0
+  shield: 0
+  shieldRegenRate: 0
   armor: 0
-  speed: 5
-  bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
-  enemyAttackType: Shooter
-  damage: 20
-  attackSpeed: 4
-  attackRange: 5
-  engagementRange: 5
-  projectileSpeed: 20
+  speed: 0
+  bulletPrefab: {fileID: 0}
+  enemyAttackType: 
+  damage: 0
+  attackSpeed: 0
+  attackRange: 0
+  engagementRange: 0
+  projectileSpeed: 0

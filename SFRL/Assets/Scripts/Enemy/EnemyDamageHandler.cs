@@ -18,9 +18,11 @@ namespace CG.SFRL.Enemy
         Coroutine _regen;
 
         public HealthBar _healthBar;
-        public ShieldBar _shieldBar;        
+        public ShieldBar _shieldBar;
 
-        private bool _explosion;
+        public bool _hasShield;
+
+        bool _explosion;
 
         void Start()
         {
@@ -38,11 +40,13 @@ namespace CG.SFRL.Enemy
         {
             if (_currentShield <= 0)
             {
+                _hasShield = false;
                 _currentShield = 0;
                 TakeHealthDamage(damage);
             }
             else
             {
+                _hasShield = true;
                 TakeShieldDamage(damage);
             }
 
@@ -80,6 +84,7 @@ namespace CG.SFRL.Enemy
         }
         IEnumerator CoolDown()
         {
+            DamagePopup.Create(transform.position, 80, false, _hasShield);
             yield return new WaitForSeconds(1.0f);
             _explosion = false;
         }
