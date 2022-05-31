@@ -15,12 +15,12 @@ MonoBehaviour:
   _type: 0
   _characterPrefab: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
   _icon: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-  health: 250
+  health: 100
   shield: 100
   shieldRegenRate: 10
   armor: 0
-  qCooldown: 10
-  eCooldown: 5
+  qCooldown: 15
+  eCooldown: 10
   playerBulletType: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
   criticalChance: 30
   damage: 20

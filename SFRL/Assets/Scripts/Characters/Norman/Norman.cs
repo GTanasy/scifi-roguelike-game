@@ -21,8 +21,8 @@ namespace CG.SFRL.Characters
 
         public float _gunShieldDuration;
 
-        float _maxGunShieldCooldown;
-        float _maxGrenadeCooldown;
+        public CharacterStat _maxGunShieldCooldown;
+        public CharacterStat _maxGrenadeCooldown;
         float _gunShieldCooldown;
         float _grenadeCooldown;
 
@@ -31,8 +31,8 @@ namespace CG.SFRL.Characters
         // Start is called before the first frame update
         void Start()
         {           
-            _maxGunShieldCooldown = _characterStats.qCooldown;
-            _maxGrenadeCooldown = _characterStats.eCooldown;            
+            _maxGunShieldCooldown.BaseValue = _characterStats.qCooldown;
+            _maxGrenadeCooldown.BaseValue = _characterStats.eCooldown;            
 
             _textCoolDownGrenade.gameObject.SetActive(false);
             _imageCoolDownGrenade.fillAmount = 0.0f;
@@ -54,7 +54,7 @@ namespace CG.SFRL.Characters
             {
                 _gunShieldCooldown -= Time.deltaTime;
                 _textCoolDownGunShield.text = Mathf.RoundToInt(_gunShieldCooldown).ToString();
-                _imageCoolDownGunShield.fillAmount = _gunShieldCooldown / _maxGunShieldCooldown;
+                _imageCoolDownGunShield.fillAmount = _gunShieldCooldown / _maxGunShieldCooldown.Value;
             }
             if (_gunShieldCooldown < 0)
             {
@@ -70,7 +70,7 @@ namespace CG.SFRL.Characters
             {
                 _grenadeCooldown -= Time.deltaTime;
                 _textCoolDownGrenade.text = Mathf.RoundToInt(_grenadeCooldown).ToString();
-                _imageCoolDownGrenade.fillAmount = _grenadeCooldown / _maxGrenadeCooldown;
+                _imageCoolDownGrenade.fillAmount = _grenadeCooldown / _maxGrenadeCooldown.Value;
             }
             if (_grenadeCooldown < 0)
             {
@@ -84,14 +84,14 @@ namespace CG.SFRL.Characters
         {
             if (Input.GetKeyDown(KeyCode.E) && _grenadeCooldown == 0)
             {
-                _grenadeCooldown = _maxGrenadeCooldown;
+                _grenadeCooldown = _maxGrenadeCooldown.Value;
                 Instantiate(_grenade, transform.position, Quaternion.identity);
                 _textCoolDownGrenade.gameObject.SetActive(true);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
             {
-                _gunShieldCooldown = _maxGunShieldCooldown;
+                _gunShieldCooldown = _maxGunShieldCooldown.Value;
                 StartCoroutine(GunShieldUp());
                 _textCoolDownGunShield.gameObject.SetActive(true);
             }

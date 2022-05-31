@@ -6,14 +6,14 @@ namespace CG.SFRL.Characters
 {
     public class PlayerDamageHandler : MonoBehaviour
     {
-        float _maxHealth;
-        float _currentHealth;
-        float _maxShield;
-        float _currentShield;
+        public CharacterStat _maxHealth;
+        public float _currentHealth;
+        public CharacterStat _maxShield;
+        public float _currentShield;
 
         public Animator _animator;
         
-        float _shieldRegenRate; 
+        public CharacterStat _shieldRegenRate; 
 
         Coroutine _regen;
 
@@ -25,27 +25,24 @@ namespace CG.SFRL.Characters
         // Start is called before the first frame update
         void Start()
         {
-            _maxHealth = _characterStats.health;
-            _maxShield = _characterStats.shield;
-            _shieldRegenRate = 1 / _characterStats.shieldRegenRate;            
+            _maxHealth.BaseValue = _characterStats.health;            
+            _maxShield.BaseValue = _characterStats.shield;
+            _shieldRegenRate.BaseValue = 1 / _characterStats.shieldRegenRate;            
 
-            _currentHealth = _maxHealth;
-            _healthBar.SetMaxHealth(_maxHealth);
+            _currentHealth = _maxHealth.Value;
+            _healthBar.SetMaxHealth(_maxHealth.Value);
 
-            _currentShield = _maxShield;
-            _shieldBar.SetMaxShield(_maxShield);
-
+            _currentShield = _maxShield.Value;
+            _shieldBar.SetMaxShield(_maxShield.Value);
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("Current Shield: " + _currentShield);
             Debug.Log("Current Health: " + _currentHealth);
-            if (_currentHealth <= 0)
-            {
-                Die();
-            }
+            Debug.Log("Max Health: " + _maxHealth.Value);
+            
         }
         public void TakeDamage(float damage)
         {
@@ -63,6 +60,10 @@ namespace CG.SFRL.Characters
                 StopCoroutine(_regen);
             }
             _regen = StartCoroutine(RegenShield());
+            if (_currentHealth <= 0)
+            {
+                Die();
+            }
         }
 
         void TakeHealthDamage(float damage)
@@ -83,14 +84,14 @@ namespace CG.SFRL.Characters
             Destroy(gameObject);
         }
 
-        IEnumerator RegenShield()
+        public IEnumerator RegenShield()
         {
             yield return new WaitForSeconds(2);
-            while (_currentShield < _maxShield)
+            while (_currentShield < _maxShield.Value)
             {
                 _currentShield++;
                 _shieldBar.SetShield(_currentShield);
-                yield return new WaitForSeconds(_shieldRegenRate);
+                yield return new WaitForSeconds(_shieldRegenRate.Value);
             }
         }
     }

@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 66faffff6efaffff84faffff8cfaffffa2faffffaafaffff2cfbffff
+      m_SelectedIDs: 26fbffff
+      m_LastClickedID: -1242
+      m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -243,7 +243,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 12}
+        m_ClientGUIView: {fileID: 5}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 14.209066, y: -13.3323555, z: 0.7623805}
+    m_Target: {x: 12.665682, y: -18.197886, z: -0.04752954}
     speed: 2
-    m_Value: {x: 14.209066, y: -13.3323555, z: 0.7623805}
+    m_Value: {x: 12.665682, y: -18.197886, z: -0.04752954}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 16.973694
+    m_Target: 5.674052
     speed: 2
-    m_Value: 16.973694
+    m_Value: 5.674052
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -850,22 +850,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources
+    - Assets/ScriptableObjects/Characters
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources
+  - Assets/ScriptableObjects/Characters
   m_LastFoldersGridSize: -1
   m_LastProjectPath: S:\Unity Projects\scifi-roguelike-game\SFRL
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e810000
-    m_LastClickedID: 33134
-    m_ExpandedIDs: 00000000f4630000f6630000f8630000fa630000fc630000fe630000
+    m_SelectedIDs: 38640000
+    m_LastClickedID: 25656
+    m_ExpandedIDs: 000000001e6400002064000022640000246400002664000028640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -893,7 +893,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 745f0000
     m_LastClickedID: 24436
-    m_ExpandedIDs: 00000000f4630000f6630000f8630000fa630000fc630000fe630000
+    m_ExpandedIDs: 000000001e6400002064000022640000246400002664000028640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -918,8 +918,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 26fbffff
+    m_LastClickedInstanceID: -1242
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000026620000
     m_RenameOverlay:

@@ -27,26 +27,26 @@ public class PlayerMovement : MonoBehaviour
 
     float _currentMoveSpeed;
 
-    float _normalSpeed;
+    public CharacterStat _normalSpeed;
 
-    float _dashSpeed;
-    float _dashLength;
-    float _dashCoolDown;
+    public CharacterStat _dashSpeed;
+    public CharacterStat _dashLength;
+    public CharacterStat _dashCoolDown;
 
     float _dashCool;
     float _dashCounter;
 
     void Start()
     {
-        _normalSpeed = _moveStats.normalSpeed;
-        _currentMoveSpeed = _normalSpeed;
+        _normalSpeed.BaseValue = _moveStats.normalSpeed;
+        _currentMoveSpeed = _normalSpeed.Value;
 
         _textCoolDownDash.gameObject.SetActive(false);
         _imageCoolDownDash.fillAmount = 0.0f;
 
-        _dashSpeed = _moveStats.dashSpeed;
-        _dashLength = _moveStats.dashLength;
-        _dashCoolDown = _moveStats.dashCooldown;
+        _dashSpeed.BaseValue = _moveStats.dashSpeed;
+        _dashLength.BaseValue = _moveStats.dashLength;
+        _dashCoolDown.BaseValue = _moveStats.dashCooldown;
 
         _animator = gameObject.GetComponent<Animator>();
     }
@@ -83,11 +83,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_dashCool <= 0 && _dashCounter <= 0)
         {
-            _animator.speed = _rollAnim.length / _dashLength;
+            _animator.speed = _rollAnim.length / _dashLength.Value;
             _animator.SetBool("isRolling", true);
             _hitBox.enabled = !_hitBox.enabled;
-            _currentMoveSpeed = _dashSpeed;
-            _dashCounter = _dashLength;
+            _currentMoveSpeed = _dashSpeed.Value;
+            _dashCounter = _dashLength.Value;
         }
     }
 
@@ -100,10 +100,10 @@ public class PlayerMovement : MonoBehaviour
             if (_dashCounter <= 0)
             {
                 _hitBox.enabled = !_hitBox.enabled;
-                _currentMoveSpeed = _normalSpeed;
+                _currentMoveSpeed = _normalSpeed.Value;
                 _animator.SetBool("isRolling", false);
                 _animator.speed = 1;
-                _dashCool = _dashCoolDown;
+                _dashCool = _dashCoolDown.Value;
                 _textCoolDownDash.gameObject.SetActive(false);
                 _imageCoolDownDash.fillAmount = 0.0f;
             }
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _dashCool -= Time.deltaTime;
             _textCoolDownDash.text = Mathf.RoundToInt(_dashCool).ToString();
-            _imageCoolDownDash.fillAmount = _dashCool / _dashCoolDown;
+            _imageCoolDownDash.fillAmount = _dashCool / _dashCoolDown.Value;
         }
     }
 }

@@ -20,33 +20,34 @@ using CG.SFRL.Characters;
         public Animator _animator;
         public AnimationClip _reloadAnim;
 
-        float _reloadDuration;
+        public CharacterStat _reloadDuration;
 
-        float _bulletForce;
-        float _timeBetweenShots;
+        public CharacterStat _bulletForce;
+        public CharacterStat _timeBetweenShots;
 
         float _rightClickStartHeld;
 
-        float _bulletDamage;
+        public CharacterStat _bulletDamage;
         bool _isPlayerBullet;
         float _pDamage;
 
-        int _maxMagCapacity;
+        public CharacterStat _maxMagCapacity;
         int _magCapacity;
-        int _criticalChance;
+        public CharacterStat _criticalChance;
 
         bool _readyToShoot = true;
         bool _reloading = false;
 
         void Start()
         {
-            _maxMagCapacity = _weaponStats.magCapacity;
-            _bulletForce = _weaponStats.projectileSpeed;
-            _reloadDuration = _weaponStats.reloadTime;
-            _timeBetweenShots = 1 / _weaponStats.attackSpeed;
-            _magCapacity = _maxMagCapacity;
-            _criticalChance = _weaponStats.criticalChance;
-            _bulletDamage = _weaponStats.damage;
+            _maxMagCapacity.BaseValue = _weaponStats.magCapacity;
+            _bulletForce.BaseValue = _weaponStats.projectileSpeed;
+            _reloadDuration.BaseValue = _weaponStats.reloadTime;
+            _timeBetweenShots.BaseValue = 1 / _weaponStats.attackSpeed;
+            _maxMagCapacity.BaseValue = _maxMagCapacity.Value;
+            _magCapacity = (int)_maxMagCapacity.Value;
+            _criticalChance.BaseValue = _weaponStats.criticalChance;
+            _bulletDamage.BaseValue = _weaponStats.damage;
             _bulletPrefab = _weaponStats.playerBulletType;
             _isPlayerBullet = true;
         }
@@ -55,7 +56,7 @@ using CG.SFRL.Characters;
         void Update()
         {
             ShootInput();
-            _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity;            
+            _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity.Value;            
         }
 
         void Shoot()
@@ -65,25 +66,25 @@ using CG.SFRL.Characters;
             GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
 
             Rigidbody2D _rb = _bullet.GetComponent<Rigidbody2D>();
-            bool _isCriticalHit = Random.Range(0, 100) < _criticalChance;
+            bool _isCriticalHit = Random.Range(0, 100) < (int)_criticalChance.Value;
             if (_isCriticalHit == true)
             {
-                _bulletDamage = _weaponStats.damage;
+                _bulletDamage.RemoveAllModifiersFromSource(this);
                 _bullet.GetComponent<Bullet>().isCriticalHit = true;
-                _bulletDamage *= 2;
+                _bulletDamage.AddModifier(new StatModifier(1, StatModType.PercentAdd, this));
             }
             else
             {
                 _bullet.GetComponent<Bullet>().isCriticalHit = false;
-                _bulletDamage = _weaponStats.damage;
+                _bulletDamage.RemoveAllModifiersFromSource(this);
             }
-            _bullet.GetComponent<Bullet>()._damage = _bulletDamage;
+            _bullet.GetComponent<Bullet>()._damage = _bulletDamage.Value;
             _bullet.GetComponent<Bullet>()._isPlayerBullet = _isPlayerBullet;
 
-            _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);        
+            _rb.AddForce(_firePoint.right * _bulletForce.Value, ForceMode2D.Impulse);        
             
             _readyToShoot = false;
-            Invoke("ResetShot", _timeBetweenShots);
+            Invoke("ResetShot", _timeBetweenShots.Value);
         }
         
         void ResetShot()
@@ -107,7 +108,7 @@ using CG.SFRL.Characters;
 
             _piercingShot.GetComponent<NormanPiercingShot>()._damage = (int)_pDamage;
 
-            _rb.AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+            _rb.AddForce(_firePoint.right * _bulletForce.Value, ForceMode2D.Impulse);
         }
 
         void ShootInput()
@@ -116,7 +117,7 @@ using CG.SFRL.Characters;
             {
                 if (_magCapacity == 0)
                 {
-                    _animator.speed = _reloadAnim.length / _reloadDuration;
+                    _animator.speed = _reloadAnim.length / _reloadDuration.Value;
                     _animator.SetBool("isReloading", true);
                     StartCoroutine(Reload());
                     _reloading = true;
@@ -138,9 +139,9 @@ using CG.SFRL.Characters;
                 ShootPiercing();
                 _animator.SetBool("isCharging", false);
             }
-            if (Input.GetKeyDown(KeyCode.R) && _magCapacity != _maxMagCapacity)
+            if (Input.GetKeyDown(KeyCode.R) && _magCapacity != _maxMagCapacity.Value)
             {
-                _animator.speed = _reloadAnim.length / _reloadDuration;
+                _animator.speed = _reloadAnim.length / _reloadDuration.Value;
                 _animator.SetBool("isReloading", true);                
                 StartCoroutine(Reload());
                 _reloading = true;
@@ -161,8 +162,8 @@ using CG.SFRL.Characters;
 
         IEnumerator Reload()
         {            
-            yield return new WaitForSeconds(_reloadDuration);
-            _magCapacity = _maxMagCapacity;
+            yield return new WaitForSeconds(_reloadDuration.Value);
+            _magCapacity = (int)_maxMagCapacity.Value;
             _reloading = false;
             _animator.SetBool("isReloading", false);
         }

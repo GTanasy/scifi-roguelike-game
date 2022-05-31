@@ -45,3 +45,6 @@ Thumbs.db
 *.db-wal
 *.db-shm
 *.db
+*.log
+*.dwlt
+*.dwlt
