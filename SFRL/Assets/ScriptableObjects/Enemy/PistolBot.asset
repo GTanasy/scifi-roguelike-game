@@ -25,6 +25,6 @@ MonoBehaviour:
   enemyAttackType: Shooter
   damage: 20
   attackSpeed: 4
-  attackRange: 5
+  attackRange: 20
   engagementRange: 5
   projectileSpeed: 20

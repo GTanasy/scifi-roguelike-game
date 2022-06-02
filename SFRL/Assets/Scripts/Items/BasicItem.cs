@@ -7,15 +7,29 @@ public class BasicItem : ScriptableObject
 {
     public enum itemType
     {
-        passive,
-        hero,
+        PlayerPassive,
+        EnemyPassive,
+        PassiveAction,
+        Boss,
+        Hero,
+    };
+
+    public enum rarity
+    {
+        Common,
+        Uncommon,
+        Rare,
+        Legendary,
+        Exotic
     };
 
     [Space(15)]
     [Header("Item Settings")]
 
+    public itemType type;
     public new string name;
+    [TextArea(5,10)]
     public string description;
     public int iD;
-    
+    public rarity rarityType;        
 }

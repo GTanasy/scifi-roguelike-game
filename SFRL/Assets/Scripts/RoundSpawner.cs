@@ -17,13 +17,16 @@ public class RoundSpawner : MonoBehaviour
         public string name;       
         public int amount;
         public float rate;
+        public Transform[] enemyPool;
     }
 
     public Round[] rounds;
-    public Transform[] enemyPool;
+    public GameObject itemSpawner;
+    
     int nextRound = 0;
 
     public Transform[] spawnPoints;
+    public Transform iSP;
 
     public float timeBetweenRounds = 5f;
     float roundCountdown;
@@ -74,6 +77,10 @@ public class RoundSpawner : MonoBehaviour
 
         state = SpawnState.counting;
         roundCountdown = timeBetweenRounds;
+        if(nextRound / 2 == 0 || nextRound == 0)
+        {
+            Instantiate(itemSpawner, iSP.position, iSP.rotation);
+        }
 
         if (nextRound + 1 > rounds.Length - 1)
         {
@@ -107,7 +114,7 @@ public class RoundSpawner : MonoBehaviour
 
         for (int i = 0; i < _round.amount; i++)
         {
-            SpawnEnemy(enemyPool[Random.Range(0, enemyPool.Length)]);
+            SpawnEnemy(_round.enemyPool[Random.Range(0, _round.enemyPool.Length)]);
             yield return new WaitForSeconds(1f / _round.rate);
         }
 

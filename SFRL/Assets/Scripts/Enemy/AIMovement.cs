@@ -62,13 +62,13 @@ public class AIMovement : MonoBehaviour
             case State.ChaseTarget:
                 if (target != null)
                 {
-                    agent.SetDestination(target.position);
-                    _enemyAimWeapon.HandleAim();
-                   
+                    agent.SetDestination(target.position);                    
+
                     if (Vector3.Distance(transform.position, target.position) < _engagementRange)
                     {
                         if (Time.time > _timeBetweenShots)
                         {
+                            _enemyAimWeapon.HandleAim();
                             agent.isStopped = true;
                             _enemyAimWeapon.Shoot();
                             _timeBetweenShots = Time.time + (1 / _attackSpeed);                           

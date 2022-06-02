@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: MachineGunnerBot
   m_EditorClassIdentifier: 
   _type: 6
-  _enemyPrefab: {fileID: 0}
-  _icon: {fileID: 0}
+  _enemyPrefab: {fileID: 7567001302569099693, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
+  _icon: {fileID: 7567001302569099693, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
   canFly: 0
-  health: 0
-  shield: 0
-  shieldRegenRate: 0
+  health: 100
+  shield: 100
+  shieldRegenRate: 10
   armor: 0
-  speed: 0
-  bulletPrefab: {fileID: 0}
-  enemyAttackType: 
-  damage: 0
-  attackSpeed: 0
-  attackRange: 0
-  engagementRange: 0
-  projectileSpeed: 0
+  speed: 6
+  bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
+  enemyAttackType: Shooter
+  damage: 10
+  attackSpeed: 16
+  attackRange: 20
+  engagementRange: 15
+  projectileSpeed: 10

@@ -13,7 +13,8 @@ namespace CG.SFRL.Characters
 
         public Animator _animator;
         
-        public CharacterStat _shieldRegenRate; 
+        public CharacterStat _shieldRegenRate;
+        float _shieldRegen;
 
         Coroutine _regen;
 
@@ -27,7 +28,8 @@ namespace CG.SFRL.Characters
         {
             _maxHealth.BaseValue = _characterStats.health;            
             _maxShield.BaseValue = _characterStats.shield;
-            _shieldRegenRate.BaseValue = 1 / _characterStats.shieldRegenRate;            
+            _shieldRegenRate.BaseValue = _characterStats.shieldRegenRate;
+            _shieldRegen = 1 / _shieldRegenRate.Value;
 
             _currentHealth = _maxHealth.Value;
             _healthBar.SetMaxHealth(_maxHealth.Value);
@@ -91,7 +93,7 @@ namespace CG.SFRL.Characters
             {
                 _currentShield++;
                 _shieldBar.SetShield(_currentShield);
-                yield return new WaitForSeconds(_shieldRegenRate.Value);
+                yield return new WaitForSeconds(_shieldRegen);
             }
         }
     }

@@ -44,10 +44,10 @@ public class EnemyAimWeapon : MonoBehaviour
         if (_player != null)
         {
             Vector3 _lookDirection = (_player.position - transform.position).normalized;
-
-            // This gets the angle required to rotate the player using Atan2 and converts it into degrees
+            float accuracy = Random.Range(-30, 30);
+            // This gets the angle required to rotate to the player using Atan2 and converts it into degrees
             float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
-            _aimTransform.eulerAngles = new Vector3(0, 0, _angle);
+            _aimTransform.eulerAngles = new Vector3(0, 0, _angle + accuracy);
             Vector3 _scale = Vector3.one;
 
             if (_angle < -90 || _angle > 90)

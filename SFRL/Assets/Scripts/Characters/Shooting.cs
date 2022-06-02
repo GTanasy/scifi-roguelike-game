@@ -23,7 +23,8 @@ using CG.SFRL.Characters;
         public CharacterStat _reloadDuration;
 
         public CharacterStat _bulletForce;
-        public CharacterStat _timeBetweenShots;
+        public CharacterStat _attackSpeed;
+        float _timeBetweenShots;
 
         float _rightClickStartHeld;
 
@@ -43,7 +44,8 @@ using CG.SFRL.Characters;
             _maxMagCapacity.BaseValue = _weaponStats.magCapacity;
             _bulletForce.BaseValue = _weaponStats.projectileSpeed;
             _reloadDuration.BaseValue = _weaponStats.reloadTime;
-            _timeBetweenShots.BaseValue = 1 / _weaponStats.attackSpeed;
+            _attackSpeed.BaseValue = _weaponStats.attackSpeed;
+            _timeBetweenShots = 1 / _attackSpeed.Value;
             _maxMagCapacity.BaseValue = _maxMagCapacity.Value;
             _magCapacity = (int)_maxMagCapacity.Value;
             _criticalChance.BaseValue = _weaponStats.criticalChance;
@@ -55,6 +57,7 @@ using CG.SFRL.Characters;
         // Update is called once per frame
         void Update()
         {
+            Debug.Log("Damage: " + _bulletDamage.Value);
             ShootInput();
             _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity.Value;            
         }
@@ -84,7 +87,7 @@ using CG.SFRL.Characters;
             _rb.AddForce(_firePoint.right * _bulletForce.Value, ForceMode2D.Impulse);        
             
             _readyToShoot = false;
-            Invoke("ResetShot", _timeBetweenShots.Value);
+            Invoke("ResetShot", _timeBetweenShots);
         }
         
         void ResetShot()
