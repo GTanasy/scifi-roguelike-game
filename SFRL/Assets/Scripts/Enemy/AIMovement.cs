@@ -46,7 +46,7 @@ public class AIMovement : MonoBehaviour
         _attackSpeed = _enemyStats.attackSpeed;
         agent.speed = _enemyStats.speed;
 
-        _state = State.Idle;
+        _state = State.ChaseTarget;
         _timeBetweenShots = 1 / _attackSpeed;
     }
 

@@ -8,8 +8,8 @@ namespace CG.SFRL.Enemy
     {
         public BasicEnemy _enemyStats;
 
-        float _maxHealth;
-        float _currentHealth;
+        public float _maxHealth;
+        public float _currentHealth;
         float _maxShield;
         float _currentShield;
 
