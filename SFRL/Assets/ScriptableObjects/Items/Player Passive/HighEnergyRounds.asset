@@ -29,7 +29,7 @@ MonoBehaviour:
   RangeBonus: 0
   ProjectileSpeedBonus: 0
   ReloadSpeedBonus: 0
-  MagCapBonus: 0
+  MagCapBonus: -3
   DashCooldownBonus: 0
   DashLengthBonus: 0
   DashSpeedBonus: 0

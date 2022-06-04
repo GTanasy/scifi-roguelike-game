@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a537b896a2713247a9e8db555d6cbfa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a6b67e104684e249a4262750cdd8e32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0046381354, y: 0.0015460253}
+  m_Offset: {x: -0.0007636249, y: 0.000439018}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.625}
+    oldSize: {x: 0.375, y: 0.1875}
     newSize: {x: 0.1, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2546717, y: 0.26085588}
+  m_Size: {x: 0.375336, y: 0.18779317}
   m_EdgeRadius: 0
 --- !u!114 &6710750956928495882
 MonoBehaviour:
@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c32e4f7263ff014b93e946359923242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletType: notNorman
-  _bulletDamage: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
+  _isPlayerBullet: 0
+  _damage: 0
+  isCriticalHit: 0

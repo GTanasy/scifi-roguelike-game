@@ -525,6 +525,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 89364639, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 1214824745, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.171
@@ -537,6 +541,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5345921042105363334, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 5345921042105363336, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _cam
       value: 
@@ -621,6 +629,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5345921042359221545, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 8594734679647018602, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _healthBar
       value: 
@@ -712,7 +724,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -842,7 +854,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16764,7 +16776,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17095,7 +17107,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20784,6 +20796,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583705935955493968, guid: dc48297994fcd0b46b8971f35c559c3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 5583705935955493969, guid: dc48297994fcd0b46b8971f35c559c3c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -20832,6 +20848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RifleBot
       objectReference: {fileID: 0}
+    - target: {fileID: 5583705936465887867, guid: dc48297994fcd0b46b8971f35c559c3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6479129782605956367, guid: dc48297994fcd0b46b8971f35c559c3c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -20901,10 +20921,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7567001302569099601, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 7567001302569099693, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
       propertyPath: m_Name
       value: MachineGunner
       objectReference: {fileID: 0}
+    - target: {fileID: 7567001303081592698, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 9048949177403531278, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -20970,6 +20998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab_Body Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 4045027089619549741, guid: 6289bddd3f590df49b57d5c235265b31, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6289bddd3f590df49b57d5c235265b31, type: 3}
 --- !u!1001 &4062352061957127774
@@ -21080,6 +21112,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 122720783521691959, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 122720783521692107, guid: 8fe1c3b18e81ed5439cde2e514865a2b, type: 3}
       propertyPath: m_Name
       value: Walker
@@ -21109,6 +21145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535100830}
     m_Modifications:
+    - target: {fileID: 7666977738656566034, guid: fdd7041d0eb4d444e90be7ccf3a244d2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 7666977738656566035, guid: fdd7041d0eb4d444e90be7ccf3a244d2, type: 3}
       propertyPath: m_RootOrder
       value: 2
