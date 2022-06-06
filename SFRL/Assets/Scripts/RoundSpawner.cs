@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CG.SFRL.Characters;
 
 public class RoundSpawner : MonoBehaviour
 {
+    public PlayerDamageHandler player;
     public enum SpawnState
     {
         spawning,
@@ -60,7 +62,7 @@ public class RoundSpawner : MonoBehaviour
 
         if (roundCountdown <= 0)
         {
-            if (state != SpawnState.spawning)
+            if (player != null && state != SpawnState.spawning)
             {
                 StartCoroutine(SpawnRound(rounds[nextRound]));
             }
@@ -114,8 +116,11 @@ public class RoundSpawner : MonoBehaviour
 
         for (int i = 0; i < _round.amount; i++)
         {
+            if (player != null)
+            {
             SpawnEnemy(_round.enemyPool[Random.Range(0, _round.enemyPool.Length)]);
             yield return new WaitForSeconds(1f / _round.rate);
+            }
         }
 
         state = SpawnState.waiting;

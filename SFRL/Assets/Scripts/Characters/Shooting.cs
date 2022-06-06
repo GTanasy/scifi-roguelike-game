@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 using TMPro;
 using CG.SFRL.Characters;
 
@@ -14,6 +15,7 @@ using CG.SFRL.Characters;
         [SerializeField] private TMP_Text _textAmmoCount;
 
         public Transform _firePoint;
+        public Light2D _gunGlow;
         GameObject _bulletPrefab;
         public GameObject _piercingShotPrefab;
 
@@ -165,7 +167,9 @@ using CG.SFRL.Characters;
 
         IEnumerator Reload()
         {            
+            _gunGlow.intensity = 0;
             yield return new WaitForSeconds(_reloadDuration.Value);
+            _gunGlow.intensity = 0.25f;
             _magCapacity = (int)_maxMagCapacity.Value;
             _reloading = false;
             _animator.SetBool("isReloading", false);

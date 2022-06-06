@@ -76,6 +76,10 @@ public class BossEnemy : MonoBehaviour
         TimerBetweenStates();
         StateMachine();
         EnrageCheck();
+        if (target == null)
+        {
+            _state = default;
+        }
     }
 
     void StateMachine()
@@ -87,7 +91,7 @@ public class BossEnemy : MonoBehaviour
                 agent.isStopped = false;
                 agent.SetDestination(_roamPosition);
 
-                if (Vector3.Distance(_startingPosition, target.position) > _engagementRange)
+                if (target != null && Vector3.Distance(_startingPosition, target.position) > _engagementRange)
                 {
                     _state = State.ChaseTarget;
                 }
@@ -107,7 +111,7 @@ public class BossEnemy : MonoBehaviour
                 }
                 break;
             case State.Attack:
-                if (Vector3.Distance(transform.position, target.position) < _engagementRange)
+                if (target != null && Vector3.Distance(transform.position, target.position) < _engagementRange)
                 {
                     if (Time.time > _timeBetweenShots)
                     {
@@ -131,7 +135,8 @@ public class BossEnemy : MonoBehaviour
             case State.EnragedAttack:
                 agent.isStopped = false;
                 agent.SetDestination(_roamPosition);
-
+                if (target != null)
+                { 
                 if (Vector3.Distance(_startingPosition, target.position) > _engagementRange)
                 {
                     _state = State.ChaseTarget;
@@ -145,12 +150,13 @@ public class BossEnemy : MonoBehaviour
                 {
                     if (Time.time > _timeBetweenShots)
                     {
-                        _enemyAimWeapon.HandleAim();                        
+                        _enemyAimWeapon.HandleAim();
                         _enemyAimWeapon.Shoot();
                         _timeBetweenShots = Time.time + (1 / _attackSpeed);
                     }
 
                 }
+        }
                 break;
         }
     }

@@ -11,6 +11,9 @@ public class AIMovement : MonoBehaviour
     float _attackSpeed;
     float _timeBetweenShots;
     float _engagementRange;
+    [SerializeField] LayerMask layerMask;
+
+    bool inLOS;
 
     Transform target;
     NavMeshAgent agent;
@@ -62,9 +65,29 @@ public class AIMovement : MonoBehaviour
             case State.ChaseTarget:
                 if (target != null)
                 {
-                    agent.SetDestination(target.position);                    
+                    agent.SetDestination(target.position);
+                    Vector3 _lookDirection = (target.position - transform.position).normalized;                               
+                    float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
+                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(_angle));
+                    Debug.DrawRay(transform.position, GetVectorFromAngle(_angle));
+                    
+                    if (raycastHit2D.collider != null)
+                    {
+                        Debug.Log(raycastHit2D.collider.tag);
+                        if (raycastHit2D.collider.CompareTag("Player"))
+                        {
+                            inLOS = true;                            
+                        }
+                        else
+                        {
+                            inLOS = false;
+                        }
+                        
+                    }
 
-                    if (Vector3.Distance(transform.position, target.position) < _engagementRange)
+                    
+
+                    if (Vector3.Distance(transform.position, target.position) < _engagementRange && inLOS == true)
                     {
                         if (Time.time > _timeBetweenShots)
                         {
@@ -95,5 +118,10 @@ public class AIMovement : MonoBehaviour
             }
         }       
     }
-    
+
+    static Vector3 GetVectorFromAngle(float angle)
+    {
+        float angleRad = angle * (Mathf.PI / 180f);
+        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
 }

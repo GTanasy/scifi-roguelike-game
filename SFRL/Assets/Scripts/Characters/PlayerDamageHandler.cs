@@ -41,10 +41,8 @@ namespace CG.SFRL.Characters
 
         // Update is called once per frame
         void Update()
-        {
-            Debug.Log("Current Health: " + _currentHealth);
-            Debug.Log("Max Health: " + _maxHealth.Value);
-            
+        {           
+
         }
         public void TakeDamage(float damage)
         {
@@ -76,8 +74,22 @@ namespace CG.SFRL.Characters
 
         void TakeShieldDamage(float damage)
         {
-            _currentShield -= damage;
+            _currentShield -= damage;            
             _shieldBar.SetShield(_currentShield);
+        }
+
+        public void RefreshHealthBars()
+        {
+            _healthBar.SetMaxHealth(_maxHealth.Value);
+            _shieldBar.SetMaxShield(_maxShield.Value);
+            _shieldBar.SetShield(_currentShield);
+            _healthBar.SetHealth(_currentHealth);
+        }
+
+        public void Heal()
+        {
+            _currentHealth = _maxHealth.Value;
+            _healthBar.SetMaxHealth(_maxHealth.Value);
         }
 
         void Die()

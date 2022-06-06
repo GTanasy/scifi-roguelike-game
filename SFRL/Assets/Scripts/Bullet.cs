@@ -19,16 +19,17 @@ public class Bullet : MonoBehaviour
         NormanGrenade normanGrenade = hitInfo.GetComponent<NormanGrenade>();
         Bullet bullet = hitInfo.GetComponent<Bullet>();
         NormanPiercingShot normanPiercing = hitInfo.GetComponent<NormanPiercingShot>();
+        BuyableDoor door = hitInfo.GetComponentInParent<BuyableDoor>();
        
         if (player != null)
         {
             player.TakeDamage(_damage);
         }
-        if (enemy != null && _isPlayerBullet)
+        else if (enemy != null && _isPlayerBullet)
         {
             enemy.TakeDamage(_damage);           
             DamagePopup.Create(enemy.transform.position, _damage, isCriticalHit, enemy._hasShield);           
-        }
+        }        
         if (bullet != null || normanPiercing != null)
         {
             return;
@@ -42,9 +43,13 @@ public class Bullet : MonoBehaviour
             return;
         }
         if (normanGrenade != null)
+        {            
+            return;
+        }
+        if (door != null)
         {
             return;
-        }        
+        }
         Destroy(gameObject);
     }
 }

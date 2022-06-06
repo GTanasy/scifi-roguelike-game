@@ -102,8 +102,9 @@ namespace CG.SFRL.Enemy
         }
         void Die()
         {
-            Destroy(gameObject);
             StopAllCoroutines();
+            MoneyController.moneyController.credits += 100;
+            Destroy(gameObject);
         }
     }
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
   iD: 1
   rarityType: 0
   HealthBonus: 0
-  ShieldBonus: 0
+  ShieldBonus: 500
   ShieldRegenBonus: 0
   ArmorBonus: 0
   QCooldownBonus: 0
