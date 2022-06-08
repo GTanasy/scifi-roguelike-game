@@ -318,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 31507c9e5a1d4d7449bd315ab4e7c828, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24663696ae22e074fb077c1b795c9b4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -389,8 +389,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 0779c391ff6be4842aad9004ad26d377, type: 2}
-  _maxHealth: 0
+  _maxHealth:
+    BaseValue: 0
   _currentHealth: 0
+  _maxShield:
+    BaseValue: 0
   _healthBar: {fileID: 4467936179669646162}
   _shieldBar: {fileID: 5175766436884220526}
   _hasShield: 0
@@ -410,7 +413,8 @@ MonoBehaviour:
   _enemyType: 
   _gun: {fileID: 4064008006752064892}
   _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
-  _firePoint: {fileID: 4064008007620748937}
+  _firePoint:
+  - {fileID: 4064008007620748937}
   _bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
   _bulletForce: 20
   _attackRange: 20
@@ -427,6 +431,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 0779c391ff6be4842aad9004ad26d377, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &1368058148
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -505,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4064008007620748942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.497, y: 0.108, z: 0}
+  m_LocalPosition: {x: 0.49700004, y: 0.10799999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

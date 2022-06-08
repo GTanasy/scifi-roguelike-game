@@ -48,7 +48,7 @@ public class PlayerPassive : BasicItem
 	[Space]
 	[Header("Weapon Stats Percent")]
 	[Space]
-	public int CritChancePercentBonus;
+	public float CritChancePercentBonus;
 	public float DamagePercentBonus;
 	public float AttackSpeedPercentBonus;
 	public float RangePercentBonus;

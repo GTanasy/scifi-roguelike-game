@@ -16,7 +16,7 @@ public class EnemyAimWeapon : MonoBehaviour
     public SpriteRenderer _gun;
     public Camera _cam;
 
-    public Transform _firePoint;
+    public Transform[] _firePoint;
 
     public GameObject _bulletPrefab;
 
@@ -53,10 +53,12 @@ public class EnemyAimWeapon : MonoBehaviour
             if (_angle < -90 || _angle > 90)
             {
                 _scale.y = -1.0f;
+                _scale.x = +1.0f;
             }
             else
             {
                 _scale.y = +1.0f;
+                _scale.x = -1.0f;
             }
             _aimTransform.localScale = _scale;
         }
@@ -67,14 +69,15 @@ public class EnemyAimWeapon : MonoBehaviour
     {
         if (_enemyType.Equals("Shooter"))
         {
-            GameObject _bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+            int pickPoint = Random.Range(0, _firePoint.Length);
+            GameObject _bullet = Instantiate(_bulletPrefab, _firePoint[pickPoint].position, _firePoint[pickPoint].rotation);
             _bullet.GetComponent<Bullet>()._damage = _damage;
             _bullet.GetComponent<Bullet>()._isPlayerBullet = false;
-            _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint.right * _bulletForce, ForceMode2D.Impulse);
+            _bullet.GetComponent<Rigidbody2D>().AddForce(_firePoint[pickPoint].right * _bulletForce, ForceMode2D.Impulse);
         }
         else if (_enemyType.Equals("Melee"))
         {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_firePoint.position, _attackRange);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_firePoint[0].position, _attackRange);
 
             foreach (Collider2D col in hitEnemies)
             {
@@ -93,6 +96,6 @@ public class EnemyAimWeapon : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_firePoint.position, _attackRange);
+        Gizmos.DrawWireSphere(_firePoint[0].position, _attackRange);
     }
 }

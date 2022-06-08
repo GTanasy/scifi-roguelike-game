@@ -59,7 +59,7 @@ using CG.SFRL.Characters;
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("Damage: " + _bulletDamage.Value);
+            Debug.Log("CritChance: " + _criticalChance.Value);
             ShootInput();
             _textAmmoCount.text = _magCapacity + " / " + _maxMagCapacity.Value;            
         }

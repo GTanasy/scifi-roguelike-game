@@ -17,6 +17,8 @@ public class BossEnemy : MonoBehaviour
     float timeBetweenStates;
     float maxTimeBetweenStates = 5f;
 
+    bool inLOS;
+
     bool isEnraged = false;
 
     Transform target;
@@ -84,6 +86,11 @@ public class BossEnemy : MonoBehaviour
 
     void StateMachine()
     {
+        if (target != null)
+        {
+        Vector3 _lookDirection = (target.position - transform.position).normalized;
+        float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
+        CorrectOrientation(_angle);
         switch (_state)
         {
             default:
@@ -111,8 +118,23 @@ public class BossEnemy : MonoBehaviour
                 }
                 break;
             case State.Attack:
-                if (target != null && Vector3.Distance(transform.position, target.position) < _engagementRange)
+                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(_angle));
+                    if (raycastHit2D.collider != null)
+                    {
+                        if (raycastHit2D.collider.CompareTag("Player"))
+                        {
+                            inLOS = true;
+                        }
+                        else
+                        {
+                            inLOS = false;
+                        }
+
+                    }
+                    agent.SetDestination(target.position);
+                if (target != null && inLOS == true && Vector3.Distance(transform.position, target.position) < _engagementRange)
                 {
+
                     if (Time.time > _timeBetweenShots)
                     {
                         _enemyAimWeapon.HandleAim();
@@ -159,11 +181,12 @@ public class BossEnemy : MonoBehaviour
         }
                 break;
         }
+        }
     }
 
     void EnrageCheck()
     {
-        if (_healthStat._currentHealth <= _healthStat._maxHealth / 2 && isEnraged == false)
+        if (_healthStat._currentHealth <= _healthStat._maxHealth.Value / 2 && isEnraged == false)
         {
             _state = State.Enraged;
             isEnraged = true;
@@ -187,20 +210,40 @@ public class BossEnemy : MonoBehaviour
         {
             if (_state == State.Idle)
             {
-                Debug.Log("Switch to Attack");
                 _state = State.Attack;
                 timeBetweenStates = maxTimeBetweenStates;
                 return;
             }
             if (_state == State.Attack || _state == State.ChaseTarget)
             {
-                Debug.Log("Switch to Idle");
                 _state = State.Idle;
                 timeBetweenStates = maxTimeBetweenStates;
                 return;
             }
             
         }
+    }
+
+    void CorrectOrientation(float _angle)
+    {
+        Vector3 _scale = Vector3.one;
+        Vector3 _scaleBar = new Vector3();
+
+        if (_angle < -90 || _angle > 90)
+        {
+            _scale.x = +1.0f;
+            _scaleBar.x = -0.01f;
+            _scaleBar.y = 0.01f;
+            _scaleBar.z = 0.01f;
+        }
+        else
+        {
+            _scale.x = -1.0f;
+            _scaleBar.x = +0.01f;
+            _scaleBar.y = 0.01f;
+            _scaleBar.z = 0.01f;
+        }
+        gameObject.GetComponent<Transform>().localScale = _scale;        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -211,5 +254,11 @@ public class BossEnemy : MonoBehaviour
             player.TakeDamage(30);
         }
         
+    }
+
+    static Vector3 GetVectorFromAngle(float angle)
+    {
+        float angleRad = angle * (Mathf.PI / 180f);
+        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
     }
 }

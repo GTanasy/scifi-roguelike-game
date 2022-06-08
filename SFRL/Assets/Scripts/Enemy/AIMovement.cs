@@ -56,55 +56,8 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (_state)
-        {
-            default:
-            case State.Idle:
-                FindTarget();
-                break;
-            case State.ChaseTarget:
-                if (target != null)
-                {
-                    agent.SetDestination(target.position);
-                    Vector3 _lookDirection = (target.position - transform.position).normalized;                               
-                    float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
-                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(_angle));
-                    Debug.DrawRay(transform.position, GetVectorFromAngle(_angle));
-                    
-                    if (raycastHit2D.collider != null)
-                    {
-                        Debug.Log(raycastHit2D.collider.tag);
-                        if (raycastHit2D.collider.CompareTag("Player"))
-                        {
-                            inLOS = true;                            
-                        }
-                        else
-                        {
-                            inLOS = false;
-                        }
-                        
-                    }
+        EnemyStateMachine();
 
-                    
-
-                    if (Vector3.Distance(transform.position, target.position) < _engagementRange && inLOS == true)
-                    {
-                        if (Time.time > _timeBetweenShots)
-                        {
-                            _enemyAimWeapon.HandleAim();
-                            agent.isStopped = true;
-                            _enemyAimWeapon.Shoot();
-                            _timeBetweenShots = Time.time + (1 / _attackSpeed);                           
-                        }
-
-                    }
-                    else
-                    {
-                        agent.isStopped = false;
-                    }
-                }
-                break;
-        }
     }
 
     void FindTarget()
@@ -123,5 +76,75 @@ public class AIMovement : MonoBehaviour
     {
         float angleRad = angle * (Mathf.PI / 180f);
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
+
+    void EnemyStateMachine()
+    {
+        switch (_state)
+        {
+            default:
+            case State.Idle:
+                FindTarget();
+                break;
+            case State.ChaseTarget:
+                if (target != null)
+                {
+                    agent.SetDestination(target.position);
+                    Vector3 _lookDirection = (target.position - transform.position).normalized;
+                    float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
+                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(_angle));
+
+                    if (raycastHit2D.collider != null)
+                    {
+                        if (raycastHit2D.collider.CompareTag("Player"))
+                        {
+                            inLOS = true;
+                        }
+                        else
+                        {
+                            inLOS = false;
+                        }
+
+                    }
+                    Vector3 _scale = Vector3.one;
+                    Vector3 _scaleBar = new Vector3();
+
+                    if (_angle < -90 || _angle > 90)
+                    {
+                        _scale.x = +1.0f;
+                        _scaleBar.x = -0.01f;
+                        _scaleBar.y = 0.01f;
+                        _scaleBar.z = 0.01f;
+                    }
+                    else
+                    {
+                        _scale.x = -1.0f;
+                        _scaleBar.x = +0.01f;
+                        _scaleBar.y = 0.01f;
+                        _scaleBar.z = 0.01f;
+                    }
+                    gameObject.GetComponent<Transform>().localScale = _scale;
+                    gameObject.GetComponentInChildren<RectTransform>().localScale = _scaleBar;
+
+
+
+                    if (Vector3.Distance(transform.position, target.position) < _engagementRange && inLOS == true)
+                    {
+                        if (Time.time > _timeBetweenShots)
+                        {
+                            _enemyAimWeapon.HandleAim();
+                            agent.isStopped = true;
+                            _enemyAimWeapon.Shoot();
+                            _timeBetweenShots = Time.time + (1 / _attackSpeed);
+                        }
+
+                    }
+                    else
+                    {
+                        agent.isStopped = false;
+                    }
+                }
+                break;
+        }
     }
 }

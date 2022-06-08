@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8ac8f7ff
-      m_LastClickedID: 0
-      m_ExpandedIDs: a65bf9fff4ccf9ff4eeef9ff30f4f9ff4403fafff604faffe007faff2e0cfaff300ffaffdc0ffaff7a33fbff54f8ffff2cfbffff746c0000ce040200
+      m_SelectedIDs: f806fcff
+      m_LastClickedID: -260360
+      m_ExpandedIDs: 0cb1fcff58b1fcffb4b1fcffa8b3fcff7cbcfcff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 38.615284, y: -11.556549, z: -5.1211514}
+    m_Target: {x: 407.4, y: 300.10547, z: 3.4569328}
     speed: 2
-    m_Value: {x: 38.615284, y: -11.556549, z: -5.1211514}
+    m_Value: {x: 407.4, y: 300.10547, z: 3.4569328}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.848719
+    m_Target: 364.77066
     speed: 2
-    m_Value: 15.848719
+    m_Value: 364.77066
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -801,8 +801,8 @@ MonoBehaviour:
     y: 614
     width: 1570
     height: 333
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 13}
@@ -850,22 +850,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: S:\Unity Projects\scifi-roguelike-game\SFRL
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a6740000
-    m_LastClickedID: 29862
-    m_ExpandedIDs: 000000009e740000a0740000a2740000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000ffffff7f
+    m_SelectedIDs: 24760000
+    m_LastClickedID: 30244
+    m_ExpandedIDs: 00000000e2750000e4750000e6750000e8750000ea750000ec750000ee750000f0750000f2750000f4750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -893,7 +893,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 745f0000
     m_LastClickedID: 24436
-    m_ExpandedIDs: 000000009e740000a0740000a2740000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000ffffff7f
+    m_ExpandedIDs: 00000000e2750000e4750000e6750000e8750000ea750000ec750000ee750000f0750000f2750000f4750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -918,9 +918,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 74040200
-    m_LastClickedInstanceID: 132212
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: f806fcff
+    m_LastClickedInstanceID: -260360
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000266200003a64000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

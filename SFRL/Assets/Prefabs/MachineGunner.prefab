@@ -650,8 +650,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 31507c9e5a1d4d7449bd315ab4e7c828, type: 3}
-  m_Color: {r: 0, g: 0.056025982, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a6130e5ff644b624bad5989f62ba6e65, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -721,8 +721,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
-  _maxHealth: 0
+  _maxHealth:
+    BaseValue: 0
   _currentHealth: 0
+  _maxShield:
+    BaseValue: 0
   _healthBar: {fileID: 8026661517175245140}
   _shieldBar: {fileID: 1635130406704248936}
   _hasShield: 0
@@ -742,7 +745,8 @@ MonoBehaviour:
   _enemyType: 
   _gun: {fileID: 7567001303081592698}
   _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
-  _firePoint: {fileID: 7567001302614905999}
+  _firePoint:
+  - {fileID: 7567001302614905999}
   _bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
   _bulletForce: 20
   _attackRange: 20
@@ -759,6 +763,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &5865131849904200482
 NavMeshAgent:
   m_ObjectHideFlags: 0
