@@ -13,7 +13,7 @@ namespace CG.SFRL.Enemy
         public CharacterStat _maxShield;
         float _currentShield;
 
-        float _shieldRegenRate;
+        public float _shieldRegenRate;
 
         Coroutine _regen;
 
@@ -24,11 +24,14 @@ namespace CG.SFRL.Enemy
 
         public bool _hasShield;
         public bool isDead;
+        public bool isBoss;
 
         bool _explosion;
 
         void Start()
-        {            
+        {
+            if (isBoss == true)
+            {
             bossHealthBar = GameObject.Find("/UI/BossBar").GetComponent<RectTransform>();
             
             if (bossHealthBar != null)
@@ -37,9 +40,10 @@ namespace CG.SFRL.Enemy
                 _healthBar = bossHealthBar.gameObject.GetComponentInChildren<HealthBar>();
                 _shieldBar = bossHealthBar.gameObject.GetComponentInChildren<ShieldBar>();
             }
+            }
             _maxHealth.BaseValue = _enemyStats.health;
             _maxShield.BaseValue = _enemyStats.shield;
-            _shieldRegenRate = _enemyStats.shieldRegenRate;
+            _shieldRegenRate = 1 / _enemyStats.shieldRegenRate;
 
             _currentHealth = _maxHealth.Value;
             _healthBar.SetMaxHealth(_maxHealth.Value);
@@ -47,6 +51,11 @@ namespace CG.SFRL.Enemy
             _currentShield = _maxShield.Value;
             _shieldBar.SetMaxShield(_maxShield.Value);
             isDead = false;
+        }
+
+        private void Update()
+        {
+            Debug.Log("Boss Shield: " + _maxShield.Value);
         }
         public void TakeDamage(float damage)
         {

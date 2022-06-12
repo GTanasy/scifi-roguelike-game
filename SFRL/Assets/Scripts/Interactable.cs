@@ -8,11 +8,6 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -31,6 +26,7 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
+            GetComponentInParent<BuyableDoor>().NotifyPlayer();
         }
     }
 
@@ -39,6 +35,7 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            GetComponentInParent<BuyableDoor>().DenotifyPlayer();
         }
     }
 }

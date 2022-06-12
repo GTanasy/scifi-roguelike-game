@@ -8,8 +8,7 @@ using CG.SFRL.Characters;
 public class BossEnemy : MonoBehaviour
 {
     public BasicEnemy _enemyStats;
-    EnemyDamageHandler _healthStat;
-    PlayerDamageHandler _player;
+    EnemyDamageHandler _healthStat;    
     float _attackSpeed;
     float _timeBetweenShots;
     float _engagementRange;
@@ -102,7 +101,7 @@ public class BossEnemy : MonoBehaviour
                 {
                     _state = State.ChaseTarget;
                 }
-                float reachedPositionDistance = 5f;
+                float reachedPositionDistance = 10f;
                 if (Vector3.Distance(transform.position, _roamPosition) < reachedPositionDistance)
                 {
                     _roamPosition = GetRandomPosition();
@@ -137,7 +136,6 @@ public class BossEnemy : MonoBehaviour
 
                     if (Time.time > _timeBetweenShots)
                     {
-                        _enemyAimWeapon.HandleAim();
                         agent.isStopped = true;
                         _enemyAimWeapon.Shoot();
                         _timeBetweenShots = Time.time + (1 / _attackSpeed);
@@ -163,7 +161,7 @@ public class BossEnemy : MonoBehaviour
                 {
                     _state = State.ChaseTarget;
                 }
-                float reachedEnragedPositionDistance = 5f;
+                float reachedEnragedPositionDistance = 10f;
                 if (Vector3.Distance(transform.position, _roamPosition) < reachedEnragedPositionDistance)
                 {
                     _roamPosition = GetRandomPosition();
@@ -172,7 +170,6 @@ public class BossEnemy : MonoBehaviour
                 {
                     if (Time.time > _timeBetweenShots)
                     {
-                        _enemyAimWeapon.HandleAim();
                         _enemyAimWeapon.Shoot();
                         _timeBetweenShots = Time.time + (1 / _attackSpeed);
                     }
@@ -188,6 +185,7 @@ public class BossEnemy : MonoBehaviour
     {
         if (_healthStat._currentHealth <= _healthStat._maxHealth.Value / 2 && isEnraged == false)
         {
+            _healthStat._maxShield.AddModifier(new StatModifier(-_healthStat._maxShield.Value, StatModType.Flat, this));
             _state = State.Enraged;
             isEnraged = true;
         }

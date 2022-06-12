@@ -28,3 +28,4 @@ MonoBehaviour:
   attackRange: 20
   engagementRange: 15
   projectileSpeed: 10
+  spread: 50

@@ -29,7 +29,7 @@ namespace CG.SFRL.Characters
             _maxHealth.BaseValue = _characterStats.health;            
             _maxShield.BaseValue = _characterStats.shield;
             _shieldRegenRate.BaseValue = _characterStats.shieldRegenRate;
-            _shieldRegen = 1 / _shieldRegenRate.Value;
+            _shieldRegen = _shieldRegenRate.Value;
 
             _currentHealth = _maxHealth.Value;
             _healthBar.SetMaxHealth(_maxHealth.Value);
@@ -81,9 +81,9 @@ namespace CG.SFRL.Characters
         public void RefreshHealthBars()
         {
             _healthBar.SetMaxHealth(_maxHealth.Value);
+            _healthBar.SetHealth(_currentHealth);
             _shieldBar.SetMaxShield(_maxShield.Value);
             _shieldBar.SetShield(_currentShield);
-            _healthBar.SetHealth(_currentHealth);
         }
 
         public void Heal()
@@ -105,7 +105,7 @@ namespace CG.SFRL.Characters
             {
                 _currentShield++;
                 _shieldBar.SetShield(_currentShield);
-                yield return new WaitForSeconds(_shieldRegen);
+                yield return new WaitForSeconds(1 / _shieldRegen);
             }
         }
     }

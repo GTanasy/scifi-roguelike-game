@@ -23,8 +23,8 @@ MonoBehaviour:
   eCooldown: 10
   playerBulletType: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
   criticalChance: 30
-  damage: 20
-  attackSpeed: 8
+  damage: 100
+  attackSpeed: 10
   attackRange: 0
   projectileSpeed: 20
   reloadTime: 1

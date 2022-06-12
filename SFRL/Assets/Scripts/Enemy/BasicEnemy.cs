@@ -56,6 +56,7 @@ namespace CG.SFRL.Enemy
         public float attackRange;
         public float engagementRange;
         public float projectileSpeed;
+        public int spread;
     }
 }
 

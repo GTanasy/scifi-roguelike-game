@@ -131,8 +131,7 @@ public class AIMovement : MonoBehaviour
                     if (Vector3.Distance(transform.position, target.position) < _engagementRange && inLOS == true)
                     {
                         if (Time.time > _timeBetweenShots)
-                        {
-                            _enemyAimWeapon.HandleAim();
+                        {                            
                             agent.isStopped = true;
                             _enemyAimWeapon.Shoot();
                             _timeBetweenShots = Time.time + (1 / _attackSpeed);

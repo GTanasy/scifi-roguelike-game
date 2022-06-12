@@ -12,15 +12,16 @@ public class ItemPickUp : MonoBehaviour
 	{
 		PlayerDamageHandler player = other.GetComponent<PlayerDamageHandler>();
 		if (other.tag.Equals("Player") && isDone == false && player != null)
-		{			
+		{
+			GetComponent<AudioSource>().Play();
 			item.PickupHealth(other.GetComponent<PlayerDamageHandler>());
 			item.PickupWeapon(other.GetComponent<Shooting>());
 			item.PickupCharacter(other.GetComponent<Norman>());
 			item.PickupMovement(other.GetComponent<PlayerMovement>());
 			player.RefreshHealthBars();
 			isDone = true;
-			Debug.Log("Applied");
-			Destroy(gameObject);
+			GetComponent<SpriteRenderer>().enabled = false;
+			Destroy(gameObject, GetComponent<AudioSource>().clip.length);
 		}
 	}
 }
