@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Jrumfelt/scifi-roguelike-game">
-    <img src="images/NormanHead.png" alt="Icon" width="80" height="80">
+    <img src="Images/NormanHead.png" alt="Icon" width="80" height="80">
   </a>
 
   <h3 align="center">SFRL</h3>
