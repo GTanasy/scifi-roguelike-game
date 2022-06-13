@@ -4,7 +4,7 @@
     <img src="Images/NormanHead.png" alt="Icon" width="80" height="80">
   </a>
 
-  <h3 align="center">SFRL (Not Offical Name)</h3>
+  <h3 align="center">SFRL (Not Official Name)</h3>
 
   <p align="center">
     Work in Progress 
