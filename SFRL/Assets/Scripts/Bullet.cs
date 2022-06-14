@@ -20,6 +20,8 @@ public class Bullet : MonoBehaviour
         Bullet bullet = hitInfo.GetComponent<Bullet>();
         NormanPiercingShot normanPiercing = hitInfo.GetComponent<NormanPiercingShot>();
         BuyableDoor door = hitInfo.GetComponentInParent<BuyableDoor>();
+        ItemVendingMachine vending = hitInfo.GetComponentInParent<ItemVendingMachine>();
+        ItemPickUp item = hitInfo.GetComponent<ItemPickUp>();
        
         if (player != null)
         {
@@ -47,6 +49,14 @@ public class Bullet : MonoBehaviour
             return;
         }
         if (door != null)
+        {
+            return;
+        }
+        if (vending != null)
+        {
+            return;
+        }
+        if (item != null)
         {
             return;
         }

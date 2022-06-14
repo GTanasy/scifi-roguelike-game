@@ -23,7 +23,7 @@ MonoBehaviour:
   speed: 6
   bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
   enemyAttackType: Shooter
-  damage: 10
+  damage: 15
   attackSpeed: 16
   attackRange: 20
   engagementRange: 15

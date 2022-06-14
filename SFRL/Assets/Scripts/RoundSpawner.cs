@@ -6,6 +6,7 @@ using CG.SFRL.Characters;
 public class RoundSpawner : MonoBehaviour
 {
     public PlayerDamageHandler player;
+
     public enum SpawnState
     {
         spawning,
@@ -23,12 +24,10 @@ public class RoundSpawner : MonoBehaviour
     }
 
     public Round[] rounds;
-    public GameObject itemSpawner;
     
     int nextRound = 0;
 
     public Transform[] spawnPoints;
-    public Transform iSP;
 
     public float timeBetweenRounds = 5f;
     float roundCountdown;
@@ -71,6 +70,7 @@ public class RoundSpawner : MonoBehaviour
         {
             roundCountdown -= Time.deltaTime;
         }
+        Debug.Log(nextRound);
     }
 
     void RoundCompleted()
@@ -79,10 +79,6 @@ public class RoundSpawner : MonoBehaviour
 
         state = SpawnState.counting;
         roundCountdown = timeBetweenRounds;
-        if(nextRound / 2 == 0 || nextRound == 0)
-        {
-            Instantiate(itemSpawner, iSP.position, iSP.rotation);
-        }
 
         if (nextRound + 1 > rounds.Length - 1)
         {

@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6f8ffff
-      m_LastClickedID: -1850
-      m_ExpandedIDs: f82cfeffc6f8ffff2cfbffffcc6c0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2083f7ff40faffff78faffff2cfbffffba6c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 39.753387, y: -17.399654, z: 1.2396472}
+    m_Target: {x: 43.286858, y: -11.331782, z: 1.965301}
     speed: 2
-    m_Value: {x: 39.753387, y: -17.399654, z: 1.2396472}
+    m_Value: {x: 43.60856, y: -11.052621, z: 1.9602762}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 21.81737
+    m_Target: 10.663961
     speed: 2
-    m_Value: 21.81737
+    m_Value: 11.166451
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -788,22 +788,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Characters
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Characters
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: S:\Unity Projects\scifi-roguelike-game\SFRL
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 128}
-    m_SelectedIDs: a4760000
-    m_LastClickedID: 30372
-    m_ExpandedIDs: 0000000066760000687600006a7600006c7600006e76000070760000727600007476000076760000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 30760000
+    m_LastClickedID: 30256
+    m_ExpandedIDs: 000000002a7600002c7600002e7600003076000034760000367600003876000056760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -831,7 +831,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 745f0000
     m_LastClickedID: 24436
-    m_ExpandedIDs: 0000000066760000687600006a7600006c7600006e76000070760000727600007476000076760000
+    m_ExpandedIDs: 000000002a7600002c7600002e7600003076000034760000367600003876000056760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -856,9 +856,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c6f8ffff
-    m_LastClickedInstanceID: -1850
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000266200003a64000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -934,8 +934,8 @@ MonoBehaviour:
     y: 0
     width: 350
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -976,7 +976,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 200
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

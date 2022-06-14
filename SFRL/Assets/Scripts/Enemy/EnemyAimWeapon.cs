@@ -88,7 +88,7 @@ public class EnemyAimWeapon : MonoBehaviour
         else if (_enemyType.Equals("Melee"))
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_firePoint[0].position, _attackRange.Value);
-
+            GetComponent<AudioSource>().Play();
             foreach (Collider2D col in hitEnemies)
             {
                 PlayerDamageHandler _player = col.GetComponent<PlayerDamageHandler>();

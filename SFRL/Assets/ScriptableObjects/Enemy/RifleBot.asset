@@ -23,9 +23,9 @@ MonoBehaviour:
   speed: 5
   bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
   enemyAttackType: Shooter
-  damage: 15
+  damage: 10
   attackSpeed: 8
   attackRange: 20
   engagementRange: 10
-  projectileSpeed: 18
-  spread: 50
+  projectileSpeed: 10
+  spread: 40

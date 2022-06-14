@@ -2,11 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CG.SFRL.Characters;
+using TMPro;
+using UnityEngine.UI;
 
 public class ItemPickUp : MonoBehaviour
 {
 	public PlayerPassive item;
-	bool isDone = false;   
+	bool isDone = false;
+
+	Image icon;
+	RectTransform iconScale;
+	TMP_Text titleText;
+	TMP_Text descriptionText;
+    void Awake()
+    {
+		icon = GameObject.Find("UI/ItemPopUp/ItemIcon").GetComponent<Image>();
+		titleText = GameObject.Find("UI/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
+		descriptionText = GameObject.Find("UI/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
+		iconScale = icon.GetComponent<RectTransform>();
+		iconScale.localScale = Vector3.zero;
+	}
 
     protected void OnTriggerEnter2D(Collider2D other)
 	{
@@ -21,7 +36,21 @@ public class ItemPickUp : MonoBehaviour
 			player.RefreshHealthBars();
 			isDone = true;
 			GetComponent<SpriteRenderer>().enabled = false;
-			Destroy(gameObject, GetComponent<AudioSource>().clip.length);
+			StartCoroutine(PickUpText());
+			//Destroy(gameObject, GetComponent<AudioSource>().clip.length);
 		}
 	}
+
+	IEnumerator PickUpText()
+    {
+		iconScale.localScale = Vector3.one;
+		icon.sprite = item.icon;
+		titleText.text = item.name;
+		descriptionText.text = item.description;
+		yield return new WaitForSeconds(2);
+		iconScale.localScale = Vector3.zero;
+		titleText.text = "";
+		descriptionText.text = "";
+		Destroy(gameObject);
+    }
 }

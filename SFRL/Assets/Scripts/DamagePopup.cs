@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DamagePopup : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class DamagePopup : MonoBehaviour
     }
     public void Setup(float damageAmount, bool isCritialHit, bool isShield)
     {
-        _textMesh.SetText(damageAmount.ToString());
+        _textMesh.SetText(Math.Round(damageAmount, 1).ToString());
         if (!isCritialHit && !isShield)
         {
             //Normal Hit

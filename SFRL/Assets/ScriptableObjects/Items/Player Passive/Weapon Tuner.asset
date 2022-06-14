@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: Weapon Tuner
-  description: 
+  description: Increases all weapon stats by 10%
   iD: 0
+  icon: {fileID: 21300000, guid: 9d4c27d09b3ce124eb38f6fb3d9149c6, type: 3}
   rarityType: 0
   HealthBonus: 0
   ShieldBonus: 0
@@ -45,7 +46,7 @@ MonoBehaviour:
   AttackSpeedPercentBonus: 0.1
   RangePercentBonus: 0.1
   ProjectileSpeedPercentBonus: 0.1
-  ReloadSpeedPercentBonus: 0.1
+  ReloadSpeedPercentBonus: -0.1
   MagCapPercentBonus: 0
   DashCooldownPercentBonus: 0
   DashLengthPercentBonus: 0

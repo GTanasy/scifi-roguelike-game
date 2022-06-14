@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Bigger Shield
   m_EditorClassIdentifier: 
   type: 0
-  name: 
-  description: 
+  name: Bigger Shield
+  description: Increases shield by 50
   iD: 0
+  icon: {fileID: 21300000, guid: cff790475b0aa6f4f8e7af53a5ff6e62, type: 3}
   rarityType: 0
   HealthBonus: 0
   ShieldBonus: 50

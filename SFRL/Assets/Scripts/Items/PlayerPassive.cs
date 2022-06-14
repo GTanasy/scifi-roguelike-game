@@ -67,17 +67,22 @@ public class PlayerPassive : BasicItem
 	public void PickupHealth(PlayerDamageHandler player)
 	{
 		if (HealthBonus != 0)
+        {
 			player._maxHealth.AddModifier(new StatModifier(HealthBonus, StatModType.Flat, this));
 			player.Heal();
+        }
 		if (ShieldBonus != 0)
 			player._maxShield.AddModifier(new StatModifier(ShieldBonus, StatModType.Flat, this));
 		if (ShieldRegenBonus != 0)
 			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenBonus, StatModType.Flat, this));		
 
 		if (HealthPercentBonus != 0)
-			player._maxHealth.AddModifier(new StatModifier(HealthPercentBonus, StatModType.PercentMult, this));
+            player._maxHealth.AddModifier(new StatModifier(HealthPercentBonus, StatModType.PercentMult, this));
 		if (ShieldPercentBonus != 0)
+        {
 			player._maxShield.AddModifier(new StatModifier(ShieldPercentBonus, StatModType.PercentMult, this));
+			player.TakeDamage(0.001f);
+        }
 		if (ShieldRegenPercentBonus != 0)
 			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenPercentBonus, StatModType.PercentMult, this));		
 	}

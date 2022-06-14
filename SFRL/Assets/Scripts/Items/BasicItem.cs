@@ -31,5 +31,6 @@ public class BasicItem : ScriptableObject
     [TextArea(5,10)]
     public string description;
     public int iD;
+    public Sprite icon; 
     public rarity rarityType;        
 }

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: High Energy Rounds
-  description: Bullets do more damage
+  description: More damage with less ammo
   iD: 1
-  rarityType: 0
+  icon: {fileID: 21300000, guid: cfc882508fbbac548a4fe15c03dd641f, type: 3}
+  rarityType: 1
   HealthBonus: 0
   ShieldBonus: 0
   ShieldRegenBonus: 0

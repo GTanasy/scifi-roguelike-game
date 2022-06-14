@@ -26,7 +26,16 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            GetComponentInParent<BuyableDoor>().NotifyPlayer();
+            var door = GetComponentInParent<BuyableDoor>();
+            var vending = GetComponentInParent<ItemVendingMachine>();
+            if (door != null)
+            {
+            door.NotifyPlayer();
+            }
+            else if (vending != null)
+            {
+                vending.NotifyPlayer();
+            }
         }
     }
 
@@ -35,7 +44,16 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            GetComponentInParent<BuyableDoor>().DenotifyPlayer();
+            var door = GetComponentInParent<BuyableDoor>();
+            var vending = GetComponentInParent<ItemVendingMachine>();
+            if (door != null)
+            {
+                door.DenotifyPlayer();
+            }
+            else if (vending != null)
+            {
+                vending.DenotifyPlayer();
+            }
         }
     }
 }
