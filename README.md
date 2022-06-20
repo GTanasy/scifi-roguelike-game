@@ -26,7 +26,31 @@ This is a game where you play as different characters and fight evil robots. Has
 <!-- PLANS AND STATUS -->
 ## Plans and Status
 
+Pre-Alpha Version 0.1 is out now.
+
 To keep check the general ideas and what is done in development process go to this link: https://app.milanote.com/1NOg8m1w3ht90G?p=1YL2fcsGvyY
+
+<!-- PRE ALPHA -->
+## Pre-Alpha
+
+The pre-alpha has the following...
+
+Norman(Player Character)
+Primary Fire: An energy rifle that does moderate damage.
+
+Secondary Fire: Hold down to charge up a powerful shot that pierces anything it hits until it contacts a wall.
+
+Ability 1: Projects a energy shield in front of norman that blocks all incoming projectiles. (Binded to Q)
+
+Ability 2: Norman throws a grenade that deals massive damage. Can be thrown threw walls and explodes on enemy contact. (Binded to E)
+
+Dash: Norman has a tactical roll which allows him to dodge projectiles and move quickly for a breif moment. (Binded to Shift)
+
+4 Enemy types, SwordBot, PistolBot, RifleBot, and MachineGunBot
+
+1 Boss, Extremely Velocious Executor or EVE
+
+EVE moves very quickly around the player and will stop to unload tons of blaster bolts toward the player.
 
 <!-- KNOWN BUGS -->
 ## Known Bugs
