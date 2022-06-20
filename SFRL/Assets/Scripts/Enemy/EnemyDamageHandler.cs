@@ -12,6 +12,7 @@ namespace CG.SFRL.Enemy
         public float _currentHealth;
         public CharacterStat _maxShield;
         float _currentShield;
+        int killCredits;
 
         public float _shieldRegenRate;
 
@@ -26,7 +27,18 @@ namespace CG.SFRL.Enemy
         public bool isDead;
         public bool isBoss;
 
+        GameManager killTracker;
+        RoundSpawner roundManager;
+        SoundManager sounds;
+
         bool _explosion;
+
+        void Awake()
+        {
+            killTracker = GameObject.Find("GameManager").GetComponent<GameManager>();
+            roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
+            sounds = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        }
 
         void Start()
         {
@@ -42,7 +54,10 @@ namespace CG.SFRL.Enemy
             }
             }
             _maxHealth.BaseValue = _enemyStats.health;
+            _maxHealth.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
+            
             _maxShield.BaseValue = _enemyStats.shield;
+            _maxShield.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
             _shieldRegenRate = 1 / _enemyStats.shieldRegenRate;
 
             _currentHealth = _maxHealth.Value;
@@ -50,12 +65,14 @@ namespace CG.SFRL.Enemy
 
             _currentShield = _maxShield.Value;
             _shieldBar.SetMaxShield(_maxShield.Value);
+            killCredits = _enemyStats.killCredits;
+            
             isDead = false;
         }
 
         private void Update()
         {
-            Debug.Log("Boss Shield: " + _maxShield.Value);
+            
         }
         public void TakeDamage(float damage)
         {
@@ -100,19 +117,19 @@ namespace CG.SFRL.Enemy
             {
                 _explosion = true;
                 TakeDamage(damage);
-                StartCoroutine(CoolDown());
+                StartCoroutine(CoolDown(damage));
             }
         }
-        IEnumerator CoolDown()
+        IEnumerator CoolDown(int damage)
         {
-            DamagePopup.Create(transform.position, 80, false, _hasShield);
+            DamagePopup.Create(transform.position, damage, false, _hasShield);
             yield return new WaitForSeconds(1.0f);
             _explosion = false;
         }
 
         IEnumerator RegenShield()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
 
             while (_currentShield < _maxShield.Value)
             {
@@ -144,9 +161,16 @@ namespace CG.SFRL.Enemy
             if (bossHealthBar != null)
             {
                 DeactivateBar(bossHealthBar);
+                killTracker.bossKills++;
+                sounds.Play("BossExplosion");
+            }
+            else
+            {
+                sounds.Play("EnemyDeath");
             }
             StopAllCoroutines();
-            MoneyController.moneyController.credits += 100;
+            MoneyController.moneyController.credits += killCredits;
+            killTracker.kills++;
             Destroy(gameObject);
         }
     }

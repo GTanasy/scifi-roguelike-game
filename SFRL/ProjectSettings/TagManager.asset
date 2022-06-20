@@ -9,6 +9,13 @@ TagManager:
   - Rooms
   - Enemy
   - Norman
+  - PauseMenu
+  - TabMenu
+  - GAMEOVER
+  - RoundCount
+  - HealthVending
+  - WeaponVending
+  - MovementVending
   layers:
   - Default
   - TransparentFX

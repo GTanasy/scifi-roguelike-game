@@ -37,7 +37,6 @@ public class ItemPickUp : MonoBehaviour
 			isDone = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			StartCoroutine(PickUpText());
-			//Destroy(gameObject, GetComponent<AudioSource>().clip.length);
 		}
 	}
 

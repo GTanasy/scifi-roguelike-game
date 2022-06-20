@@ -116,6 +116,11 @@ public class PlayerMovement : MonoBehaviour
             _imageCoolDownDash.fillAmount = _dashCool / _dashCoolDown.Value;
         }
     }
+
+    public void AdjustSpeed()
+    {
+        _currentMoveSpeed = _normalSpeed.Value;
+    }
 }
   
 

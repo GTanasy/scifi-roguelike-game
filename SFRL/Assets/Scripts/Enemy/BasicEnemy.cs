@@ -37,6 +37,7 @@ namespace CG.SFRL.Enemy
         public float shield;
         public float shieldRegenRate;
         public float armor;
+        public int killCredits;
         
 
         [Space(15)]

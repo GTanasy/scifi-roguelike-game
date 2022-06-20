@@ -16,10 +16,11 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 7567001302569099693, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
   _icon: {fileID: 7567001302569099693, guid: 75af6b3fcab6d704babb604fe8112ef5, type: 3}
   canFly: 0
-  health: 100
-  shield: 100
+  health: 50
+  shield: 150
   shieldRegenRate: 10
   armor: 0
+  killCredits: 200
   speed: 6
   bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
   enemyAttackType: Shooter
@@ -27,5 +28,5 @@ MonoBehaviour:
   attackSpeed: 16
   attackRange: 20
   engagementRange: 15
-  projectileSpeed: 10
+  projectileSpeed: 8
   spread: 50

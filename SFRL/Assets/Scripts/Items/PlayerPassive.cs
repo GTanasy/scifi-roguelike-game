@@ -72,7 +72,10 @@ public class PlayerPassive : BasicItem
 			player.Heal();
         }
 		if (ShieldBonus != 0)
+        {
 			player._maxShield.AddModifier(new StatModifier(ShieldBonus, StatModType.Flat, this));
+			player.TakeDamage(0);
+		}
 		if (ShieldRegenBonus != 0)
 			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenBonus, StatModType.Flat, this));		
 
@@ -81,7 +84,7 @@ public class PlayerPassive : BasicItem
 		if (ShieldPercentBonus != 0)
         {
 			player._maxShield.AddModifier(new StatModifier(ShieldPercentBonus, StatModType.PercentMult, this));
-			player.TakeDamage(0.001f);
+			player.TakeDamage(0);
         }
 		if (ShieldRegenPercentBonus != 0)
 			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenPercentBonus, StatModType.PercentMult, this));		
@@ -136,7 +139,10 @@ public class PlayerPassive : BasicItem
 		if (DashSpeedBonus != 0)
 			player._dashSpeed.AddModifier(new StatModifier(DashSpeedBonus, StatModType.Flat, this));
 		if (NormalSpeedBonus != 0)
+        {
 			player._normalSpeed.AddModifier(new StatModifier(NormalSpeedBonus, StatModType.Flat, this));
+			player.AdjustSpeed();
+        }
 
 		if (DashCooldownPercentBonus != 0)
 			player._dashCoolDown.AddModifier(new StatModifier(DashCooldownPercentBonus, StatModType.PercentMult, this));
@@ -145,7 +151,10 @@ public class PlayerPassive : BasicItem
 		if (DashSpeedPercentBonus != 0)
 			player._dashSpeed.AddModifier(new StatModifier(DashSpeedPercentBonus, StatModType.PercentMult, this));
 		if (NormalSpeedPercentBonus != 0)
+        {
 			player._normalSpeed.AddModifier(new StatModifier(NormalSpeedPercentBonus, StatModType.PercentMult, this));
+			player.AdjustSpeed();
+        }
 	}
 
 }

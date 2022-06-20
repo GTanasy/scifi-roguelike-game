@@ -95,6 +95,8 @@ namespace CG.SFRL.Characters
         void Die()
         {
             StopAllCoroutines();
+            GameManager gameManager = FindObjectOfType<GameManager>();
+            gameManager.Invoke("GameOver", 1.5f);
             Destroy(gameObject);
         }
 

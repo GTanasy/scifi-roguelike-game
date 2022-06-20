@@ -16,8 +16,7 @@ public class DamagePopup : MonoBehaviour
     public static DamagePopup Create(Vector3 position, float damageAmount, bool isCritialHit, bool isShield)
     {
         Transform damagePopupTransform = Instantiate(GameAssets.i.damagePopup, position, Quaternion.identity);
-        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-        Debug.Log(damagePopupTransform.GetComponent<DamagePopup>());
+        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();       
         damagePopup.Setup(damageAmount, isCritialHit, isShield);
 
         return damagePopup;

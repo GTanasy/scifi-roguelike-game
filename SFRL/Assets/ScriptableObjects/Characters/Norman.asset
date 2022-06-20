@@ -15,19 +15,19 @@ MonoBehaviour:
   _type: 0
   _characterPrefab: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
   _icon: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
-  health: 100
+  health: 200
   shield: 100
   shieldRegenRate: 10
   armor: 0
   qCooldown: 15
   eCooldown: 10
   playerBulletType: {fileID: 6377989174728032126, guid: 576de619120cedd499144f8c2d2fe0ae, type: 3}
-  criticalChance: 10
-  damage: 18
+  criticalChance: 15
+  damage: 20
   attackSpeed: 8
   attackRange: 0
   projectileSpeed: 15
-  reloadTime: 2
+  reloadTime: 1.75
   magCapacity: 25
   dashCooldown: 5
   dashLength: 0.5

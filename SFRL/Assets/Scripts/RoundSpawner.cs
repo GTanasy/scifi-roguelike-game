@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CG.SFRL.Characters;
+using TMPro;
 
 public class RoundSpawner : MonoBehaviour
 {
@@ -26,15 +27,29 @@ public class RoundSpawner : MonoBehaviour
     public Round[] rounds;
     
     int nextRound = 0;
+    public int roundCount = 1;
 
     public Transform[] spawnPoints;
 
+    TMP_Text roundCountText;
+
     public float timeBetweenRounds = 5f;
+
+    public float enemyStatsBuff = 0;
+    float timesLooped = 1;
+    public bool looped;
+
     float roundCountdown;
 
     float searchCountdown = 1f;
 
     SpawnState state = SpawnState.counting;
+
+    void Awake()
+    {
+        roundCountText = GameObject.FindGameObjectWithTag("RoundCount").GetComponent<TextMeshProUGUI>();
+        roundCountText.text = "Round:" + roundCount;
+    }
 
     void Start()
     {
@@ -70,12 +85,13 @@ public class RoundSpawner : MonoBehaviour
         {
             roundCountdown -= Time.deltaTime;
         }
-        Debug.Log(nextRound);
     }
 
     void RoundCompleted()
     {
         Debug.Log("Round Complete");
+        roundCount++;
+        roundCountText.text = "Round:" + roundCount;
 
         state = SpawnState.counting;
         roundCountdown = timeBetweenRounds;
@@ -83,6 +99,9 @@ public class RoundSpawner : MonoBehaviour
         if (nextRound + 1 > rounds.Length - 1)
         {
             nextRound = 0;
+            enemyStatsBuff = 1f * timesLooped;
+            looped = true;
+            timesLooped++;
             Debug.Log("All Rounds Complete! Looping...");
         }
         else
@@ -109,6 +128,14 @@ public class RoundSpawner : MonoBehaviour
     {
         Debug.Log("Spawning Round: " + _round.name);
         state = SpawnState.spawning;
+        if (looped == true)
+        {
+            _round.amount = _round.amount * 2;
+        }
+        if (_round.name == "Round 20")
+        {
+            _round.amount = 1;
+        }
 
         for (int i = 0; i < _round.amount; i++)
         {

@@ -13,6 +13,8 @@ public class AIMovement : MonoBehaviour
     float _engagementRange;
     [SerializeField] LayerMask layerMask;
 
+    RoundSpawner roundManager;
+
     bool inLOS;
 
     Transform target;
@@ -35,7 +37,8 @@ public class AIMovement : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player").transform != null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
-        }      
+        }
+        roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
     }
 
     // Start is called before the first frame update
@@ -48,6 +51,10 @@ public class AIMovement : MonoBehaviour
         _engagementRange = _enemyStats.engagementRange;
         _attackSpeed = _enemyStats.attackSpeed;
         agent.speed = _enemyStats.speed;
+        if (roundManager.looped == true)
+        {
+            agent.speed += 2;
+        }
 
         _state = State.ChaseTarget;
         _timeBetweenShots = 1 / _attackSpeed;

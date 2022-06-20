@@ -11,6 +11,8 @@ public class EnemyAimWeapon : MonoBehaviour
     Transform _aimTransform;
     Transform _player;
 
+    RoundSpawner roundManager;
+
     public string _enemyType;
 
     public SpriteRenderer _gun;
@@ -29,6 +31,7 @@ public class EnemyAimWeapon : MonoBehaviour
     {
         _aimTransform = transform.Find("Aim");
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
     }
 
     void Start()
@@ -37,6 +40,7 @@ public class EnemyAimWeapon : MonoBehaviour
         _bulletForce.BaseValue = _enemyStats.projectileSpeed;
         _attackRange.BaseValue = _enemyStats.attackRange;
         _damage.BaseValue = _enemyStats.damage;
+        _damage.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
         _enemyType = _enemyStats.enemyAttackType;
         _spread.BaseValue = _enemyStats.spread;
     }

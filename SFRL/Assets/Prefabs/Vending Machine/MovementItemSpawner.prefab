@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3375185000558363018
+--- !u!1 &8030416967713555070
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3375185000558363016}
-  - component: {fileID: 3375185000558363019}
+  - component: {fileID: 8030416967713555068}
+  - component: {fileID: 8030416967713555071}
   m_Layer: 0
-  m_Name: ItemSpawner
+  m_Name: MovementItemSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3375185000558363016
+--- !u!4 &8030416967713555068
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3375185000558363018}
+  m_GameObject: {fileID: 8030416967713555070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,28 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3375185000558363019
+--- !u!114 &8030416967713555071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3375185000558363018}
+  m_GameObject: {fileID: 8030416967713555070}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f83edfccdbad445a2c9420239082fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - gameobject: {fileID: 677153823722758976, guid: cd82f260a4393654c8b61e9e7d2b01f2, type: 3}
-    weight: 15
+  - gameobject: {fileID: 1575598069006989334, guid: a88593e60f617e7459f4327da4091989, type: 3}
+    weight: 30
+  - gameobject: {fileID: 6137389335886830196, guid: 6272d77fc3c5ce74faf69dc6fae2df40, type: 3}
+    weight: 30
   - gameobject: {fileID: 6816823120087372142, guid: fcf6ba11442485e4da042e8358e0e69d, type: 3}
-    weight: 10
-  - gameobject: {fileID: 7570066399854352376, guid: 0e97d0bfa64e400429e219d74b645d85, type: 3}
-    weight: 10
-  - gameobject: {fileID: 2617310271019618641, guid: a05a22a276bf5e548aeb6b464ad75372, type: 3}
     weight: 30
-  - gameobject: {fileID: 6079226112606067284, guid: f725a139877c26f45866b158d104b983, type: 3}
-    weight: 30
-  - gameobject: {fileID: 7713590607615727381, guid: 67964bbf1b52585419a222f5558b676c, type: 3}
-    weight: 5
+  - gameobject: {fileID: 6571139424272231071, guid: 6910402fd213c0640ab25d75908479df, type: 3}
+    weight: 10

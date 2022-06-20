@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
     {
         if (isInRange)
         {
-            if (Input.GetKeyDown(interactKey))
+            if (Input.GetKeyDown(interactKey) && Time.timeScale != 0)
             {
                 interactAction.Invoke();
             }

@@ -22,10 +22,19 @@ public class MoneyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        creditText = GameObject.Find("UI/Credits").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
+        if (creditText == null)
+        {
+            credits = 0;
+            if (GameObject.Find("UI/Credits") != null)
+            {
+                creditText = GameObject.Find("UI/Credits").GetComponent<TextMeshProUGUI>();
+            }
+        }
         creditText.text = "Credits: " + credits.ToString();
     }
 }

@@ -158,11 +158,11 @@ public class Shooting : MonoBehaviour
     {
         if (time >= 4.0f)
         {
-            _pDamage = 100.0f;
+            _pDamage = 300.0f;
         }
         else
         {
-            _pDamage = time * 25.0f;
+            _pDamage = time * 75.0f;
         }
     }
 

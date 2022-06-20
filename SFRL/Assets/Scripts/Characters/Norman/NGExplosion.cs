@@ -17,7 +17,7 @@ public class NGExplosion : MonoBehaviour
             EnemyDamageHandler _enemy = col.GetComponent<EnemyDamageHandler>();
             if (_enemy != null)
             {
-                _enemy.ExplosionDamage(80);                
+                _enemy.ExplosionDamage(200);                
             }
         }
         Invoke("Destroy", 0.5f);
