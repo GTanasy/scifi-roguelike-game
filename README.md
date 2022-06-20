@@ -61,6 +61,8 @@ Norman being too fast can occasionally glitch into the walls.
 
 Vending machines if bought quickly will only give the same item (However cannot confirm or deny if its actually a problem might just be luck)
 
+Sometimes SwordBot just stands still when Norman stands at specific locations
+
 ## Installation
 
 Dowload the latest version from [releases](https://github.com/Jrumfelt/scifi-roguelike-game/releases)<br>
