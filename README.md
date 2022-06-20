@@ -52,6 +52,8 @@ Dash: Norman has a tactical roll which allows him to dodge projectiles and move 
 
 EVE moves very quickly around the player and will stop to unload tons of blaster bolts toward the player.
 
+19 Items to help you through the rounds purchased at vending machines around the map.
+
 <!-- KNOWN BUGS -->
 ## Known Bugs
 
