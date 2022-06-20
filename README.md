@@ -28,6 +28,13 @@ This is a game where you play as different characters and fight evil robots. Has
 
 To keep check the general ideas and what is done in development process go to this link: https://app.milanote.com/1NOg8m1w3ht90G?p=1YL2fcsGvyY
 
+<!-- KNOWN BUGS -->
+## Known Bugs
+
+Norman being too fast can occasionally glitch into the walls.
+
+Vending machines if bought quickly will only give the same item (However can confirm or deny if its actually a problem might just be luck)
+
 ## Installation
 
 Dowload the latest version from [releases](https://github.com/Jrumfelt/scifi-roguelike-game/releases)<br>
