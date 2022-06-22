@@ -59,7 +59,9 @@ EVE moves very quickly around the player and will stop to unload tons of blaster
 
 Norman being too fast can occasionally glitch into the walls.
 
-Vending machines if bought quickly will only give the same item (However can confirm or deny if its actually a problem might just be luck)
+Vending machines if bought quickly will only give the same item (However cannot confirm or deny if its actually a problem might just be luck)
+
+Sometimes SwordBot just stands still when Norman stands at specific locations
 
 ## Installation
 
