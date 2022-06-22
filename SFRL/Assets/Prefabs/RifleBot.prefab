@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5b617cc97824142b5dd336e008cad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1964731533139948049}
+  slider: {fileID: 1964731533139948049}
 --- !u!1 &2097215315294079909
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60cc491230f304d8a785d71a3608d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 4916243600483433531}
+  slider: {fileID: 4916243600483433531}
 --- !u!1 &2111393038099737885
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,6 @@ MonoBehaviour:
   ReloadSpeedPercentBonus: 0
   MagCapPercentBonus: 0
   DashCooldownPercentBonus: 0
-  DashLengthPercentBonus: 0.5
+  DashLengthPercentBonus: 0.1
   DashSpeedPercentBonus: 0
   NormalSpeedPercentBonus: 0

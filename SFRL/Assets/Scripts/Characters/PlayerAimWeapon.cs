@@ -8,16 +8,12 @@ public class PlayerAimWeapon : MonoBehaviour
 
     Vector3 _mousePos;
 
-    public Camera cam;
+    Camera cam;
 
     void Awake()
     {
         _aimTransform = transform.Find("Aim");
-    }
-
-    void Update()
-    {
-        
+        cam = GameObject.Find("GameHandler/Main Camera").GetComponent<Camera>();
     }
 
     void FixedUpdate()

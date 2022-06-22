@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
-        _volumeSlider = GameObject.Find("UI/PauseMenu/VolumeSlider").GetComponent<Slider>();
+        _volumeSlider = GameObject.Find("GameHandler/UI/Canvas/PauseMenu/VolumeSlider").GetComponent<Slider>();
     }
 
     void Start()

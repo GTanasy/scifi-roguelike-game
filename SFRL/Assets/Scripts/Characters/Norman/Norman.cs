@@ -8,11 +8,11 @@ namespace CG.SFRL.Characters
 {
     public class Norman : MonoBehaviour
     {
-        [SerializeField] private Image _imageCoolDownGrenade;
-        [SerializeField] private TMP_Text _textCoolDownGrenade;
+        Image _imageCoolDownGunShield;
+        TMP_Text _textCoolDownGunShield;
 
-        [SerializeField] private Image _imageCoolDownGunShield;
-        [SerializeField] private TMP_Text _textCoolDownGunShield;
+        Image _imageCoolDownGrenade;
+        TMP_Text _textCoolDownGrenade;
 
         public GameObject grenade;
         public GameObject gunShield;
@@ -27,6 +27,15 @@ namespace CG.SFRL.Characters
         float _grenadeCooldown;
 
         public BasicCharacter characterStats;
+
+        void Awake()
+        {
+            _imageCoolDownGunShield = GameObject.Find("GameHandler/UI/Canvas/Ability1/Button/Image").GetComponent<Image>();
+            _textCoolDownGunShield = GameObject.Find("GameHandler/UI/Canvas/Ability1/Button/Text").GetComponent<TMP_Text>();
+
+            _imageCoolDownGrenade = GameObject.Find("GameHandler/UI/Canvas/Ability2/Button/Image").GetComponent<Image>();
+            _textCoolDownGrenade = GameObject.Find("GameHandler/UI/Canvas/Ability2/Button/Text").GetComponent<TMP_Text>();
+        }
 
         // Start is called before the first frame update
         void Start()

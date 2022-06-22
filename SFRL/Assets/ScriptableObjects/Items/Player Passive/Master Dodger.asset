@@ -48,7 +48,7 @@ MonoBehaviour:
   ProjectileSpeedPercentBonus: 0
   ReloadSpeedPercentBonus: 0
   MagCapPercentBonus: 0
-  DashCooldownPercentBonus: -0.5
-  DashLengthPercentBonus: 0.5
-  DashSpeedPercentBonus: 0.5
+  DashCooldownPercentBonus: -0.3
+  DashLengthPercentBonus: 0.3
+  DashSpeedPercentBonus: 0.3
   NormalSpeedPercentBonus: 0

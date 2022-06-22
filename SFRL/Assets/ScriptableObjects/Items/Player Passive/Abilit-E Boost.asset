@@ -40,7 +40,7 @@ MonoBehaviour:
   ShieldRegenPercentBonus: 0
   ArmorPercentBonus: 0
   QCooldownPercentBonus: 0
-  ECooldownPercentBonus: -0.25
+  ECooldownPercentBonus: -0.2
   CritChancePercentBonus: 0
   DamagePercentBonus: 0
   AttackSpeedPercentBonus: 0

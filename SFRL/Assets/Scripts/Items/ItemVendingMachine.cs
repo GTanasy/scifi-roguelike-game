@@ -12,11 +12,14 @@ public class ItemVendingMachine : MonoBehaviour
     public int itemsBought;
     TMP_Text _buyText;
 
+    MoneyController _moneyController;
+
     public string vendingType;
 
     void Start()
     {
-        _buyText = GameObject.Find("UI/PopUpPrice").GetComponent<TextMeshProUGUI>();       
+        _buyText = GameObject.Find("GameHandler/UI/Canvas/PopUpPrice").GetComponent<TextMeshProUGUI>();
+        _moneyController = GameObject.Find("GameHandler/MoneyController").GetComponent<MoneyController>();
     }
 
     private void Update()
@@ -26,10 +29,10 @@ public class ItemVendingMachine : MonoBehaviour
     {
         Debug.Log("Price: " + price);
         Debug.Log("Items Bought: " + itemsBought);
-        if (MoneyController.moneyController.credits >= price && vendingType != "Hero")
+        if (_moneyController.credits >= price && vendingType != "Hero")
         {
             Instantiate(itemSpawner, iSP.position, iSP.rotation);
-            MoneyController.moneyController.credits -= price;
+            _moneyController.credits -= price;
             itemsBought++;
             price += (itemsBought * priceMultiplier);
             NotifyPlayer();

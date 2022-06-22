@@ -50,5 +50,5 @@ MonoBehaviour:
   MagCapPercentBonus: 0
   DashCooldownPercentBonus: 0
   DashLengthPercentBonus: 0
-  DashSpeedPercentBonus: 0.2
+  DashSpeedPercentBonus: 0.1
   NormalSpeedPercentBonus: 0

@@ -25,6 +25,8 @@ namespace CG.SFRL.Characters
         public GameObject _characterPrefab;
         public GameObject _icon;
 
+        public Sprite ability1Image;
+
         [Space(15)]
         [Header("Character Base Stats")]
         [Space(15)]

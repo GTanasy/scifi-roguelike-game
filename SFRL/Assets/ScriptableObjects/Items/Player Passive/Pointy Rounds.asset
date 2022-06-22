@@ -41,8 +41,8 @@ MonoBehaviour:
   ArmorPercentBonus: 0
   QCooldownPercentBonus: 0
   ECooldownPercentBonus: 0
-  CritChancePercentBonus: 0.25
-  DamagePercentBonus: 0.25
+  CritChancePercentBonus: 0.2
+  DamagePercentBonus: 0.2
   AttackSpeedPercentBonus: 0
   RangePercentBonus: 0
   ProjectileSpeedPercentBonus: 0

@@ -30,6 +30,7 @@ namespace CG.SFRL.Enemy
         GameManager _killTracker;
         RoundSpawner _roundManager;
         SoundManager _sounds;
+        MoneyController _moneyController;
 
         bool _explosion;
 
@@ -38,6 +39,7 @@ namespace CG.SFRL.Enemy
             _killTracker = GameObject.Find("GameManager").GetComponent<GameManager>();
             _roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
             _sounds = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+            _moneyController = GameObject.Find("GameHandler/MoneyController").GetComponent<MoneyController>();
         }
 
         void Start()
@@ -169,7 +171,7 @@ namespace CG.SFRL.Enemy
                 _sounds.Play("EnemyDeath");
             }
             StopAllCoroutines();
-            MoneyController.moneyController.credits += _killCredits;
+            _moneyController.credits += _killCredits;
             _killTracker.kills++;
             Destroy(gameObject);
         }

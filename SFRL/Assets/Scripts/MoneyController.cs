@@ -5,7 +5,6 @@ using TMPro;
 
 public class MoneyController : MonoBehaviour
 {
-    public static MoneyController moneyController;
 
     public TMP_Text creditText;
 
@@ -13,16 +12,7 @@ public class MoneyController : MonoBehaviour
 
     void Awake()
     {
-        if (moneyController == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            moneyController = this;
-        }
-        else if (moneyController != this)
-        {
-            Destroy(gameObject);
-        }
-        creditText = GameObject.Find("UI/Credits").GetComponent<TextMeshProUGUI>();
+        creditText = GameObject.Find("GameHandler/UI/Canvas/Credits").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -30,9 +20,9 @@ public class MoneyController : MonoBehaviour
         if (creditText == null)
         {
             credits = 0;
-            if (GameObject.Find("UI/Credits") != null)
+            if (GameObject.Find("GameHandler/UI/Canvas/Credits") != null)
             {
-                creditText = GameObject.Find("UI/Credits").GetComponent<TextMeshProUGUI>();
+                creditText = GameObject.Find("GameHandler/UI/Canvas/Credits").GetComponent<TextMeshProUGUI>();
             }
         }
         creditText.text = "Credits: " + credits.ToString();

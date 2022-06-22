@@ -16,9 +16,9 @@ public class ItemPickUp : MonoBehaviour
 	TMP_Text _descriptionText;
     void Awake()
     {
-		_icon = GameObject.Find("UI/ItemPopUp/ItemIcon").GetComponent<Image>();
-		_titleText = GameObject.Find("UI/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
-		_descriptionText = GameObject.Find("UI/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
+		_icon = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemIcon").GetComponent<Image>();
+		_titleText = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
+		_descriptionText = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
 		_iconScale = _icon.GetComponent<RectTransform>();
 		_iconScale.localScale = Vector3.zero;
 	}
