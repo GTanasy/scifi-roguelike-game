@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class ShieldBar : MonoBehaviour
 {
 
-    public Slider _slider;
+    public Slider slider;
 
     public void SetMaxShield(float shield)
     {
-        _slider.maxValue = shield;
-        _slider.value = shield;
+        slider.maxValue = shield;
+        slider.value = shield;
     }
 
     public void SetShield(float shield)
     {
-        _slider.value = shield;
+        slider.value = shield;
     }
 }

@@ -10,13 +10,13 @@ public class ItemVendingMachine : MonoBehaviour
     public GameObject itemSpawner;
     public Transform iSP;
     public int itemsBought;
-    TMP_Text buyText;
+    TMP_Text _buyText;
 
     public string vendingType;
 
     void Start()
     {
-        buyText = GameObject.Find("UI/PopUpPrice").GetComponent<TextMeshProUGUI>();       
+        _buyText = GameObject.Find("UI/PopUpPrice").GetComponent<TextMeshProUGUI>();       
     }
 
     private void Update()
@@ -40,31 +40,31 @@ public class ItemVendingMachine : MonoBehaviour
     {
         if (vendingType == "Health")
         {
-            buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
+            _buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
             + ") to buy a random health item Cost: (" + price + ")";
         }
         else if (vendingType == "Weapon")
         {
-            buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
+            _buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
             + ") to buy a random weapon item Cost: (" + price + ")";
         }
         else if (vendingType == "Movement")
         {
-            buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
+            _buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString()
             + ") to buy a random movement item Cost: (" + price + ")";
         }
         else if (vendingType == "Hero")
         {
-            buyText.text = "OUT OF ORDER";
+            _buyText.text = "OUT OF ORDER";
         }
         else
         {
-            buyText.text = "ERROR no vending machine type";
+            _buyText.text = "ERROR no vending machine type";
         }        
     }
 
     public void DenotifyPlayer()
     {
-        buyText.text = "";
+        _buyText.text = "";
     }
 }

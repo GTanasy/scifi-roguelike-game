@@ -6,38 +6,38 @@ namespace CG.SFRL.Enemy
 {
     public class EnemyDamageHandler : MonoBehaviour
     {
-        public BasicEnemy _enemyStats;
+        public BasicEnemy enemyStats;
 
-        public CharacterStat _maxHealth;
-        public float _currentHealth;
-        public CharacterStat _maxShield;
+        public CharacterStat maxHealth;
+        public float currentHealth;
+        public CharacterStat maxShield;
         float _currentShield;
-        int killCredits;
+        int _killCredits;
 
-        public float _shieldRegenRate;
+        public float shieldRegenRate;
 
         Coroutine _regen;
 
         RectTransform bossHealthBar;
 
-        public HealthBar _healthBar;
-        public ShieldBar _shieldBar;
+        public HealthBar healthBar;
+        public ShieldBar shieldBar;
 
-        public bool _hasShield;
+        public bool hasShield;
         public bool isDead;
         public bool isBoss;
 
-        GameManager killTracker;
-        RoundSpawner roundManager;
-        SoundManager sounds;
+        GameManager _killTracker;
+        RoundSpawner _roundManager;
+        SoundManager _sounds;
 
         bool _explosion;
 
         void Awake()
         {
-            killTracker = GameObject.Find("GameManager").GetComponent<GameManager>();
-            roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
-            sounds = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+            _killTracker = GameObject.Find("GameManager").GetComponent<GameManager>();
+            _roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
+            _sounds = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         }
 
         void Start()
@@ -49,23 +49,23 @@ namespace CG.SFRL.Enemy
             if (bossHealthBar != null)
             {
                 ActivateBar(bossHealthBar);
-                _healthBar = bossHealthBar.gameObject.GetComponentInChildren<HealthBar>();
-                _shieldBar = bossHealthBar.gameObject.GetComponentInChildren<ShieldBar>();
+                healthBar = bossHealthBar.gameObject.GetComponentInChildren<HealthBar>();
+                shieldBar = bossHealthBar.gameObject.GetComponentInChildren<ShieldBar>();
             }
             }
-            _maxHealth.BaseValue = _enemyStats.health;
-            _maxHealth.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
+            maxHealth.BaseValue = enemyStats.health;
+            maxHealth.AddModifier(new StatModifier(_roundManager.enemyStatsBuff, StatModType.PercentMult));
             
-            _maxShield.BaseValue = _enemyStats.shield;
-            _maxShield.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
-            _shieldRegenRate = 1 / _enemyStats.shieldRegenRate;
+            maxShield.BaseValue = enemyStats.shield;
+            maxShield.AddModifier(new StatModifier(_roundManager.enemyStatsBuff, StatModType.PercentMult));
+            shieldRegenRate = 1 / enemyStats.shieldRegenRate;
 
-            _currentHealth = _maxHealth.Value;
-            _healthBar.SetMaxHealth(_maxHealth.Value);
+            currentHealth = maxHealth.Value;
+            healthBar.SetMaxHealth(maxHealth.Value);
 
-            _currentShield = _maxShield.Value;
-            _shieldBar.SetMaxShield(_maxShield.Value);
-            killCredits = _enemyStats.killCredits;
+            _currentShield = maxShield.Value;
+            shieldBar.SetMaxShield(maxShield.Value);
+            _killCredits = enemyStats.killCredits;
             
             isDead = false;
         }
@@ -78,13 +78,13 @@ namespace CG.SFRL.Enemy
         {
             if (_currentShield <= 0)
             {
-                _hasShield = false;
+                hasShield = false;
                 _currentShield = 0;
                 TakeHealthDamage(damage);
             }
             else
             {
-                _hasShield = true;
+                hasShield = true;
                 TakeShieldDamage(damage);
             }
 
@@ -94,21 +94,21 @@ namespace CG.SFRL.Enemy
             }
             _regen = StartCoroutine(RegenShield());
 
-            if(_currentHealth <= 0)
+            if(currentHealth <= 0)
             {
                 Die();
             }
         }
         void TakeHealthDamage(float damage)
         {
-            _currentHealth -= damage;
-            _healthBar.SetHealth(_currentHealth);
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
         }
 
         void TakeShieldDamage(float damage)
         {
             _currentShield -= damage;
-            _shieldBar.SetShield(_currentShield);
+            shieldBar.SetShield(_currentShield);
         }
 
         public void ExplosionDamage(int damage)
@@ -122,7 +122,7 @@ namespace CG.SFRL.Enemy
         }
         IEnumerator CoolDown(int damage)
         {
-            DamagePopup.Create(transform.position, damage, false, _hasShield);
+            DamagePopup.Create(transform.position, damage, false, hasShield);
             yield return new WaitForSeconds(1.0f);
             _explosion = false;
         }
@@ -131,11 +131,11 @@ namespace CG.SFRL.Enemy
         {
             yield return new WaitForSeconds(5);
 
-            while (_currentShield < _maxShield.Value)
+            while (_currentShield < maxShield.Value)
             {
                 _currentShield++;
-                _shieldBar.SetShield(_currentShield);
-                yield return new WaitForSeconds(_shieldRegenRate);
+                shieldBar.SetShield(_currentShield);
+                yield return new WaitForSeconds(shieldRegenRate);
             }
         }
 
@@ -161,16 +161,16 @@ namespace CG.SFRL.Enemy
             if (bossHealthBar != null)
             {
                 DeactivateBar(bossHealthBar);
-                killTracker.bossKills++;
-                sounds.Play("BossExplosion");
+                _killTracker.bossKills++;
+                _sounds.Play("BossExplosion");
             }
             else
             {
-                sounds.Play("EnemyDeath");
+                _sounds.Play("EnemyDeath");
             }
             StopAllCoroutines();
-            MoneyController.moneyController.credits += killCredits;
-            killTracker.kills++;
+            MoneyController.moneyController.credits += _killCredits;
+            _killTracker.kills++;
             Destroy(gameObject);
         }
     }

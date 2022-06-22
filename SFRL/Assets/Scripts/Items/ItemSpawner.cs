@@ -11,20 +11,20 @@ public class ItemSpawner : MonoBehaviour
         public float weight;
     }
     public List<Spawnable> items = new List<Spawnable>();
-    float totalWeight;
+    float _totalWeight;
 
     void Awake()
     {
-        totalWeight = 0;
+        _totalWeight = 0;
         foreach(var spawnable in items)
         {
-            totalWeight += spawnable.weight;
+            _totalWeight += spawnable.weight;
         }
     }
 
     void Start()
     {
-        float pick = Random.value * totalWeight;
+        float pick = Random.value * _totalWeight;
         int chosenIndex = 0;
         float cumulativeWeight = items[0].weight;
 

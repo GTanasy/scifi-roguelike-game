@@ -7,18 +7,17 @@ using CG.SFRL.Characters;
 
 public class AIMovement : MonoBehaviour
 {
-    public BasicEnemy _enemyStats;
+    public BasicEnemy enemyStats;
     float _attackSpeed;
     float _timeBetweenShots;
     float _engagementRange;
-    [SerializeField] LayerMask layerMask;
 
     RoundSpawner roundManager;
 
     bool inLOS;
 
-    Transform target;
-    NavMeshAgent agent;
+    Transform _target;
+    NavMeshAgent _agent;
 
     EnemyAimWeapon _enemyAimWeapon;
     
@@ -36,7 +35,7 @@ public class AIMovement : MonoBehaviour
         _enemyAimWeapon = gameObject.GetComponent<EnemyAimWeapon>();
         if (GameObject.FindGameObjectWithTag("Player").transform != null)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            _target = GameObject.FindGameObjectWithTag("Player").transform;
         }
         roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
     }
@@ -44,16 +43,16 @@ public class AIMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
 
-        _engagementRange = _enemyStats.engagementRange;
-        _attackSpeed = _enemyStats.attackSpeed;
-        agent.speed = _enemyStats.speed;
+        _engagementRange = enemyStats.engagementRange;
+        _attackSpeed = enemyStats.attackSpeed;
+        _agent.speed = enemyStats.speed;
         if (roundManager.looped == true)
         {
-            agent.speed += 2;
+            _agent.speed += 2;
         }
 
         _state = State.ChaseTarget;
@@ -70,9 +69,9 @@ public class AIMovement : MonoBehaviour
     void FindTarget()
     {
         float _targetRange = 10f;
-        if (target != null)
+        if (_target != null)
         {
-            if (Vector3.Distance(transform.position, target.position) < _targetRange)
+            if (Vector3.Distance(transform.position, _target.position) < _targetRange)
             {
                 _state = State.ChaseTarget;
             }
@@ -94,10 +93,10 @@ public class AIMovement : MonoBehaviour
                 FindTarget();
                 break;
             case State.ChaseTarget:
-                if (target != null)
+                if (_target != null)
                 {
-                    agent.SetDestination(target.position);
-                    Vector3 _lookDirection = (target.position - transform.position).normalized;
+                    _agent.SetDestination(_target.position);
+                    Vector3 _lookDirection = (_target.position - transform.position).normalized;
                     float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
                     RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(_angle));
 
@@ -135,11 +134,11 @@ public class AIMovement : MonoBehaviour
 
 
 
-                    if (Vector3.Distance(transform.position, target.position) < _engagementRange && inLOS == true)
+                    if (Vector3.Distance(transform.position, _target.position) < _engagementRange && inLOS == true)
                     {
                         if (Time.time > _timeBetweenShots)
                         {                            
-                            agent.isStopped = true;
+                            _agent.isStopped = true;
                             _enemyAimWeapon.Shoot();
                             _timeBetweenShots = Time.time + (1 / _attackSpeed);
                         }
@@ -147,7 +146,7 @@ public class AIMovement : MonoBehaviour
                     }
                     else
                     {
-                        agent.isStopped = false;
+                        _agent.isStopped = false;
                     }
                 }
                 break;

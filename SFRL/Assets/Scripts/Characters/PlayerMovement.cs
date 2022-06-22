@@ -22,33 +22,33 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera _cam;
 
-    Animator _animator;
-    public AnimationClip _rollAnim;
+    Animator _walkingAnimator;
+    public AnimationClip rollAnim;
 
     float _currentMoveSpeed;
 
-    public CharacterStat _normalSpeed;
+    public CharacterStat normalSpeed;
 
-    public CharacterStat _dashSpeed;
-    public CharacterStat _dashLength;
-    public CharacterStat _dashCoolDown;
+    public CharacterStat dashSpeed;
+    public CharacterStat dashLength;
+    public CharacterStat dashCoolDown;
 
     float _dashCool;
     float _dashCounter;
 
     void Start()
     {
-        _normalSpeed.BaseValue = _moveStats.normalSpeed;
-        _currentMoveSpeed = _normalSpeed.Value;
+        normalSpeed.BaseValue = _moveStats.normalSpeed;
+        _currentMoveSpeed = normalSpeed.Value;
 
         _textCoolDownDash.gameObject.SetActive(false);
         _imageCoolDownDash.fillAmount = 0.0f;
 
-        _dashSpeed.BaseValue = _moveStats.dashSpeed;
-        _dashLength.BaseValue = _moveStats.dashLength;
-        _dashCoolDown.BaseValue = _moveStats.dashCooldown;
+        dashSpeed.BaseValue = _moveStats.dashSpeed;
+        dashLength.BaseValue = _moveStats.dashLength;
+        dashCoolDown.BaseValue = _moveStats.dashCooldown;
 
-        _animator = gameObject.GetComponent<Animator>();
+        _walkingAnimator = gameObject.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -74,20 +74,20 @@ public class PlayerMovement : MonoBehaviour
         _movement.x = _horizontal;
         _movement.y = _vertical;
 
-        _animator.SetFloat("Horizontal", _movement.x);
-        _animator.SetFloat("Vertical", _movement.y);
-        _animator.SetFloat("Speed", _movement.sqrMagnitude);
+        _walkingAnimator.SetFloat("Horizontal", _movement.x);
+        _walkingAnimator.SetFloat("Vertical", _movement.y);
+        _walkingAnimator.SetFloat("Speed", _movement.sqrMagnitude);
     }
 
     void Dodge()
     {
         if (_dashCool <= 0 && _dashCounter <= 0)
         {
-            _animator.speed = _rollAnim.length / _dashLength.Value;
-            _animator.SetBool("isRolling", true);
+            _walkingAnimator.speed = rollAnim.length / dashLength.Value;
+            _walkingAnimator.SetBool("isRolling", true);
             _hitBox.enabled = !_hitBox.enabled;
-            _currentMoveSpeed = _dashSpeed.Value;
-            _dashCounter = _dashLength.Value;
+            _currentMoveSpeed = dashSpeed.Value;
+            _dashCounter = dashLength.Value;
         }
     }
 
@@ -100,10 +100,10 @@ public class PlayerMovement : MonoBehaviour
             if (_dashCounter <= 0)
             {
                 _hitBox.enabled = !_hitBox.enabled;
-                _currentMoveSpeed = _normalSpeed.Value;
-                _animator.SetBool("isRolling", false);
-                _animator.speed = 1;
-                _dashCool = _dashCoolDown.Value;
+                _currentMoveSpeed = normalSpeed.Value;
+                _walkingAnimator.SetBool("isRolling", false);
+                _walkingAnimator.speed = 1;
+                _dashCool = dashCoolDown.Value;
                 _textCoolDownDash.gameObject.SetActive(false);
                 _imageCoolDownDash.fillAmount = 0.0f;
             }
@@ -113,13 +113,13 @@ public class PlayerMovement : MonoBehaviour
         {
             _dashCool -= Time.deltaTime;
             _textCoolDownDash.text = Mathf.RoundToInt(_dashCool).ToString();
-            _imageCoolDownDash.fillAmount = _dashCool / _dashCoolDown.Value;
+            _imageCoolDownDash.fillAmount = _dashCool / dashCoolDown.Value;
         }
     }
 
     public void AdjustSpeed()
     {
-        _currentMoveSpeed = _normalSpeed.Value;
+        _currentMoveSpeed = normalSpeed.Value;
     }
 }
   

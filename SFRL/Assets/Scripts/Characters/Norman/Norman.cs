@@ -14,25 +14,25 @@ namespace CG.SFRL.Characters
         [SerializeField] private Image _imageCoolDownGunShield;
         [SerializeField] private TMP_Text _textCoolDownGunShield;
 
-        public GameObject _grenade;
-        public GameObject _gunShield;
+        public GameObject grenade;
+        public GameObject gunShield;
 
-        public Animator _animator;
+        public Animator animator;
 
-        public float _gunShieldDuration;
+        public float gunShieldDuration;
 
-        public CharacterStat _maxGunShieldCooldown;
-        public CharacterStat _maxGrenadeCooldown;
+        public CharacterStat maxGunShieldCooldown;
+        public CharacterStat maxGrenadeCooldown;
         float _gunShieldCooldown;
         float _grenadeCooldown;
 
-        public BasicCharacter _characterStats;
+        public BasicCharacter characterStats;
 
         // Start is called before the first frame update
         void Start()
         {           
-            _maxGunShieldCooldown.BaseValue = _characterStats.qCooldown;
-            _maxGrenadeCooldown.BaseValue = _characterStats.eCooldown;            
+            maxGunShieldCooldown.BaseValue = characterStats.qCooldown;
+            maxGrenadeCooldown.BaseValue = characterStats.eCooldown;            
 
             _textCoolDownGrenade.gameObject.SetActive(false);
             _imageCoolDownGrenade.fillAmount = 0.0f;
@@ -54,7 +54,7 @@ namespace CG.SFRL.Characters
             {
                 _gunShieldCooldown -= Time.deltaTime;
                 _textCoolDownGunShield.text = Mathf.RoundToInt(_gunShieldCooldown).ToString();
-                _imageCoolDownGunShield.fillAmount = _gunShieldCooldown / _maxGunShieldCooldown.Value;
+                _imageCoolDownGunShield.fillAmount = _gunShieldCooldown / maxGunShieldCooldown.Value;
             }
             if (_gunShieldCooldown < 0)
             {
@@ -70,7 +70,7 @@ namespace CG.SFRL.Characters
             {
                 _grenadeCooldown -= Time.deltaTime;
                 _textCoolDownGrenade.text = Mathf.RoundToInt(_grenadeCooldown).ToString();
-                _imageCoolDownGrenade.fillAmount = _grenadeCooldown / _maxGrenadeCooldown.Value;
+                _imageCoolDownGrenade.fillAmount = _grenadeCooldown / maxGrenadeCooldown.Value;
             }
             if (_grenadeCooldown < 0)
             {
@@ -84,14 +84,14 @@ namespace CG.SFRL.Characters
         {
             if (Input.GetKeyDown(KeyCode.E) && _grenadeCooldown == 0)
             {
-                _grenadeCooldown = _maxGrenadeCooldown.Value;
-                Instantiate(_grenade, transform.position, Quaternion.identity);
+                _grenadeCooldown = maxGrenadeCooldown.Value;
+                Instantiate(grenade, transform.position, Quaternion.identity);
                 _textCoolDownGrenade.gameObject.SetActive(true);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && _gunShieldCooldown == 0)
             {
-                _gunShieldCooldown = _maxGunShieldCooldown.Value;
+                _gunShieldCooldown = maxGunShieldCooldown.Value;
                 StartCoroutine(GunShieldUp());
                 _textCoolDownGunShield.gameObject.SetActive(true);
             }
@@ -100,13 +100,13 @@ namespace CG.SFRL.Characters
         IEnumerator GunShieldUp()
         {
             yield return new WaitForSeconds(0);
-            _gunShield.SetActive(true);
-            _animator.SetFloat("GunShieldUp", 1);
+            gunShield.SetActive(true);
+            animator.SetFloat("GunShieldUp", 1);
 
-            yield return new WaitForSeconds(_gunShieldDuration);
-            _animator.SetFloat("GunShieldUp", -1);
+            yield return new WaitForSeconds(gunShieldDuration);
+            animator.SetFloat("GunShieldUp", -1);
             yield return new WaitForSeconds(0.2f);
-            _gunShield.SetActive(false);
+            gunShield.SetActive(false);
         }
     }
 }

@@ -6,8 +6,8 @@ using CG.SFRL.Enemy;
 
 public class Bullet : MonoBehaviour
 {
-    public bool _isPlayerBullet;
-    public float _damage;
+    public bool isPlayerBullet;
+    public float damage;
 
     public bool isCriticalHit;        
 
@@ -25,22 +25,22 @@ public class Bullet : MonoBehaviour
        
         if (player != null)
         {
-            player.TakeDamage(_damage);
+            player.TakeDamage(damage);
         }
-        else if (enemy != null && _isPlayerBullet)
+        else if (enemy != null && isPlayerBullet)
         {
-            enemy.TakeDamage(_damage);           
-            DamagePopup.Create(enemy.transform.position, _damage, isCriticalHit, enemy._hasShield);           
+            enemy.TakeDamage(damage);           
+            DamagePopup.Create(enemy.transform.position, damage, isCriticalHit, enemy.hasShield);           
         }        
         if (bullet != null || normanPiercing != null)
         {
             return;
         }
-        if (enemy != null && !_isPlayerBullet)
+        if (enemy != null && !isPlayerBullet)
         {
             return;
         }
-        if (_isPlayerBullet && normanGunShield != null)
+        if (isPlayerBullet && normanGunShield != null)
         {
             return;
         }

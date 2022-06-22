@@ -34,32 +34,32 @@ public class GameManager : MonoBehaviour
     PlayerMovement _playerMovement;
     Shooting _playerShooting;
 
-    TMP_Text gameOverTotalKills;
-    TMP_Text gameOverBossesKilled;
-    TMP_Text gameOverTotalItemsBought;
-    TMP_Text gameOverHealthItems;
-    TMP_Text gameOverWeaponItems;
-    TMP_Text gameOverMovementItems;
+    TMP_Text _gameOverTotalKills;
+    TMP_Text _gameOverBossesKilled;
+    TMP_Text _gameOverTotalItemsBought;
+    TMP_Text _gameOverHealthItems;
+    TMP_Text _gameOverWeaponItems;
+    TMP_Text _gameOverMovementItems;
 
-    TMP_Text totalKills;
-    TMP_Text bossesKilled;
-    TMP_Text totalItemsBought;
-    TMP_Text healthItems;
-    TMP_Text weaponItems;
-    TMP_Text movementItems;
+    TMP_Text _totalKills;
+    TMP_Text _bossesKilled;
+    TMP_Text _totalItemsBought;
+    TMP_Text _healthItems;
+    TMP_Text _weaponItems;
+    TMP_Text _movementItems;
 
-    TMP_Text maxHealthText;
-    TMP_Text maxShieldText;
-    TMP_Text shieldRegenText;
-    TMP_Text damageText;
-    TMP_Text critChanceText;
-    TMP_Text attackSpeedText;
-    TMP_Text attackRangeText;
-    TMP_Text projectileSpeedText;
-    TMP_Text reloadSpeedText;
-    TMP_Text moveSpeedText;
-    TMP_Text dashLengthText;
-    TMP_Text dashSpeedText;
+    TMP_Text _maxHealthText;
+    TMP_Text _maxShieldText;
+    TMP_Text _shieldRegenText;
+    TMP_Text _damageText;
+    TMP_Text _critChanceText;
+    TMP_Text _attackSpeedText;
+    TMP_Text _attackRangeText;
+    TMP_Text _projectileSpeedText;
+    TMP_Text _reloadSpeedText;
+    TMP_Text _moveSpeedText;
+    TMP_Text _dashLengthText;
+    TMP_Text _dashSpeedText;
 
     void Awake()
     {
@@ -71,36 +71,36 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");       
 
         tabMenu = GameObject.FindGameObjectWithTag("TabMenu");
-        totalKills = GameObject.Find("UI/TabMenu/TotalKills").GetComponent<TextMeshProUGUI>();
-        bossesKilled = GameObject.Find("UI/TabMenu/BossKills").GetComponent<TextMeshProUGUI>();
-        totalItemsBought = GameObject.Find("UI/TabMenu/TotalItemsBought").GetComponent<TextMeshProUGUI>();
-        healthItems = GameObject.Find("UI/TabMenu/HealthItems").GetComponent<TextMeshProUGUI>();
-        weaponItems = GameObject.Find("UI/TabMenu/WeaponItems").GetComponent<TextMeshProUGUI>();
-        movementItems = GameObject.Find("UI/TabMenu/MovementItems").GetComponent<TextMeshProUGUI>();
+        _totalKills = GameObject.Find("UI/TabMenu/TotalKills").GetComponent<TextMeshProUGUI>();
+        _bossesKilled = GameObject.Find("UI/TabMenu/BossKills").GetComponent<TextMeshProUGUI>();
+        _totalItemsBought = GameObject.Find("UI/TabMenu/TotalItemsBought").GetComponent<TextMeshProUGUI>();
+        _healthItems = GameObject.Find("UI/TabMenu/HealthItems").GetComponent<TextMeshProUGUI>();
+        _weaponItems = GameObject.Find("UI/TabMenu/WeaponItems").GetComponent<TextMeshProUGUI>();
+        _movementItems = GameObject.Find("UI/TabMenu/MovementItems").GetComponent<TextMeshProUGUI>();
 
-        maxHealthText = GameObject.Find("UI/TabMenu/MaxHealth").GetComponent<TextMeshProUGUI>();
-        maxShieldText = GameObject.Find("UI/TabMenu/MaxShield").GetComponent<TextMeshProUGUI>();
-        shieldRegenText = GameObject.Find("UI/TabMenu/ShieldRegen").GetComponent<TextMeshProUGUI>();
-        damageText = GameObject.Find("UI/TabMenu/Damage").GetComponent<TextMeshProUGUI>();
-        critChanceText = GameObject.Find("UI/TabMenu/CritChance").GetComponent<TextMeshProUGUI>();
-        attackSpeedText = GameObject.Find("UI/TabMenu/AttackSpeed").GetComponent<TextMeshProUGUI>();
-        attackRangeText = GameObject.Find("UI/TabMenu/AttackRange").GetComponent<TextMeshProUGUI>();
-        projectileSpeedText = GameObject.Find("UI/TabMenu/ProjectileSpeed").GetComponent<TextMeshProUGUI>();
-        reloadSpeedText = GameObject.Find("UI/TabMenu/ReloadSpeed").GetComponent<TextMeshProUGUI>();
-        moveSpeedText = GameObject.Find("UI/TabMenu/MoveSpeed").GetComponent<TextMeshProUGUI>();
-        dashLengthText = GameObject.Find("UI/TabMenu/DashLength").GetComponent<TextMeshProUGUI>();
-        dashSpeedText = GameObject.Find("UI/TabMenu/DashSpeed").GetComponent<TextMeshProUGUI>();     
+        _maxHealthText = GameObject.Find("UI/TabMenu/MaxHealth").GetComponent<TextMeshProUGUI>();
+        _maxShieldText = GameObject.Find("UI/TabMenu/MaxShield").GetComponent<TextMeshProUGUI>();
+        _shieldRegenText = GameObject.Find("UI/TabMenu/ShieldRegen").GetComponent<TextMeshProUGUI>();
+        _damageText = GameObject.Find("UI/TabMenu/Damage").GetComponent<TextMeshProUGUI>();
+        _critChanceText = GameObject.Find("UI/TabMenu/CritChance").GetComponent<TextMeshProUGUI>();
+        _attackSpeedText = GameObject.Find("UI/TabMenu/AttackSpeed").GetComponent<TextMeshProUGUI>();
+        _attackRangeText = GameObject.Find("UI/TabMenu/AttackRange").GetComponent<TextMeshProUGUI>();
+        _projectileSpeedText = GameObject.Find("UI/TabMenu/ProjectileSpeed").GetComponent<TextMeshProUGUI>();
+        _reloadSpeedText = GameObject.Find("UI/TabMenu/ReloadSpeed").GetComponent<TextMeshProUGUI>();
+        _moveSpeedText = GameObject.Find("UI/TabMenu/MoveSpeed").GetComponent<TextMeshProUGUI>();
+        _dashLengthText = GameObject.Find("UI/TabMenu/DashLength").GetComponent<TextMeshProUGUI>();
+        _dashSpeedText = GameObject.Find("UI/TabMenu/DashSpeed").GetComponent<TextMeshProUGUI>();     
 
         gameOverMenu = GameObject.FindGameObjectWithTag("GAMEOVER");
         roundsSurvived = GameObject.Find("UI/GAMEOVER/RoundsSurvived").GetComponent<TextMeshProUGUI>();        
         roundSpawner = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
 
-        gameOverTotalKills = GameObject.Find("UI/GAMEOVER/TotalKills").GetComponent<TextMeshProUGUI>();
-        gameOverBossesKilled = GameObject.Find("UI/GAMEOVER/BossKills").GetComponent<TextMeshProUGUI>();
-        gameOverTotalItemsBought = GameObject.Find("UI/GAMEOVER/TotalItemsBought").GetComponent<TextMeshProUGUI>();
-        gameOverHealthItems = GameObject.Find("UI/GAMEOVER/HealthItems").GetComponent<TextMeshProUGUI>();
-        gameOverWeaponItems = GameObject.Find("UI/GAMEOVER/WeaponItems").GetComponent<TextMeshProUGUI>();
-        gameOverMovementItems = GameObject.Find("UI/GAMEOVER/MovementItems").GetComponent<TextMeshProUGUI>();
+        _gameOverTotalKills = GameObject.Find("UI/GAMEOVER/TotalKills").GetComponent<TextMeshProUGUI>();
+        _gameOverBossesKilled = GameObject.Find("UI/GAMEOVER/BossKills").GetComponent<TextMeshProUGUI>();
+        _gameOverTotalItemsBought = GameObject.Find("UI/GAMEOVER/TotalItemsBought").GetComponent<TextMeshProUGUI>();
+        _gameOverHealthItems = GameObject.Find("UI/GAMEOVER/HealthItems").GetComponent<TextMeshProUGUI>();
+        _gameOverWeaponItems = GameObject.Find("UI/GAMEOVER/WeaponItems").GetComponent<TextMeshProUGUI>();
+        _gameOverMovementItems = GameObject.Find("UI/GAMEOVER/MovementItems").GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -147,12 +147,12 @@ public class GameManager : MonoBehaviour
             gameOverMenu.SetActive(true);
             roundsSurvived.text = "Survived " + roundSpawner.roundCount + " rounds";
 
-            gameOverTotalKills.text = "Total Kills:" + kills;
-            gameOverBossesKilled.text = "Bosses Killed:" + bossKills;
-            gameOverTotalItemsBought.text = "Items Bought:" + (healthVending.itemsBought + weaponVending.itemsBought + movementVending.itemsBought);
-            gameOverHealthItems.text = "Health Items:" + healthVending.itemsBought;
-            gameOverWeaponItems.text = "Weapon Items:" + weaponVending.itemsBought;
-            gameOverMovementItems.text = "Movement Items:" + movementVending.itemsBought;
+            _gameOverTotalKills.text = "Total Kills:" + kills;
+            _gameOverBossesKilled.text = "Bosses Killed:" + bossKills;
+            _gameOverTotalItemsBought.text = "Items Bought:" + (healthVending.itemsBought + weaponVending.itemsBought + movementVending.itemsBought);
+            _gameOverHealthItems.text = "Health Items:" + healthVending.itemsBought;
+            _gameOverWeaponItems.text = "Weapon Items:" + weaponVending.itemsBought;
+            _gameOverMovementItems.text = "Movement Items:" + movementVending.itemsBought;
             Debug.Log("GAME OVER");
         }
     }
@@ -203,28 +203,28 @@ public class GameManager : MonoBehaviour
         _playerMovement = _player.GetComponent<PlayerMovement>();
         _playerShooting = _player.GetComponent<Shooting>();
 
-        totalKills.text = "Total Kills:" + kills;
-        bossesKilled.text = "Bosses Killed:" + bossKills;
-        totalItemsBought.text = "Items Bought:" + (healthVending.itemsBought + weaponVending.itemsBought + movementVending.itemsBought);
-        healthItems.text = "Health Items:" + healthVending.itemsBought;
-        weaponItems.text = "Weapon Items:" + weaponVending.itemsBought;
-        movementItems.text = "Movement Items:" + movementVending.itemsBought;
+        _totalKills.text = "Total Kills:" + kills;
+        _bossesKilled.text = "Bosses Killed:" + bossKills;
+        _totalItemsBought.text = "Items Bought:" + (healthVending.itemsBought + weaponVending.itemsBought + movementVending.itemsBought);
+        _healthItems.text = "Health Items:" + healthVending.itemsBought;
+        _weaponItems.text = "Weapon Items:" + weaponVending.itemsBought;
+        _movementItems.text = "Movement Items:" + movementVending.itemsBought;
 
 
-        maxHealthText.text = "Max Health:" + _playerHealth._maxHealth.Value;
-        maxShieldText.text = "Max Shield:" + _playerHealth._maxShield.Value;
-        shieldRegenText.text = "Shield Regen:" + Math.Round(_playerHealth._shieldRegenRate.Value, 1);
+        _maxHealthText.text = "Max Health:" + _playerHealth.maxHealth.Value;
+        _maxShieldText.text = "Max Shield:" + _playerHealth.maxShield.Value;
+        _shieldRegenText.text = "Shield Regen:" + Math.Round(_playerHealth.shieldRegenRate.Value, 1);
 
-        damageText.text = "Damage:" + Math.Round(_playerShooting._bulletDamage.Value, 1);
-        critChanceText.text = "Crit Chance:" + Math.Round(_playerShooting._criticalChance.Value, 1);
-        attackSpeedText.text = "Attack Speed:" + Math.Round(_playerShooting._attackSpeed.Value, 1);
-        attackRangeText.text = "Attack Range:0";
-        projectileSpeedText.text = "Projectile Speed:" + Math.Round(_playerShooting._bulletForce.Value, 1);
-        reloadSpeedText.text = "Reload Speed:" + Math.Round(_playerShooting._reloadDuration.Value, 2);
+        _damageText.text = "Damage:" + Math.Round(_playerShooting.bulletDamage.Value, 1);
+        _critChanceText.text = "Crit Chance:" + Math.Round(_playerShooting.criticalChance.Value, 1);
+        _attackSpeedText.text = "Attack Speed:" + Math.Round(_playerShooting.attackSpeed.Value, 1);
+        _attackRangeText.text = "Attack Range:0";
+        _projectileSpeedText.text = "Projectile Speed:" + Math.Round(_playerShooting.bulletForce.Value, 1);
+        _reloadSpeedText.text = "Reload Speed:" + Math.Round(_playerShooting.reloadDuration.Value, 2);
 
-        moveSpeedText.text = "Move Speed:" + Math.Round(_playerMovement._normalSpeed.Value, 1);
-        dashLengthText.text = "Dash Length:" + Math.Round(_playerMovement._dashLength.Value, 1);
-        dashSpeedText.text = "Dash Speed:" + Math.Round(_playerMovement._dashSpeed.Value, 1);
+        _moveSpeedText.text = "Move Speed:" + Math.Round(_playerMovement.normalSpeed.Value, 1);
+        _dashLengthText.text = "Dash Length:" + Math.Round(_playerMovement.dashLength.Value, 1);
+        _dashSpeedText.text = "Dash Speed:" + Math.Round(_playerMovement.dashSpeed.Value, 1);
         tabMenu.SetActive(true);
     }
 

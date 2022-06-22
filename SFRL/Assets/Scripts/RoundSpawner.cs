@@ -26,29 +26,29 @@ public class RoundSpawner : MonoBehaviour
 
     public Round[] rounds;
     
-    int nextRound = 0;
+    int _nextRound = 0;
     public int roundCount = 1;
 
     public Transform[] spawnPoints;
 
-    TMP_Text roundCountText;
+    TMP_Text _roundCountText;
 
     public float timeBetweenRounds = 5f;
 
     public float enemyStatsBuff = 0;
-    float timesLooped = 1;
+    float _timesLooped = 1;
     public bool looped;
 
-    float roundCountdown;
+    float _roundCountdown;
 
-    float searchCountdown = 1f;
+    float _searchCountdown = 1f;
 
     SpawnState state = SpawnState.counting;
 
     void Awake()
     {
-        roundCountText = GameObject.FindGameObjectWithTag("RoundCount").GetComponent<TextMeshProUGUI>();
-        roundCountText.text = "Round:" + roundCount;
+        _roundCountText = GameObject.FindGameObjectWithTag("RoundCount").GetComponent<TextMeshProUGUI>();
+        _roundCountText.text = "Round:" + roundCount;
     }
 
     void Start()
@@ -57,7 +57,7 @@ public class RoundSpawner : MonoBehaviour
         {
             Debug.Log("ERROR NO SPAWNPOINTS DETECTED");
         }
-        roundCountdown = timeBetweenRounds;
+        _roundCountdown = timeBetweenRounds;
     }
 
     void Update()
@@ -74,16 +74,16 @@ public class RoundSpawner : MonoBehaviour
             }
         }
 
-        if (roundCountdown <= 0)
+        if (_roundCountdown <= 0)
         {
             if (player != null && state != SpawnState.spawning)
             {
-                StartCoroutine(SpawnRound(rounds[nextRound]));
+                StartCoroutine(SpawnRound(rounds[_nextRound]));
             }
         }
         else
         {
-            roundCountdown -= Time.deltaTime;
+            _roundCountdown -= Time.deltaTime;
         }
     }
 
@@ -91,31 +91,31 @@ public class RoundSpawner : MonoBehaviour
     {
         Debug.Log("Round Complete");
         roundCount++;
-        roundCountText.text = "Round:" + roundCount;
+        _roundCountText.text = "Round:" + roundCount;
 
         state = SpawnState.counting;
-        roundCountdown = timeBetweenRounds;
+        _roundCountdown = timeBetweenRounds;
 
-        if (nextRound + 1 > rounds.Length - 1)
+        if (_nextRound + 1 > rounds.Length - 1)
         {
-            nextRound = 0;
-            enemyStatsBuff = 1f * timesLooped;
+            _nextRound = 0;
+            enemyStatsBuff = 1f * _timesLooped;
             looped = true;
-            timesLooped++;
+            _timesLooped++;
             Debug.Log("All Rounds Complete! Looping...");
         }
         else
         {
-            nextRound++;
+            _nextRound++;
         }       
     }
 
     bool EnemyIsAlive()
     {
-        searchCountdown -= Time.deltaTime;
-        if (searchCountdown <= 0)
+        _searchCountdown -= Time.deltaTime;
+        if (_searchCountdown <= 0)
         {
-            searchCountdown = 1f;
+            _searchCountdown = 1f;
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 return false;

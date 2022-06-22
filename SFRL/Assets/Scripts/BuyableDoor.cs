@@ -8,11 +8,11 @@ public class BuyableDoor : MonoBehaviour
     public bool isOpen;
     public int price;
 
-    TMP_Text buyText;
+    TMP_Text _buyText;
 
     void Start()
     {
-        buyText = GameObject.Find("UI/PopUpPrice").GetComponent<TextMeshProUGUI>();
+        _buyText = GameObject.Find("UI/PopUpPrice").GetComponent<TextMeshProUGUI>();
     }
     public void OpenDoor()
     {
@@ -26,11 +26,11 @@ public class BuyableDoor : MonoBehaviour
 
     public void NotifyPlayer()
     {
-        buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString() + ") to open door Cost: (" + price + ")";
+        _buyText.text = "Press (" + GetComponentInChildren<Interactable>().interactKey.ToString() + ") to open door Cost: (" + price + ")";
     }
 
     public void DenotifyPlayer()
     {
-        buyText.text = "";
+        _buyText.text = "";
     }
 }

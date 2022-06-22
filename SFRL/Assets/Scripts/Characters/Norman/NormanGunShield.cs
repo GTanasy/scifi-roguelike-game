@@ -7,7 +7,5 @@ public class NormanGunShield : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         
-    }
-
-    
+    }    
 }

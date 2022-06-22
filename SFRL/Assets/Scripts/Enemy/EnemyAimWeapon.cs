@@ -6,26 +6,23 @@ using CG.SFRL.Enemy;
 
 public class EnemyAimWeapon : MonoBehaviour
 {
-    public BasicEnemy _enemyStats;
+    public BasicEnemy enemyStats;
 
     Transform _aimTransform;
     Transform _player;
 
     RoundSpawner roundManager;
 
-    public string _enemyType;
+    public string enemyType;
 
-    public SpriteRenderer _gun;
-    public Camera _cam;
+    public Transform[] firePoint;
 
-    public Transform[] _firePoint;
+    public GameObject bulletPrefab;
 
-    public GameObject _bulletPrefab;
-
-    public CharacterStat _bulletForce;
-    public CharacterStat _attackRange;
-    public CharacterStat _damage;
-    public CharacterStat _spread;
+    public CharacterStat bulletForce;
+    public CharacterStat attackRange;
+    public CharacterStat damage;
+    public CharacterStat spread;
 
     void Awake()
     {
@@ -36,13 +33,13 @@ public class EnemyAimWeapon : MonoBehaviour
 
     void Start()
     {
-        _bulletPrefab = _enemyStats.bulletPrefab;
-        _bulletForce.BaseValue = _enemyStats.projectileSpeed;
-        _attackRange.BaseValue = _enemyStats.attackRange;
-        _damage.BaseValue = _enemyStats.damage;
-        _damage.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
-        _enemyType = _enemyStats.enemyAttackType;
-        _spread.BaseValue = _enemyStats.spread;
+        bulletPrefab = enemyStats.bulletPrefab;
+        bulletForce.BaseValue = enemyStats.projectileSpeed;
+        attackRange.BaseValue = enemyStats.attackRange;
+        damage.BaseValue = enemyStats.damage;
+        damage.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
+        enemyType = enemyStats.enemyAttackType;
+        spread.BaseValue = enemyStats.spread;
     }
 
     void Update()
@@ -77,28 +74,28 @@ public class EnemyAimWeapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (_enemyType.Equals("Shooter"))
+        if (enemyType.Equals("Shooter"))
         {
-            int pickPoint = Random.Range(0, _firePoint.Length);
+            int pickPoint = Random.Range(0, firePoint.Length);
             GetComponent<AudioSource>().Play();
-            GameObject _bullet = Instantiate(_bulletPrefab, _firePoint[pickPoint].position, _firePoint[pickPoint].rotation);
+            GameObject _bullet = Instantiate(bulletPrefab, firePoint[pickPoint].position, firePoint[pickPoint].rotation);
             Bullet bullet = _bullet.GetComponent<Bullet>();
-            bullet._damage = _damage.Value;
-            bullet._isPlayerBullet = false;
-            float accuracy = Random.Range(-_spread.Value, _spread.Value);
+            bullet.damage = damage.Value;
+            bullet.isPlayerBullet = false;
+            float accuracy = Random.Range(-spread.Value, spread.Value);
             _bullet.transform.Rotate(0, 0, accuracy);
-            _bullet.GetComponent<Rigidbody2D>().AddForce(_bullet.transform.right * _bulletForce.Value, ForceMode2D.Impulse);
+            _bullet.GetComponent<Rigidbody2D>().AddForce(_bullet.transform.right * bulletForce.Value, ForceMode2D.Impulse);
         }
-        else if (_enemyType.Equals("Melee"))
+        else if (enemyType.Equals("Melee"))
         {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_firePoint[0].position, _attackRange.Value);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(firePoint[0].position, attackRange.Value);
             GetComponent<AudioSource>().Play();
             foreach (Collider2D col in hitEnemies)
             {
                 PlayerDamageHandler _player = col.GetComponent<PlayerDamageHandler>();
                 if (_player != null)
                 {
-                    _player.TakeDamage(_damage.Value / 2f);
+                    _player.TakeDamage(damage.Value / 2f);
                 }
             }
         }
@@ -110,6 +107,6 @@ public class EnemyAimWeapon : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_firePoint[0].position, _attackRange.Value);
+        Gizmos.DrawWireSphere(firePoint[0].position, attackRange.Value);
     }
 }

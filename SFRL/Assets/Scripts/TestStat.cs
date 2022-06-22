@@ -10,7 +10,7 @@ public class TestStat : MonoBehaviour
 
 	protected void Apply(Norman player)
 	{
-		player._maxGunShieldCooldown.AddModifier(new StatModifier(qCD, StatModType.Flat, this));		
+		player.maxGunShieldCooldown.AddModifier(new StatModifier(qCD, StatModType.Flat, this));		
 
 		//player.StartCoroutine(Timer(Duration, player));
 	}
@@ -29,6 +29,6 @@ public class TestStat : MonoBehaviour
 	private IEnumerator Timer(float duration, PlayerDamageHandler player)
 	{
 		yield return new WaitForSeconds(duration);
-		player._maxShield.RemoveAllModifiersFromSource(this);
+		player.maxShield.RemoveAllModifiersFromSource(this);
 	}
 }

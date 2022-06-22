@@ -721,16 +721,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cfa9920334d1440bf55d777617e10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
-  _maxHealth:
+  enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
+  maxHealth:
     BaseValue: 0
-  _currentHealth: 0
-  _maxShield:
+  currentHealth: 0
+  maxShield:
     BaseValue: 0
-  _shieldRegenRate: 0
-  _healthBar: {fileID: 8026661517175245140}
-  _shieldBar: {fileID: 1635130406704248936}
-  _hasShield: 0
+  shieldRegenRate: 0
+  healthBar: {fileID: 8026661517175245140}
+  shieldBar: {fileID: 1635130406704248936}
+  hasShield: 0
   isDead: 0
   isBoss: 0
 --- !u!114 &7567001302569099607
@@ -745,20 +745,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce144db1110a5894a90916df3f5e16ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
-  _enemyType: 
-  _gun: {fileID: 7567001303081592698}
-  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
-  _firePoint:
+  enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
+  enemyType: 
+  firePoint:
   - {fileID: 7567001302614905999}
-  _bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
-  _bulletForce:
+  bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
+  bulletForce:
     BaseValue: 0
-  _attackRange:
+  attackRange:
     BaseValue: 0
-  _damage:
+  damage:
     BaseValue: 0
-  _spread:
+  spread:
     BaseValue: 0
 --- !u!114 &5865131849904200485
 MonoBehaviour:
@@ -772,10 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cfbe1efaa8bb5438f731f5c12ab3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyStats: {fileID: 11400000, guid: 04bded630aa2bb14095f469d28f12b12, type: 2}
 --- !u!195 &5865131849904200482
 NavMeshAgent:
   m_ObjectHideFlags: 0

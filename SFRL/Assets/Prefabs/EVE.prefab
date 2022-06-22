@@ -213,16 +213,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cfa9920334d1440bf55d777617e10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
-  _maxHealth:
+  enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
+  maxHealth:
     BaseValue: 0
-  _currentHealth: 0
-  _maxShield:
+  currentHealth: 0
+  maxShield:
     BaseValue: 0
-  _shieldRegenRate: 0
-  _healthBar: {fileID: 0}
-  _shieldBar: {fileID: 0}
-  _hasShield: 0
+  shieldRegenRate: 0
+  healthBar: {fileID: 0}
+  shieldBar: {fileID: 0}
+  hasShield: 0
   isDead: 0
   isBoss: 1
 --- !u!114 &8639349913322077320
@@ -237,16 +237,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce144db1110a5894a90916df3f5e16ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
-  _enemyType: Shooter
-  _gun: {fileID: 8639349913866025637}
-  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
-  _firePoint:
+  enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
+  enemyType: 
+  firePoint:
   - {fileID: 8639349913258690896}
   - {fileID: 7759234820049779856}
-  _bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
-  _bulletForce: 20
-  _attackRange: 10
+  bulletPrefab: {fileID: 5014024737191413073, guid: ffabd33997379c547bf44b9fc9618c63, type: 3}
+  bulletForce:
+    BaseValue: 0
+  attackRange:
+    BaseValue: 0
+  damage:
+    BaseValue: 0
+  spread:
+    BaseValue: 0
 --- !u!195 &5729532249105172221
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -281,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966db6f20f522a545a58a8b4095b1292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
+  enemyStats: {fileID: 11400000, guid: 73699a1fd6608824f8c049101348b23a, type: 2}
 --- !u!82 &2969064600578095333
 AudioSource:
   m_ObjectHideFlags: 0

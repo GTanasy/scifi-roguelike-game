@@ -6,36 +6,34 @@ namespace CG.SFRL.Characters
 {
     public class PlayerDamageHandler : MonoBehaviour
     {
-        public CharacterStat _maxHealth;
-        public float _currentHealth;
-        public CharacterStat _maxShield;
-        public float _currentShield;
-
-        public Animator _animator;
+        public CharacterStat maxHealth;
+        public float currentHealth;
+        public CharacterStat maxShield;
+        public float currentShield;
         
-        public CharacterStat _shieldRegenRate;
+        public CharacterStat shieldRegenRate;
         float _shieldRegen;
 
         Coroutine _regen;
 
-        public HealthBar _healthBar;
-        public ShieldBar _shieldBar;
+        public HealthBar healthBar;
+        public ShieldBar shieldBar;
 
-        public BasicCharacter _characterStats;
+        public BasicCharacter characterStats;
 
         // Start is called before the first frame update
         void Start()
         {
-            _maxHealth.BaseValue = _characterStats.health;            
-            _maxShield.BaseValue = _characterStats.shield;
-            _shieldRegenRate.BaseValue = _characterStats.shieldRegenRate;
-            _shieldRegen = _shieldRegenRate.Value;
+            maxHealth.BaseValue = characterStats.health;            
+            maxShield.BaseValue = characterStats.shield;
+            shieldRegenRate.BaseValue = characterStats.shieldRegenRate;
+            _shieldRegen = shieldRegenRate.Value;
 
-            _currentHealth = _maxHealth.Value;
-            _healthBar.SetMaxHealth(_maxHealth.Value);
+            currentHealth = maxHealth.Value;
+            healthBar.SetMaxHealth(maxHealth.Value);
 
-            _currentShield = _maxShield.Value;
-            _shieldBar.SetMaxShield(_maxShield.Value);
+            currentShield = maxShield.Value;
+            shieldBar.SetMaxShield(maxShield.Value);
             
         }
 
@@ -46,9 +44,9 @@ namespace CG.SFRL.Characters
         }
         public void TakeDamage(float damage)
         {
-            if (_currentShield <= 0)
+            if (currentShield <= 0)
             {
-                _currentShield = 0;
+                currentShield = 0;
                 TakeHealthDamage(damage);
             }
             else
@@ -60,7 +58,7 @@ namespace CG.SFRL.Characters
                 StopCoroutine(_regen);
             }
             _regen = StartCoroutine(RegenShield());
-            if (_currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 Die();
             }
@@ -68,28 +66,28 @@ namespace CG.SFRL.Characters
 
         void TakeHealthDamage(float damage)
         {
-            _currentHealth -= damage;
-            _healthBar.SetHealth(_currentHealth);
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
         }
 
         void TakeShieldDamage(float damage)
         {
-            _currentShield -= damage;            
-            _shieldBar.SetShield(_currentShield);
+            currentShield -= damage;            
+            shieldBar.SetShield(currentShield);
         }
 
         public void RefreshHealthBars()
         {
-            _healthBar.SetMaxHealth(_maxHealth.Value);
-            _healthBar.SetHealth(_currentHealth);
-            _shieldBar.SetMaxShield(_maxShield.Value);
-            _shieldBar.SetShield(_currentShield);
+            healthBar.SetMaxHealth(maxHealth.Value);
+            healthBar.SetHealth(currentHealth);
+            shieldBar.SetMaxShield(maxShield.Value);
+            shieldBar.SetShield(currentShield);
         }
 
         public void Heal()
         {
-            _currentHealth = _maxHealth.Value;
-            _healthBar.SetMaxHealth(_maxHealth.Value);
+            currentHealth = maxHealth.Value;
+            healthBar.SetMaxHealth(maxHealth.Value);
         }
 
         void Die()
@@ -103,10 +101,10 @@ namespace CG.SFRL.Characters
         public IEnumerator RegenShield()
         {
             yield return new WaitForSeconds(2);
-            while (_currentShield < _maxShield.Value)
+            while (currentShield < maxShield.Value)
             {
-                _currentShield++;
-                _shieldBar.SetShield(_currentShield);
+                currentShield++;
+                shieldBar.SetShield(currentShield);
                 yield return new WaitForSeconds(1 / _shieldRegen);
             }
         }

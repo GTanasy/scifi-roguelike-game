@@ -8,25 +8,25 @@ using UnityEngine.UI;
 public class ItemPickUp : MonoBehaviour
 {
 	public PlayerPassive item;
-	bool isDone = false;
+	bool _isDone = false;
 
-	Image icon;
-	RectTransform iconScale;
-	TMP_Text titleText;
-	TMP_Text descriptionText;
+	Image _icon;
+	RectTransform _iconScale;
+	TMP_Text _titleText;
+	TMP_Text _descriptionText;
     void Awake()
     {
-		icon = GameObject.Find("UI/ItemPopUp/ItemIcon").GetComponent<Image>();
-		titleText = GameObject.Find("UI/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
-		descriptionText = GameObject.Find("UI/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
-		iconScale = icon.GetComponent<RectTransform>();
-		iconScale.localScale = Vector3.zero;
+		_icon = GameObject.Find("UI/ItemPopUp/ItemIcon").GetComponent<Image>();
+		_titleText = GameObject.Find("UI/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
+		_descriptionText = GameObject.Find("UI/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
+		_iconScale = _icon.GetComponent<RectTransform>();
+		_iconScale.localScale = Vector3.zero;
 	}
 
     protected void OnTriggerEnter2D(Collider2D other)
 	{
 		PlayerDamageHandler player = other.GetComponent<PlayerDamageHandler>();
-		if (other.tag.Equals("Player") && isDone == false && player != null)
+		if (other.tag.Equals("Player") && _isDone == false && player != null)
 		{
 			GetComponent<AudioSource>().Play();
 			item.PickupHealth(other.GetComponent<PlayerDamageHandler>());
@@ -34,7 +34,7 @@ public class ItemPickUp : MonoBehaviour
 			item.PickupCharacter(other.GetComponent<Norman>());
 			item.PickupMovement(other.GetComponent<PlayerMovement>());
 			player.RefreshHealthBars();
-			isDone = true;
+			_isDone = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			StartCoroutine(PickUpText());
 		}
@@ -42,14 +42,14 @@ public class ItemPickUp : MonoBehaviour
 
 	IEnumerator PickUpText()
     {
-		iconScale.localScale = Vector3.one;
-		icon.sprite = item.icon;
-		titleText.text = item.name;
-		descriptionText.text = item.description;
+		_iconScale.localScale = Vector3.one;
+		_icon.sprite = item.icon;
+		_titleText.text = item.name;
+		_descriptionText.text = item.description;
 		yield return new WaitForSeconds(2);
-		iconScale.localScale = Vector3.zero;
-		titleText.text = "";
-		descriptionText.text = "";
+		_iconScale.localScale = Vector3.zero;
+		_titleText.text = "";
+		_descriptionText.text = "";
 		Destroy(gameObject);
     }
 }

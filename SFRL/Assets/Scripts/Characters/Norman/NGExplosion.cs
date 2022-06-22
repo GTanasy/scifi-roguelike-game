@@ -5,12 +5,12 @@ using CG.SFRL.Enemy;
 
 public class NGExplosion : MonoBehaviour
 {
-    public float _radius = 5.0f;
+    public float radius = 5.0f;
 
     // Update is called once per frame
     void Update()
     {
-        Collider2D[] _enemyHit = Physics2D.OverlapCircleAll(transform.position, _radius);
+        Collider2D[] _enemyHit = Physics2D.OverlapCircleAll(transform.position, radius);
 
         foreach (Collider2D col in _enemyHit)
         {
@@ -31,6 +31,6 @@ public class NGExplosion : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
-        Gizmos.DrawSphere(transform.position, _radius);
+        Gizmos.DrawSphere(transform.position, radius);
     }
 }

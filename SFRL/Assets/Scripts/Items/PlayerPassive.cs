@@ -68,91 +68,91 @@ public class PlayerPassive : BasicItem
 	{
 		if (HealthBonus != 0)
         {
-			player._maxHealth.AddModifier(new StatModifier(HealthBonus, StatModType.Flat, this));
+			player.maxHealth.AddModifier(new StatModifier(HealthBonus, StatModType.Flat, this));
 			player.Heal();
         }
 		if (ShieldBonus != 0)
         {
-			player._maxShield.AddModifier(new StatModifier(ShieldBonus, StatModType.Flat, this));
+			player.maxShield.AddModifier(new StatModifier(ShieldBonus, StatModType.Flat, this));
 			player.TakeDamage(0);
 		}
 		if (ShieldRegenBonus != 0)
-			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenBonus, StatModType.Flat, this));		
+			player.shieldRegenRate.AddModifier(new StatModifier(ShieldRegenBonus, StatModType.Flat, this));		
 
 		if (HealthPercentBonus != 0)
-            player._maxHealth.AddModifier(new StatModifier(HealthPercentBonus, StatModType.PercentMult, this));
+            player.maxHealth.AddModifier(new StatModifier(HealthPercentBonus, StatModType.PercentMult, this));
 		if (ShieldPercentBonus != 0)
         {
-			player._maxShield.AddModifier(new StatModifier(ShieldPercentBonus, StatModType.PercentMult, this));
+			player.maxShield.AddModifier(new StatModifier(ShieldPercentBonus, StatModType.PercentMult, this));
 			player.TakeDamage(0);
         }
 		if (ShieldRegenPercentBonus != 0)
-			player._shieldRegenRate.AddModifier(new StatModifier(ShieldRegenPercentBonus, StatModType.PercentMult, this));		
+			player.shieldRegenRate.AddModifier(new StatModifier(ShieldRegenPercentBonus, StatModType.PercentMult, this));		
 	}
 
 	public void PickupCharacter(Norman player)
     {
 		if (QCooldownBonus != 0)
-			player._maxGunShieldCooldown.AddModifier(new StatModifier(QCooldownBonus, StatModType.Flat, this));
+			player.maxGunShieldCooldown.AddModifier(new StatModifier(QCooldownBonus, StatModType.Flat, this));
 		if (ECooldownBonus != 0)
-			player._maxGrenadeCooldown.AddModifier(new StatModifier(ECooldownBonus, StatModType.Flat, this));
+			player.maxGrenadeCooldown.AddModifier(new StatModifier(ECooldownBonus, StatModType.Flat, this));
 
 		if (QCooldownPercentBonus != 0)
-			player._maxGunShieldCooldown.AddModifier(new StatModifier(QCooldownPercentBonus, StatModType.PercentMult, this));
+			player.maxGunShieldCooldown.AddModifier(new StatModifier(QCooldownPercentBonus, StatModType.PercentMult, this));
 		if (ECooldownPercentBonus != 0)
-			player._maxGrenadeCooldown.AddModifier(new StatModifier(ECooldownPercentBonus, StatModType.PercentMult, this));
+			player.maxGrenadeCooldown.AddModifier(new StatModifier(ECooldownPercentBonus, StatModType.PercentMult, this));
 	}
 	public void PickupWeapon(Shooting player)
 	{
 		if (CritChanceBonus != 0)
-			player._criticalChance.AddModifier(new StatModifier(CritChanceBonus, StatModType.Flat, this));
+			player.criticalChance.AddModifier(new StatModifier(CritChanceBonus, StatModType.Flat, this));
 		if (DamageBonus != 0)
-			player._bulletDamage.AddModifier(new StatModifier(DamageBonus, StatModType.Flat, this));
+			player.bulletDamage.AddModifier(new StatModifier(DamageBonus, StatModType.Flat, this));
 		if (AttackSpeedBonus != 0)
-			player._attackSpeed.AddModifier(new StatModifier(AttackSpeedBonus, StatModType.Flat, this));
+			player.attackSpeed.AddModifier(new StatModifier(AttackSpeedBonus, StatModType.Flat, this));
 		if (ProjectileSpeedBonus != 0)
-			player._bulletForce.AddModifier(new StatModifier(ProjectileSpeedBonus, StatModType.Flat, this));
+			player.bulletForce.AddModifier(new StatModifier(ProjectileSpeedBonus, StatModType.Flat, this));
 		if (ReloadSpeedBonus != 0)
-			player._reloadDuration.AddModifier(new StatModifier(ReloadSpeedBonus, StatModType.Flat, this));
+			player.reloadDuration.AddModifier(new StatModifier(ReloadSpeedBonus, StatModType.Flat, this));
 		if (MagCapBonus != 0)
-			player._maxMagCapacity.AddModifier(new StatModifier(MagCapBonus, StatModType.Flat, this));
+			player.maxMagCapacity.AddModifier(new StatModifier(MagCapBonus, StatModType.Flat, this));
 
 		if (CritChancePercentBonus != 0)
-			player._criticalChance.AddModifier(new StatModifier(CritChancePercentBonus, StatModType.PercentMult, this));
+			player.criticalChance.AddModifier(new StatModifier(CritChancePercentBonus, StatModType.PercentMult, this));
 		if (DamagePercentBonus != 0)
-			player._bulletDamage.AddModifier(new StatModifier(DamagePercentBonus, StatModType.PercentMult, this));
+			player.bulletDamage.AddModifier(new StatModifier(DamagePercentBonus, StatModType.PercentMult, this));
 		if (AttackSpeedPercentBonus != 0)
-			player._attackSpeed.AddModifier(new StatModifier(AttackSpeedPercentBonus, StatModType.PercentMult, this));
+			player.attackSpeed.AddModifier(new StatModifier(AttackSpeedPercentBonus, StatModType.PercentMult, this));
 		if (ProjectileSpeedPercentBonus != 0)
-			player._bulletForce.AddModifier(new StatModifier(ProjectileSpeedPercentBonus, StatModType.PercentMult, this));
+			player.bulletForce.AddModifier(new StatModifier(ProjectileSpeedPercentBonus, StatModType.PercentMult, this));
 		if (ReloadSpeedPercentBonus != 0)
-			player._reloadDuration.AddModifier(new StatModifier(ReloadSpeedPercentBonus, StatModType.PercentMult, this));
+			player.reloadDuration.AddModifier(new StatModifier(ReloadSpeedPercentBonus, StatModType.PercentMult, this));
 		if (MagCapPercentBonus != 0)
-			player._maxMagCapacity.AddModifier(new StatModifier(MagCapPercentBonus, StatModType.PercentMult, this));
+			player.maxMagCapacity.AddModifier(new StatModifier(MagCapPercentBonus, StatModType.PercentMult, this));
 	}
 	public void PickupMovement(PlayerMovement player)
 	{
 		if (DashCooldownBonus != 0)
-			player._dashCoolDown.AddModifier(new StatModifier(DashCooldownBonus, StatModType.Flat, this));
+			player.dashCoolDown.AddModifier(new StatModifier(DashCooldownBonus, StatModType.Flat, this));
 		if (DashLengthBonus != 0)
-			player._dashLength.AddModifier(new StatModifier(DashLengthBonus, StatModType.Flat, this));
+			player.dashLength.AddModifier(new StatModifier(DashLengthBonus, StatModType.Flat, this));
 		if (DashSpeedBonus != 0)
-			player._dashSpeed.AddModifier(new StatModifier(DashSpeedBonus, StatModType.Flat, this));
+			player.dashSpeed.AddModifier(new StatModifier(DashSpeedBonus, StatModType.Flat, this));
 		if (NormalSpeedBonus != 0)
         {
-			player._normalSpeed.AddModifier(new StatModifier(NormalSpeedBonus, StatModType.Flat, this));
+			player.normalSpeed.AddModifier(new StatModifier(NormalSpeedBonus, StatModType.Flat, this));
 			player.AdjustSpeed();
         }
 
 		if (DashCooldownPercentBonus != 0)
-			player._dashCoolDown.AddModifier(new StatModifier(DashCooldownPercentBonus, StatModType.PercentMult, this));
+			player.dashCoolDown.AddModifier(new StatModifier(DashCooldownPercentBonus, StatModType.PercentMult, this));
 		if (DashLengthPercentBonus != 0)
-			player._dashLength.AddModifier(new StatModifier(DashLengthPercentBonus, StatModType.PercentMult, this));
+			player.dashLength.AddModifier(new StatModifier(DashLengthPercentBonus, StatModType.PercentMult, this));
 		if (DashSpeedPercentBonus != 0)
-			player._dashSpeed.AddModifier(new StatModifier(DashSpeedPercentBonus, StatModType.PercentMult, this));
+			player.dashSpeed.AddModifier(new StatModifier(DashSpeedPercentBonus, StatModType.PercentMult, this));
 		if (NormalSpeedPercentBonus != 0)
         {
-			player._normalSpeed.AddModifier(new StatModifier(NormalSpeedPercentBonus, StatModType.PercentMult, this));
+			player.normalSpeed.AddModifier(new StatModifier(NormalSpeedPercentBonus, StatModType.PercentMult, this));
 			player.AdjustSpeed();
         }
 	}

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    public Transform _player;
+    public Transform player;
 
-    public float _smoothing;
-    public Vector3 _offset;  
+    public float smoothing;
+    public Vector3 offset;  
 
     void FixedUpdate()
     {
-        if (_player != null)
+        if (player != null)
         {
-            Vector3 _newPosition = Vector3.Lerp(transform.position, _player.transform.position + _offset, _smoothing);
+            Vector3 _newPosition = Vector3.Lerp(transform.position, player.transform.position + offset, smoothing);
             _newPosition.z = -10;
             transform.position = _newPosition;          
         }

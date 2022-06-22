@@ -8,8 +8,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     Vector3 _mousePos;
 
-    public SpriteRenderer _gun;
-    public Camera _cam;
+    public Camera cam;
 
     void Awake()
     {
@@ -28,7 +27,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void HandleAim()
     {
-        _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
+        _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 _lookDirection = (_mousePos - transform.position).normalized;
 

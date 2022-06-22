@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class NormanGrenade : MonoBehaviour
 {
-    private Vector3 _targetPos;
+    Vector3 _targetPos;
 
-    public float _speed = 10.0f;
+    public float speed;
 
-    public GameObject _explosion;
+    public GameObject explosion;
 
     void Start()
     {
@@ -17,14 +17,14 @@ public class NormanGrenade : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_speed > 0)
+        if (speed > 0)
         {
-            _speed -= .2f;
-            transform.position = Vector2.MoveTowards(transform.position, _targetPos, _speed * Time.deltaTime);
+            speed -= .2f;
+            transform.position = Vector2.MoveTowards(transform.position, _targetPos, speed * Time.deltaTime);
         }
-        else if (_speed < 0)
+        else if (speed < 0)
         {
-            _speed = 0;
+            speed = 0;
             StartCoroutine(Explode(1));
         }
     }
@@ -33,7 +33,7 @@ public class NormanGrenade : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
-        Instantiate(_explosion, transform.position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

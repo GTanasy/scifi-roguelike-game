@@ -7,7 +7,7 @@ using CG.SFRL.Characters;
 
 public class BossEnemy : MonoBehaviour
 {
-    public BasicEnemy _enemyStats;
+    public BasicEnemy enemyStats;
     EnemyDamageHandler _healthStat;    
     float _attackSpeed;
     float _timeBetweenShots;
@@ -16,11 +16,11 @@ public class BossEnemy : MonoBehaviour
     float timeBetweenStates;
     float maxTimeBetweenStates = 5f;
 
-    bool inLOS;
+    bool _inLOS;
 
-    bool isEnraged = false;
+    bool _isEnraged = false;
 
-    Transform target;
+    Transform _target;
     Vector3 _startingPosition;
     Vector3 _roamPosition;
     NavMeshAgent agent;
@@ -45,7 +45,7 @@ public class BossEnemy : MonoBehaviour
         _enemyAimWeapon = gameObject.GetComponent<EnemyAimWeapon>();
         if (GameObject.FindGameObjectWithTag("Player").transform != null)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            _target = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 
@@ -56,9 +56,9 @@ public class BossEnemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        _engagementRange = _enemyStats.engagementRange;
-        _attackSpeed = _enemyStats.attackSpeed;
-        agent.speed = _enemyStats.speed;
+        _engagementRange = enemyStats.engagementRange;
+        _attackSpeed = enemyStats.attackSpeed;
+        agent.speed = enemyStats.speed;
 
         _state = State.Idle;
         _timeBetweenShots = 1 / _attackSpeed;
@@ -77,7 +77,7 @@ public class BossEnemy : MonoBehaviour
         TimerBetweenStates();
         StateMachine();
         EnrageCheck();
-        if (target == null)
+        if (_target == null)
         {
             _state = default;
         }
@@ -85,9 +85,9 @@ public class BossEnemy : MonoBehaviour
 
     void StateMachine()
     {
-        if (target != null)
+        if (_target != null)
         {
-        Vector3 _lookDirection = (target.position - transform.position).normalized;
+        Vector3 _lookDirection = (_target.position - transform.position).normalized;
         float _angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg - 0f;
         CorrectOrientation(_angle);
         switch (_state)
@@ -97,7 +97,7 @@ public class BossEnemy : MonoBehaviour
                 agent.isStopped = false;
                 agent.SetDestination(_roamPosition);
 
-                if (target != null && Vector3.Distance(_startingPosition, target.position) > _engagementRange)
+                if (_target != null && Vector3.Distance(_startingPosition, _target.position) > _engagementRange)
                 {
                     _state = State.ChaseTarget;
                 }
@@ -109,10 +109,10 @@ public class BossEnemy : MonoBehaviour
 
                 break;
             case State.ChaseTarget:
-                if (target != null && Vector3.Distance(transform.position, target.position) > _engagementRange)
+                if (_target != null && Vector3.Distance(transform.position, _target.position) > _engagementRange)
                 {
-                    agent.SetDestination(target.position);
-                    _startingPosition = target.position;
+                    agent.SetDestination(_target.position);
+                    _startingPosition = _target.position;
                     _state = State.Idle;
                 }
                 break;
@@ -122,16 +122,16 @@ public class BossEnemy : MonoBehaviour
                     {
                         if (raycastHit2D.collider.CompareTag("Player"))
                         {
-                            inLOS = true;
+                            _inLOS = true;
                         }
                         else
                         {
-                            inLOS = false;
+                            _inLOS = false;
                         }
 
                     }
-                    agent.SetDestination(target.position);
-                if (target != null && inLOS == true && Vector3.Distance(transform.position, target.position) < _engagementRange)
+                    agent.SetDestination(_target.position);
+                if (_target != null && _inLOS == true && Vector3.Distance(transform.position, _target.position) < _engagementRange)
                 {
 
                     if (Time.time > _timeBetweenShots)
@@ -155,9 +155,9 @@ public class BossEnemy : MonoBehaviour
             case State.EnragedAttack:
                 agent.isStopped = false;
                 agent.SetDestination(_roamPosition);
-                if (target != null)
+                if (_target != null)
                 { 
-                if (Vector3.Distance(_startingPosition, target.position) > _engagementRange)
+                if (Vector3.Distance(_startingPosition, _target.position) > _engagementRange)
                 {
                     _state = State.ChaseTarget;
                 }
@@ -166,7 +166,7 @@ public class BossEnemy : MonoBehaviour
                 {
                     _roamPosition = GetRandomPosition();
                 }
-                if (Vector3.Distance(transform.position, target.position) < _engagementRange)
+                if (Vector3.Distance(transform.position, _target.position) < _engagementRange)
                 {
                     if (Time.time > _timeBetweenShots)
                     {
@@ -183,11 +183,11 @@ public class BossEnemy : MonoBehaviour
 
     void EnrageCheck()
     {
-        if (_healthStat._currentHealth <= _healthStat._maxHealth.Value / 2 && isEnraged == false)
+        if (_healthStat.currentHealth <= _healthStat.maxHealth.Value / 2 && _isEnraged == false)
         {
-            _healthStat._maxShield.AddModifier(new StatModifier(-_healthStat._maxShield.Value, StatModType.Flat, this));
+            _healthStat.maxShield.AddModifier(new StatModifier(-_healthStat.maxShield.Value, StatModType.Flat, this));
             _state = State.Enraged;
-            isEnraged = true;
+            _isEnraged = true;
         }
     }
 

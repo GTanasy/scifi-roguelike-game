@@ -6,7 +6,7 @@ using CG.SFRL.Enemy;
 
 public class NormanPiercingShot : MonoBehaviour
 {
-    public int _damage;
+    public int damage;
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Norman norman = hitInfo.GetComponent<Norman>();
@@ -16,8 +16,8 @@ public class NormanPiercingShot : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.TakeDamage(_damage);
-            DamagePopup.Create(enemy.transform.position, _damage, false, enemy._hasShield);
+            enemy.TakeDamage(damage);
+            DamagePopup.Create(enemy.transform.position, damage, false, enemy.hasShield);
         }
         if (bullet != null)
         {
