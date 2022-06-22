@@ -6,20 +6,30 @@ namespace CG.SFRL.Characters
 {
     public class PlayerDamageHandler : MonoBehaviour
     {
+        [HideInInspector]
         public CharacterStat maxHealth;
+        [HideInInspector]
         public float currentHealth;
+        [HideInInspector]
         public CharacterStat maxShield;
+        [HideInInspector]
         public float currentShield;
-        
+        [HideInInspector]
         public CharacterStat shieldRegenRate;
         float _shieldRegen;
 
         Coroutine _regen;
 
-        public HealthBar healthBar;
-        public ShieldBar shieldBar;
+        HealthBar _healthBar;
+        ShieldBar _shieldBar;
 
         public BasicCharacter characterStats;
+
+        void Awake()
+        {
+            _healthBar = GameObject.Find("GameHandler/UI/Canvas/Health Bar").GetComponent<HealthBar>();
+            _shieldBar = GameObject.Find("GameHandler/UI/Canvas/Shield Bar").GetComponent<ShieldBar>();
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -30,10 +40,10 @@ namespace CG.SFRL.Characters
             _shieldRegen = shieldRegenRate.Value;
 
             currentHealth = maxHealth.Value;
-            healthBar.SetMaxHealth(maxHealth.Value);
+            _healthBar.SetMaxHealth(maxHealth.Value);
 
             currentShield = maxShield.Value;
-            shieldBar.SetMaxShield(maxShield.Value);
+            _shieldBar.SetMaxShield(maxShield.Value);
             
         }
 
@@ -67,27 +77,27 @@ namespace CG.SFRL.Characters
         void TakeHealthDamage(float damage)
         {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            _healthBar.SetHealth(currentHealth);
         }
 
         void TakeShieldDamage(float damage)
         {
             currentShield -= damage;            
-            shieldBar.SetShield(currentShield);
+            _shieldBar.SetShield(currentShield);
         }
 
         public void RefreshHealthBars()
         {
-            healthBar.SetMaxHealth(maxHealth.Value);
-            healthBar.SetHealth(currentHealth);
-            shieldBar.SetMaxShield(maxShield.Value);
-            shieldBar.SetShield(currentShield);
+            _healthBar.SetMaxHealth(maxHealth.Value);
+            _healthBar.SetHealth(currentHealth);
+            _shieldBar.SetMaxShield(maxShield.Value);
+            _shieldBar.SetShield(currentShield);
         }
 
         public void Heal()
         {
             currentHealth = maxHealth.Value;
-            healthBar.SetMaxHealth(maxHealth.Value);
+            _healthBar.SetMaxHealth(maxHealth.Value);
         }
 
         void Die()
@@ -104,7 +114,7 @@ namespace CG.SFRL.Characters
             while (currentShield < maxShield.Value)
             {
                 currentShield++;
-                shieldBar.SetShield(currentShield);
+                _shieldBar.SetShield(currentShield);
                 yield return new WaitForSeconds(1 / _shieldRegen);
             }
         }

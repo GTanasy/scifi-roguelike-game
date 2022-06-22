@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 347
     height: 505
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b2460100
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ea24fefffa2afeffc25dfeff50a6feff54a6feff6ea6feff2eaffeff32affeff46affeff42b3feff9c7fffffd88dffffdc8dffff2294ffff6895ffffda96ffffca99ffff16f7ffff1af7ffff2cfbffff2ef3000054f3000066f3000088f300005af4000096f400007af5000094f50000ea480100
+      m_ExpandedIDs: ea24fefffa2afeffc25dfeff50a6feff54a6feff6ea6feff2eaffeff32affeff46affeff42b3feff9c7fffffd88dffffdc8dffff2294ffff6895ffffda96ffffca99ffff16f7ffff1af7ffff2cfbffff2ef3000054f3000066f3000088f300005af4000096f400007af5000094f500005246010028480100d0480100ea480100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -788,22 +788,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: S:\Unity Projects\scifi-roguelike-game\SFRL
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3c7a0000
-    m_LastClickedID: 31292
-    m_ExpandedIDs: 00000000fc790000fe790000007a0000027a0000047a0000067a0000087a00000a7a0000287a00004c7a0000
+    m_SelectedIDs: 287a0000
+    m_LastClickedID: 31272
+    m_ExpandedIDs: 00000000fc790000fe790000007a0000027a0000047a0000067a0000087a00000a7a00004c7a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -856,9 +856,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b2460100
-    m_LastClickedInstanceID: 83634
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000266200003a64000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -934,8 +934,8 @@ MonoBehaviour:
     y: 0
     width: 350
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -976,7 +976,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 151
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

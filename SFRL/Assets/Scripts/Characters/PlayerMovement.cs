@@ -14,27 +14,38 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 _movement;
 
-    public Rigidbody2D _rb;
+    Rigidbody2D _rb;
     public BoxCollider2D _hitBox;
 
-    [SerializeField] private Image _imageCoolDownDash;
-    [SerializeField] private TMP_Text _textCoolDownDash;
+    Image _imageCoolDownDash;
+    TMP_Text _textCoolDownDash;
 
-    public Camera _cam;
+    Camera _cam;
 
     Animator _walkingAnimator;
     public AnimationClip rollAnim;
 
     float _currentMoveSpeed;
-
+    [HideInInspector]
     public CharacterStat normalSpeed;
-
+    [HideInInspector]
     public CharacterStat dashSpeed;
+    [HideInInspector]
     public CharacterStat dashLength;
+    [HideInInspector]
     public CharacterStat dashCoolDown;
 
     float _dashCool;
     float _dashCounter;
+
+    private void Awake()
+    {
+        _cam = GameObject.Find("GameHandler/Main Camera").GetComponent<Camera>();
+        _rb = GetComponent<Rigidbody2D>();
+
+        _imageCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/Roll/Button/Image").GetComponent<Image>();
+        _textCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/Roll/Button/Text").GetComponent<TMP_Text>();
+    }
 
     void Start()
     {

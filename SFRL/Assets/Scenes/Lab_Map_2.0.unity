@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 346809710}
   - component: {fileID: 346809709}
   m_Layer: 5
-  m_Name: Norman Grenade
+  m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2088,7 +2088,7 @@ RectTransform:
   m_Children:
   - {fileID: 435683240}
   m_Father: {fileID: 2069330362}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17019,11 +17019,11 @@ PrefabInstance:
     - target: {fileID: 5345921042105363336, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _textCoolDownDash
       value: 
-      objectReference: {fileID: 964176394}
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363336, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _imageCoolDownDash
       value: 
-      objectReference: {fileID: 1966649239}
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363337, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -17107,19 +17107,19 @@ PrefabInstance:
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _textCoolDownGrenade
       value: 
-      objectReference: {fileID: 1007571580}
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _imageCoolDownGrenade
       value: 
-      objectReference: {fileID: 999114303}
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _textCoolDownGunShield
       value: 
-      objectReference: {fileID: 1661911076}
+      objectReference: {fileID: 0}
     - target: {fileID: 5345921042105363341, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: _imageCoolDownGunShield
       value: 
-      objectReference: {fileID: 1408933843}
+      objectReference: {fileID: 0}
     - target: {fileID: 8594734679647018602, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
       propertyPath: healthBar
       value: 
@@ -17759,7 +17759,7 @@ GameObject:
   - component: {fileID: 697604285}
   - component: {fileID: 697604284}
   m_Layer: 5
-  m_Name: Norman GunShield
+  m_Name: Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17779,7 +17779,7 @@ RectTransform:
   m_Children:
   - {fileID: 1177329310}
   m_Father: {fileID: 2069330362}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18970,7 +18970,7 @@ GameObject:
   - component: {fileID: 964176395}
   - component: {fileID: 964176394}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19253,7 +19253,7 @@ GameObject:
   - component: {fileID: 1007571581}
   - component: {fileID: 1007571580}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22342,7 +22342,7 @@ GameObject:
   - component: {fileID: 1661911077}
   - component: {fileID: 1661911076}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24738,8 +24738,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1718748602}
-  - {fileID: 346809708}
   - {fileID: 697604283}
+  - {fileID: 346809708}
   - {fileID: 459182380}
   - {fileID: 1433141232}
   - {fileID: 473081066}

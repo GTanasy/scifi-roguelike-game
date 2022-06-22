@@ -645,10 +645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623d9d43397d3844aa5cf5b3e0afbb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _imageCoolDownGrenade: {fileID: 0}
-  _textCoolDownGrenade: {fileID: 0}
-  _imageCoolDownGunShield: {fileID: 0}
-  _textCoolDownGunShield: {fileID: 0}
   grenade: {fileID: 2385580351567414731, guid: 1055349be76b5644fbffbb42510014d8, type: 3}
   gunShield: {fileID: 89364636}
   animator: {fileID: 385695162}
@@ -673,8 +669,6 @@ MonoBehaviour:
   _moveStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
   _rb: {fileID: 5345921042105363335}
   _hitBox: {fileID: 5345921042105363338}
-  _imageCoolDownDash: {fileID: 0}
-  _textCoolDownDash: {fileID: 0}
   _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
   rollAnim: {fileID: 7400000, guid: 2b9fc4fc6233af44dbd7d1127b3dbf7f, type: 2}
   normalSpeed:
@@ -697,7 +691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b1a3e69fe5394e9a201ca223f8e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &5345921042105363339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +708,7 @@ MonoBehaviour:
   _textAmmoCount: {fileID: 0}
   firePoint: {fileID: 5345921042969418074}
   gunGlow: {fileID: 1367517424394381544}
-  piercingShotPrefab: {fileID: 0}
+  piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
   animator: {fileID: 1651863790}
   reloadAnim: {fileID: 7400000, guid: 233b3eea06c54a342bdcb5670a8b175b, type: 2}
   reloadDuration:
