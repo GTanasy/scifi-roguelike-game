@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7570066399854352378}
   - component: {fileID: 7570066399854352377}
   - component: {fileID: 2975080825059024358}
+  - component: {fileID: 7589256085061446794}
   m_Layer: 0
   m_Name: Deadeye
   m_TagString: Untagged
@@ -222,3 +223,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7589256085061446794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570066399854352376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c7d3e056fbfff4aa40477804b03614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

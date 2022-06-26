@@ -11,24 +11,30 @@ public class EnemyAimWeapon : MonoBehaviour
     Transform _aimTransform;
     Transform _player;
 
-    RoundSpawner roundManager;
+    RoundSpawner _roundManager;
 
+    [HideInInspector]
     public string enemyType;
 
     public Transform[] firePoint;
 
+    [HideInInspector]
     public GameObject bulletPrefab;
 
+    [HideInInspector]
     public CharacterStat bulletForce;
+    [HideInInspector]
     public CharacterStat attackRange;
+    [HideInInspector]
     public CharacterStat damage;
+    [HideInInspector]
     public CharacterStat spread;
 
     void Awake()
     {
         _aimTransform = transform.Find("Aim");
         _player = GameObject.FindGameObjectWithTag("Player").transform;
-        roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
+        _roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
     }
 
     void Start()
@@ -37,7 +43,7 @@ public class EnemyAimWeapon : MonoBehaviour
         bulletForce.BaseValue = enemyStats.projectileSpeed;
         attackRange.BaseValue = enemyStats.attackRange;
         damage.BaseValue = enemyStats.damage;
-        damage.AddModifier(new StatModifier(roundManager.enemyStatsBuff, StatModType.PercentMult));
+        damage.AddModifier(new StatModifier(_roundManager.enemyStatsBuff, StatModType.PercentMult));
         enemyType = enemyStats.enemyAttackType;
         spread.BaseValue = enemyStats.spread;
     }

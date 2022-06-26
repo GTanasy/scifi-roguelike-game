@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CG.SFRL.Characters
 {
-    public class PlayerDamageHandler : MonoBehaviour
+    public class PlayerDamageHandler : MonoBehaviour, IDamageable
     {
         [HideInInspector]
         public CharacterStat maxHealth;
@@ -27,8 +27,8 @@ namespace CG.SFRL.Characters
 
         void Awake()
         {
-            _healthBar = GameObject.Find("GameHandler/UI/Canvas/Health Bar").GetComponent<HealthBar>();
-            _shieldBar = GameObject.Find("GameHandler/UI/Canvas/Shield Bar").GetComponent<ShieldBar>();
+            _healthBar = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/Health Bar").GetComponent<HealthBar>();
+            _shieldBar = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/Shield Bar").GetComponent<ShieldBar>();
         }
 
         // Start is called before the first frame update

@@ -8,12 +8,15 @@ public class PlayerAimWeapon : MonoBehaviour
 
     Vector3 _mousePos;
 
-    Camera cam;
+    Camera _cam;
+
+    PlayerInput _playerInput;
 
     void Awake()
     {
         _aimTransform = transform.Find("Aim");
-        cam = GameObject.Find("GameHandler/Main Camera").GetComponent<Camera>();
+        _cam = GameObject.Find("GameHandler/Main Camera").GetComponent<Camera>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void FixedUpdate()
@@ -23,7 +26,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void HandleAim()
     {
-        _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        _mousePos = _cam.ScreenToWorldPoint(_playerInput.MousePosition);
 
         Vector3 _lookDirection = (_mousePos - transform.position).normalized;
 

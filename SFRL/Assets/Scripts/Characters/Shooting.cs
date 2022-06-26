@@ -10,36 +10,48 @@ public class Shooting : MonoBehaviour
 {
     public BasicCharacter _weaponStats;
 
-    [SerializeField] private NormanPiercingShot _pShot;
+    TMP_Text _textAmmoCount;
 
-    [SerializeField] private TMP_Text _textAmmoCount;
-
+    [HideInInspector]
     public Transform firePoint;
-    public Light2D gunGlow;
+    Light2D _gunGlow;
     GameObject _bulletPrefab;
-    public GameObject piercingShotPrefab;
 
     public Animator animator;
     public AnimationClip reloadAnim;
 
+    [HideInInspector]
     public CharacterStat reloadDuration;
 
+    [HideInInspector]
     public CharacterStat bulletForce;
+    [HideInInspector]
     public CharacterStat attackSpeed;
     float _timeBetweenShots;
 
-    float _rightClickStartHeld;
-
+    [HideInInspector]
     public CharacterStat bulletDamage;
     bool _isPlayerBullet;
-    float _pDamage;
 
+    [HideInInspector]
     public CharacterStat maxMagCapacity;
-    int _magCapacity;
+    [HideInInspector]
+    public int magCapacity;
+    [HideInInspector]
     public CharacterStat criticalChance;
+
+    PlayerInput _playerInput;
 
     bool _readyToShoot = true;
     bool _reloading = false;
+
+    void Awake()
+    {
+        firePoint = transform.Find("Aim/Rifle/FirePoint").GetComponent<Transform>();
+        _gunGlow = transform.Find("Aim/Rifle/GunGlow").GetComponent<Light2D>();
+        _textAmmoCount = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/GunIcon/Text").GetComponent<TMP_Text>();
+        _playerInput = GetComponent<PlayerInput>();
+    }
 
     void Start()
     {
@@ -49,7 +61,7 @@ public class Shooting : MonoBehaviour
         attackSpeed.BaseValue = _weaponStats.attackSpeed;
         _timeBetweenShots = 1 / attackSpeed.Value;
         maxMagCapacity.BaseValue = maxMagCapacity.Value;
-        _magCapacity = (int)maxMagCapacity.Value;
+        magCapacity = (int)maxMagCapacity.Value;
         criticalChance.BaseValue = _weaponStats.criticalChance;
         bulletDamage.BaseValue = _weaponStats.damage;
         _bulletPrefab = _weaponStats.playerBulletType;
@@ -60,12 +72,12 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         ShootInput();
-        _textAmmoCount.text = _magCapacity + " / " + maxMagCapacity.Value;
+        _textAmmoCount.text = magCapacity + " / " + maxMagCapacity.Value;
     }
 
     void Shoot()
     {
-        _magCapacity--;
+        magCapacity--;
         _readyToShoot = false;
         GetComponent<AudioSource>().Play();
         GameObject _bullet = Instantiate(_bulletPrefab, firePoint.position, firePoint.rotation);
@@ -98,30 +110,11 @@ public class Shooting : MonoBehaviour
         _readyToShoot = true;
     }
 
-    void ShootPiercing()
-    {
-        if (_magCapacity > 10)
-        {
-            _magCapacity = _magCapacity - 10;
-        }
-        else
-        {
-            _magCapacity = 0;
-        }
-        GameObject _piercingShot = Instantiate(piercingShotPrefab, firePoint.position, firePoint.rotation);
-
-        Rigidbody2D _rb = _piercingShot.GetComponent<Rigidbody2D>();
-
-        _piercingShot.GetComponent<NormanPiercingShot>().damage = (int)_pDamage;
-
-        _rb.AddForce(firePoint.right * bulletForce.Value, ForceMode2D.Impulse);
-    }
-
     void ShootInput()
     {
-        if (Input.GetButton("Fire1") && _readyToShoot == true && _reloading == false)
+        if (_playerInput.LeftClick && _readyToShoot == true && _reloading == false)
         {
-            if (_magCapacity == 0)
+            if (magCapacity == 0)
             {
                 animator.speed = reloadAnim.length / reloadDuration.Value;
                 animator.SetBool("isReloading", true);
@@ -133,19 +126,7 @@ public class Shooting : MonoBehaviour
                 Shoot();
             }
         }
-        if (Input.GetButtonDown("Fire2") && _magCapacity >= 10)
-        {
-            _rightClickStartHeld = Time.time;
-            animator.SetBool("isCharging", true);
-        }
-        if (Input.GetButtonUp("Fire2") && _magCapacity >= 10)
-        {
-            float _rightClickHeld = Time.time - _rightClickStartHeld;
-            PiercingDamage(_rightClickHeld);
-            ShootPiercing();
-            animator.SetBool("isCharging", false);
-        }
-        if (Input.GetKeyDown(KeyCode.R) && _magCapacity != maxMagCapacity.Value)
+        if (_playerInput.RKey && magCapacity != maxMagCapacity.Value)
         {
             animator.speed = reloadAnim.length / reloadDuration.Value;
             animator.SetBool("isReloading", true);
@@ -154,24 +135,12 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void PiercingDamage(float time)
-    {
-        if (time >= 4.0f)
-        {
-            _pDamage = 300.0f;
-        }
-        else
-        {
-            _pDamage = time * 75.0f;
-        }
-    }
-
     IEnumerator Reload()
     {
-        gunGlow.intensity = 0;
+        _gunGlow.intensity = 0;
         yield return new WaitForSeconds(reloadDuration.Value);
-        gunGlow.intensity = 0.25f;
-        _magCapacity = (int)maxMagCapacity.Value;
+        _gunGlow.intensity = 0.25f;
+        magCapacity = (int)maxMagCapacity.Value;
         _reloading = false;
         animator.SetBool("isReloading", false);
     }

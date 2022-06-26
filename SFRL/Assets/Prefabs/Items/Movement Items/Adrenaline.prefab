@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6816823120087372140}
   - component: {fileID: 6816823120087372143}
   - component: {fileID: -3024659347375470531}
+  - component: {fileID: 7331557088413833372}
   m_Layer: 0
   m_Name: Adrenaline
   m_TagString: Untagged
@@ -222,3 +223,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7331557088413833372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816823120087372142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c7d3e056fbfff4aa40477804b03614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

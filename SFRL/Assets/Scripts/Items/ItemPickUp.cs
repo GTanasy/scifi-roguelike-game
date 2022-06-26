@@ -10,22 +10,27 @@ public class ItemPickUp : MonoBehaviour
 	public PlayerPassive item;
 	bool _isDone = false;
 
+	ItemWorld _itemWorld;
+	Inventory _inventory;
+
 	Image _icon;
 	RectTransform _iconScale;
 	TMP_Text _titleText;
 	TMP_Text _descriptionText;
     void Awake()
     {
+		_itemWorld = GetComponent<ItemWorld>();
 		_icon = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemIcon").GetComponent<Image>();
 		_titleText = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemName").GetComponent<TextMeshProUGUI>();
 		_descriptionText = GameObject.Find("GameHandler/UI/Canvas/ItemPopUp/ItemDescription").GetComponent<TextMeshProUGUI>();
 		_iconScale = _icon.GetComponent<RectTransform>();
-		_iconScale.localScale = Vector3.zero;
+		_iconScale.localScale = Vector3.zero;		
 	}
 
     protected void OnTriggerEnter2D(Collider2D other)
 	{
 		PlayerDamageHandler player = other.GetComponent<PlayerDamageHandler>();
+		PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
 		if (other.tag.Equals("Player") && _isDone == false && player != null)
 		{
 			GetComponent<AudioSource>().Play();
@@ -34,6 +39,10 @@ public class ItemPickUp : MonoBehaviour
 			item.PickupCharacter(other.GetComponent<Norman>());
 			item.PickupMovement(other.GetComponent<PlayerMovement>());
 			player.RefreshHealthBars();
+
+			_inventory = playerInventory.GetPlayerInventory();
+			_inventory.AddItem(_itemWorld.GetItem());
+			
 			_isDone = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			StartCoroutine(PickUpText());

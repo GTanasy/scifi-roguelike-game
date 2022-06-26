@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public CharacterStat dashCoolDown;
 
+    PlayerInput _playerInput;
+
     float _dashCool;
     float _dashCounter;
 
@@ -43,8 +45,9 @@ public class PlayerMovement : MonoBehaviour
         _cam = GameObject.Find("GameHandler/Main Camera").GetComponent<Camera>();
         _rb = GetComponent<Rigidbody2D>();
 
-        _imageCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/Roll/Button/Image").GetComponent<Image>();
-        _textCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/Roll/Button/Text").GetComponent<TMP_Text>();
+        _imageCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/Roll/Button/Image").GetComponent<Image>();
+        _textCoolDownDash = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/Roll/Button/Text").GetComponent<TMP_Text>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void Start()
@@ -65,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (_playerInput.ShiftKey)
         {
             Dodge();
         }
@@ -79,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        _horizontal = Input.GetAxisRaw("Horizontal");
-        _vertical = Input.GetAxisRaw("Vertical");
+        _horizontal = _playerInput.Horizontal;
+        _vertical = _playerInput.Vertical;
 
         _movement.x = _horizontal;
         _movement.y = _vertical;

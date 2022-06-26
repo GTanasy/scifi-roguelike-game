@@ -71,25 +71,25 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");       
 
         tabMenu = GameObject.FindGameObjectWithTag("TabMenu");
-        _totalKills = GameObject.Find("GameHandler/UI/Canvas/TabMenu/TotalKills").GetComponent<TextMeshProUGUI>();
-        _bossesKilled = GameObject.Find("GameHandler/UI/Canvas/TabMenu/BossKills").GetComponent<TextMeshProUGUI>();
-        _totalItemsBought = GameObject.Find("GameHandler/UI/Canvas/TabMenu/TotalItemsBought").GetComponent<TextMeshProUGUI>();
-        _healthItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/HealthItems").GetComponent<TextMeshProUGUI>();
-        _weaponItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/WeaponItems").GetComponent<TextMeshProUGUI>();
-        _movementItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/MovementItems").GetComponent<TextMeshProUGUI>();
+        _totalKills = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/TotalKills").GetComponent<TextMeshProUGUI>();
+        _bossesKilled = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/BossKills").GetComponent<TextMeshProUGUI>();
+        _totalItemsBought = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/TotalItemsBought").GetComponent<TextMeshProUGUI>();
+        _healthItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/HealthItems").GetComponent<TextMeshProUGUI>();
+        _weaponItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/WeaponItems").GetComponent<TextMeshProUGUI>();
+        _movementItems = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/MovementItems").GetComponent<TextMeshProUGUI>();
 
-        _maxHealthText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/MaxHealth").GetComponent<TextMeshProUGUI>();
-        _maxShieldText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/MaxShield").GetComponent<TextMeshProUGUI>();
-        _shieldRegenText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/ShieldRegen").GetComponent<TextMeshProUGUI>();
-        _damageText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Damage").GetComponent<TextMeshProUGUI>();
-        _critChanceText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/CritChance").GetComponent<TextMeshProUGUI>();
-        _attackSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/AttackSpeed").GetComponent<TextMeshProUGUI>();
-        _attackRangeText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/AttackRange").GetComponent<TextMeshProUGUI>();
-        _projectileSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/ProjectileSpeed").GetComponent<TextMeshProUGUI>();
-        _reloadSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/ReloadSpeed").GetComponent<TextMeshProUGUI>();
-        _moveSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/MoveSpeed").GetComponent<TextMeshProUGUI>();
-        _dashLengthText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/DashLength").GetComponent<TextMeshProUGUI>();
-        _dashSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/DashSpeed").GetComponent<TextMeshProUGUI>();     
+        _maxHealthText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/MaxHealth").GetComponent<TextMeshProUGUI>();
+        _maxShieldText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/MaxShield").GetComponent<TextMeshProUGUI>();
+        _shieldRegenText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/ShieldRegen").GetComponent<TextMeshProUGUI>();
+        _damageText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/Damage").GetComponent<TextMeshProUGUI>();
+        _critChanceText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/CritChance").GetComponent<TextMeshProUGUI>();
+        _attackSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/AttackSpeed").GetComponent<TextMeshProUGUI>();
+        _attackRangeText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/AttackRange").GetComponent<TextMeshProUGUI>();
+        _projectileSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/ProjectileSpeed").GetComponent<TextMeshProUGUI>();
+        _reloadSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/ReloadSpeed").GetComponent<TextMeshProUGUI>();
+        _moveSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/MoveSpeed").GetComponent<TextMeshProUGUI>();
+        _dashLengthText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/DashLength").GetComponent<TextMeshProUGUI>();
+        _dashSpeedText = GameObject.Find("GameHandler/UI/Canvas/TabMenu/Stats/DashSpeed").GetComponent<TextMeshProUGUI>();     
 
         gameOverMenu = GameObject.FindGameObjectWithTag("GAMEOVER");
         roundsSurvived = GameObject.Find("GameHandler/UI/Canvas/GAMEOVER/RoundsSurvived").GetComponent<TextMeshProUGUI>();        
@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Tab))
         {
+            Tooltip.HideTooltip_Static();
             RemoveStatsMenu();
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7076188257992035165}
   m_Layer: 0
   m_Name: NormanGunShield
-  m_TagString: Norman
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 3193999700194924629}
   - component: {fileID: 1367517424394381544}
   m_Layer: 0
-  m_Name: Light 2D (2)
+  m_Name: GunGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,10 @@ GameObject:
   - component: {fileID: 5345921042105363340}
   - component: {fileID: 5345921042105363339}
   - component: {fileID: 8594734679647018602}
+  - component: {fileID: 2898880389332251328}
   - component: {fileID: 7324901171312823740}
+  - component: {fileID: 2041977621}
+  - component: {fileID: 2041977633}
   m_Layer: 0
   m_Name: Norman
   m_TagString: Player
@@ -645,15 +648,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623d9d43397d3844aa5cf5b3e0afbb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
   grenade: {fileID: 2385580351567414731, guid: 1055349be76b5644fbffbb42510014d8, type: 3}
   gunShield: {fileID: 89364636}
-  animator: {fileID: 385695162}
+  piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
   gunShieldDuration: 5
+  normanAnimator: {fileID: 89364644}
+  rifleAnimator: {fileID: 1651863790}
   maxGunShieldCooldown:
     BaseValue: 0
   maxGrenadeCooldown:
     BaseValue: 0
-  characterStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
 --- !u!114 &5345921042105363336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,9 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
-  _rb: {fileID: 5345921042105363335}
   _hitBox: {fileID: 5345921042105363338}
-  _cam: {fileID: 2887493321626717644, guid: d616a2b7d22c89d439c1693829ec6f5b, type: 3}
   rollAnim: {fileID: 7400000, guid: 2b9fc4fc6233af44dbd7d1127b3dbf7f, type: 2}
   normalSpeed:
     BaseValue: 0
@@ -704,11 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
-  _pShot: {fileID: 7953999433156109323, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
-  _textAmmoCount: {fileID: 0}
   firePoint: {fileID: 5345921042969418074}
-  gunGlow: {fileID: 1367517424394381544}
-  piercingShotPrefab: {fileID: 4718534003885340508, guid: d5fec357e477b604a8642641333a3c8d, type: 3}
   animator: {fileID: 1651863790}
   reloadAnim: {fileID: 7400000, guid: 233b3eea06c54a342bdcb5670a8b175b, type: 2}
   reloadDuration:
@@ -721,6 +720,7 @@ MonoBehaviour:
     BaseValue: 0
   maxMagCapacity:
     BaseValue: 0
+  magCapacity: 0
   criticalChance:
     BaseValue: 0
 --- !u!114 &8594734679647018602
@@ -743,9 +743,19 @@ MonoBehaviour:
   currentShield: 0
   shieldRegenRate:
     BaseValue: 0
-  healthBar: {fileID: 0}
-  shieldBar: {fileID: 0}
   characterStats: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
+--- !u!114 &2898880389332251328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f1969bd343e68489e7f95b767b34d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &7324901171312823740
 AudioSource:
   m_ObjectHideFlags: 0
@@ -842,6 +852,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2041977621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffc3f4c022b70b49a3ca24ace8ff1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiInventory: {fileID: 0}
+  _playerPassive: {fileID: 0}
+--- !u!114 &2041977633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345921042105363332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cbe562c9b1ba142beb36e0196f4447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterIcons: {fileID: 11400000, guid: 0d2f7138742204947b8762afddba499d, type: 2}
 --- !u!1 &5345921042359221543
 GameObject:
   m_ObjectHideFlags: 0

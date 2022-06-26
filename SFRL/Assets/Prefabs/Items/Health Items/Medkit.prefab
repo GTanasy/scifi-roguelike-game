@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8021176842778843991}
   - component: {fileID: 8021176842778843988}
   - component: {fileID: 8853844590855757973}
+  - component: {fileID: 245566444316120365}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: Untagged
@@ -222,3 +223,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &245566444316120365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021176842778843989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c7d3e056fbfff4aa40477804b03614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

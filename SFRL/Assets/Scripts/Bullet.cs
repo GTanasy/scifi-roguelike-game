@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        IDamageable damageable = hitInfo.GetComponent<IDamageable>();
         PlayerDamageHandler player = hitInfo.GetComponent<PlayerDamageHandler>();
         EnemyDamageHandler enemy = hitInfo.GetComponent<EnemyDamageHandler>();
         NormanGunShield normanGunShield = hitInfo.GetComponent<NormanGunShield>();
@@ -26,40 +27,50 @@ public class Bullet : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        else if (enemy != null && isPlayerBullet)
+        else if (damageable != null && isPlayerBullet)
         {
-            enemy.TakeDamage(damage);           
-            DamagePopup.Create(enemy.transform.position, damage, isCriticalHit, enemy.hasShield);           
-        }        
-        if (bullet != null || normanPiercing != null)
+            damageable.TakeDamage(damage);           
+            DamagePopup.Create(enemy.transform.position, damage, isCriticalHit, enemy.hasShield);
+            Destroy(gameObject);
+        }
+        if (normanGunShield && !isPlayerBullet)
         {
-            return;
+            Destroy(gameObject);
         }
-        if (enemy != null && !isPlayerBullet)
+        if (hitInfo.CompareTag("Wall"))
         {
-            return;
+            Destroy(gameObject);
         }
-        if (isPlayerBullet && normanGunShield != null)
-        {
-            return;
-        }
-        if (normanGrenade != null)
-        {            
-            return;
-        }
-        if (door != null)
-        {
-            return;
-        }
-        if (vending != null)
-        {
-            return;
-        }
-        if (item != null)
-        {
-            return;
-        }
-        Destroy(gameObject);
+        //if (bullet != null || normanPiercing != null)
+        //{
+        //    return;
+        //}
+        //if (enemy != null && !isPlayerBullet)
+        //{
+        //    return;
+        //}
+        //if (isPlayerBullet && normanGunShield != null)
+        //{
+        //    return;
+        //}
+        //if (normanGrenade != null)
+        //{            
+        //    return;
+        //}
+        //if (door != null)
+        //{
+        //    return;
+        //}
+        //if (vending != null)
+        //{
+        //    return;
+        //}
+        //if (item != null)
+        //{
+        //    return;
+        //}
+        //Destroy(gameObject);
     }
 }

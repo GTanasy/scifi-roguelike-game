@@ -4,27 +4,34 @@ using UnityEngine;
 
 namespace CG.SFRL.Enemy
 {
-    public class EnemyDamageHandler : MonoBehaviour
+    public class EnemyDamageHandler : MonoBehaviour, IDamageable
     {
         public BasicEnemy enemyStats;
 
+        [HideInInspector]
         public CharacterStat maxHealth;
+        [HideInInspector]
         public float currentHealth;
+        [HideInInspector]
         public CharacterStat maxShield;
         float _currentShield;
         int _killCredits;
 
+        [HideInInspector]
         public float shieldRegenRate;
 
         Coroutine _regen;
 
         RectTransform bossHealthBar;
 
-        public HealthBar healthBar;
-        public ShieldBar shieldBar;
+        HealthBar _healthBar;
+        ShieldBar _shieldBar;
 
+        [HideInInspector]
         public bool hasShield;
+        [HideInInspector]
         public bool isDead;
+        [HideInInspector]
         public bool isBoss;
 
         GameManager _killTracker;
@@ -40,19 +47,22 @@ namespace CG.SFRL.Enemy
             _roundManager = GameObject.Find("RoundManager").GetComponent<RoundSpawner>();
             _sounds = GameObject.Find("SoundManager").GetComponent<SoundManager>();
             _moneyController = GameObject.Find("GameHandler/MoneyController").GetComponent<MoneyController>();
+
+            _healthBar = GetComponentInChildren<HealthBar>();
+            _shieldBar = GetComponentInChildren<ShieldBar>();
         }
 
         void Start()
         {
             if (isBoss == true)
             {
-            bossHealthBar = GameObject.Find("/UI/BossBar").GetComponent<RectTransform>();
+                bossHealthBar = GameObject.Find("GameHandler/UI/Canvas/BossBar").GetComponent<RectTransform>();
             
             if (bossHealthBar != null)
             {
                 ActivateBar(bossHealthBar);
-                healthBar = bossHealthBar.gameObject.GetComponentInChildren<HealthBar>();
-                shieldBar = bossHealthBar.gameObject.GetComponentInChildren<ShieldBar>();
+                _healthBar = bossHealthBar.gameObject.GetComponentInChildren<HealthBar>();
+                _shieldBar = bossHealthBar.gameObject.GetComponentInChildren<ShieldBar>();
             }
             }
             maxHealth.BaseValue = enemyStats.health;
@@ -63,10 +73,10 @@ namespace CG.SFRL.Enemy
             shieldRegenRate = 1 / enemyStats.shieldRegenRate;
 
             currentHealth = maxHealth.Value;
-            healthBar.SetMaxHealth(maxHealth.Value);
+            _healthBar.SetMaxHealth(maxHealth.Value);
 
             _currentShield = maxShield.Value;
-            shieldBar.SetMaxShield(maxShield.Value);
+            _shieldBar.SetMaxShield(maxShield.Value);
             _killCredits = enemyStats.killCredits;
             
             isDead = false;
@@ -104,13 +114,13 @@ namespace CG.SFRL.Enemy
         void TakeHealthDamage(float damage)
         {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            _healthBar.SetHealth(currentHealth);
         }
 
         void TakeShieldDamage(float damage)
         {
             _currentShield -= damage;
-            shieldBar.SetShield(_currentShield);
+            _shieldBar.SetShield(_currentShield);
         }
 
         public void ExplosionDamage(int damage)
@@ -136,7 +146,7 @@ namespace CG.SFRL.Enemy
             while (_currentShield < maxShield.Value)
             {
                 _currentShield++;
-                shieldBar.SetShield(_currentShield);
+                _shieldBar.SetShield(_currentShield);
                 yield return new WaitForSeconds(shieldRegenRate);
             }
         }

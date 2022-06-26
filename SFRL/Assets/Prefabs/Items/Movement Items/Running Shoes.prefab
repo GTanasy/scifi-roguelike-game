@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1575598069006989332}
   - component: {fileID: 1575598069006989335}
   - component: {fileID: 23216674558133206}
+  - component: {fileID: 2417719398685309238}
   m_Layer: 0
   m_Name: Running Shoes
   m_TagString: Untagged
@@ -222,3 +223,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2417719398685309238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575598069006989334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c7d3e056fbfff4aa40477804b03614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

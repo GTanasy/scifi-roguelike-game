@@ -16,6 +16,7 @@ TagManager:
   - HealthVending
   - WeaponVending
   - MovementVending
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -597,7 +597,7 @@ MonoBehaviour:
   enemyType: 
   firePoint:
   - {fileID: 5583705936126882190}
-  bulletPrefab: {fileID: 1121265424779460724, guid: cd1645be5fbaa3c408b0616b7441539f, type: 3}
+  bulletPrefab: {fileID: 0}
   bulletForce:
     BaseValue: 0
   attackRange:

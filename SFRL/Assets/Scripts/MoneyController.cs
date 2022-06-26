@@ -12,7 +12,7 @@ public class MoneyController : MonoBehaviour
 
     void Awake()
     {
-        creditText = GameObject.Find("GameHandler/UI/Canvas/Credits").GetComponent<TextMeshProUGUI>();
+        creditText = GameObject.Find("GameHandler/UI/Canvas/PlayerHUD/Credits").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()

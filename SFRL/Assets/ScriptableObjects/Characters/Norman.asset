@@ -16,6 +16,9 @@ MonoBehaviour:
   _characterPrefab: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
   _icon: {fileID: 5345921042105363332, guid: b6188599f84317e4d90c33865f0d868a, type: 3}
   ability1Image: {fileID: 21300000, guid: e95ce8f96005ffa4384f7bca71716e1f, type: 3}
+  ability2Image: {fileID: 21300000, guid: 2fe75699ab0e71d4dbbb2a7bd1c17458, type: 3}
+  dashIcon: {fileID: 21300000, guid: 13856bd2631080244952ba1800c0ef9b, type: 3}
+  gunIcon: {fileID: 21300000, guid: 4ca299564353bb849a30aa1dbaad52bf, type: 3}
   health: 200
   shield: 100
   shieldRegenRate: 10

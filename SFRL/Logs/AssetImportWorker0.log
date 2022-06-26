@@ -15,7 +15,7 @@ S:/Unity Projects/scifi-roguelike-game/SFRL
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62025
+49574
 Successfully changed project path to: S:/Unity Projects/scifi-roguelike-game/SFRL
 S:/Unity Projects/scifi-roguelike-game/SFRL
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ S:/Unity Projects/scifi-roguelike-game/SFRL
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 103.39 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 102.54 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
 [Subsystems] Discovering subsystems at path S:/Unity Installs/2021.3.2f1/Editor/Data/Resources/UnitySubsystems
@@ -59,79 +59,80 @@ Direct3D:
     Vendor:   NVIDIA
     VRAM:     8031 MB
     Driver:   30.0.15.1277
+Invalid texture used for cursor - check importer settings or texture creation. Texture must be RGBA32, readable, have alphaIsTransparency enabled and have no mip chain.
 Initialize mono
 Mono path[0] = 'S:/Unity Installs/2021.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'S:/Unity Installs/2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'S:/Unity Installs/2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56800
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: S:/Unity Installs/2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001764 seconds.
+Registered in 0.002107 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 115.27 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 101.75 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.609 seconds
+- Completed reload, in  0.593 seconds
 Domain Reload Profiling:
-	ReloadAssembly (610ms)
-		BeginReloadAssembly (61ms)
+	ReloadAssembly (593ms)
+		BeginReloadAssembly (70ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (461ms)
-			LoadAssemblies (60ms)
+		EndReloadAssembly (434ms)
+			LoadAssemblies (69ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (93ms)
+			SetupTypeCache (95ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (295ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (267ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (115ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (132ms)
-				ProcessInitializeOnLoadMethodAttributes (40ms)
+				RefreshPlugins (102ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (120ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003752 seconds.
+Registered in 0.004397 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 105.32 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 101.34 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.148 seconds
+- Completed reload, in  1.137 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1149ms)
-		BeginReloadAssembly (88ms)
+	ReloadAssembly (1137ms)
+		BeginReloadAssembly (96ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (969ms)
-			LoadAssemblies (70ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (948ms)
+			LoadAssemblies (74ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (247ms)
+			SetupTypeCache (241ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (64ms)
-			SetupLoadedEditorAssemblies (542ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (533ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (105ms)
-				BeforeProcessingInitializeOnLoad (111ms)
-				ProcessInitializeOnLoadAttributes (233ms)
-				ProcessInitializeOnLoadMethodAttributes (87ms)
+				RefreshPlugins (101ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (232ms)
+				ProcessInitializeOnLoadMethodAttributes (94ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -139,13 +140,13 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.01 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 1.12 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5578 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 41 unused Assets / (0.7 MB). Loaded Objects now: 6036.
-Memory consumption went from 218.4 MB to 217.7 MB.
-Total: 3.622100 ms (FindLiveObjects: 0.490400 ms CreateObjectMapping: 0.449800 ms MarkObjects: 2.407300 ms  DeleteObjects: 0.273500 ms)
+Unloading 5585 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 41 unused Assets / (0.7 MB). Loaded Objects now: 6043.
+Memory consumption went from 218.7 MB to 218.1 MB.
+Total: 4.315900 ms (FindLiveObjects: 0.497100 ms CreateObjectMapping: 0.625600 ms MarkObjects: 2.883600 ms  DeleteObjects: 0.307900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -159,287 +160,79 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 5706.081994 seconds.
-  path: Assets/Prefabs/NormanGrenade.prefab
-  artifactKey: Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/NormanGrenade.prefab using Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43a5eb47508e6fc4f1de43cc36bae6be') in 0.218861 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Prefabs/GrenadeExplosion.prefab
-  artifactKey: Guid(ba68da3608121ff40a99cd59c72f59a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GrenadeExplosion.prefab using Guid(ba68da3608121ff40a99cd59c72f59a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eecc83c3afecc820b611295b500c8161') in 0.013524 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 27.228234 seconds.
-  path: Assets/Prefabs/NormanGrenade.prefab
-  artifactKey: Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/NormanGrenade.prefab using Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a08965cb52c003fc598717e02e102f7c') in 0.009486 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.008405 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ac7114d599e7ff8819dd22cc0bb4cb7') in 0.026790 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003824 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.93 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.029 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1029ms)
-		BeginReloadAssembly (121ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (830ms)
-			LoadAssemblies (71ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (240ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (45ms)
-			SetupLoadedEditorAssemblies (409ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (71ms)
-				ProcessInitializeOnLoadAttributes (246ms)
-				ProcessInitializeOnLoadMethodAttributes (79ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.38 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5441 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 6089.
-Memory consumption went from 215.3 MB to 214.6 MB.
-Total: 3.412300 ms (FindLiveObjects: 0.378900 ms CreateObjectMapping: 0.287500 ms MarkObjects: 2.488100 ms  DeleteObjects: 0.257200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 5.992306 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84b9df33ab6a01fc3521b101965ae37a') in 0.160787 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 18.716679 seconds.
-  path: Assets/Prefabs/NormanGrenade.prefab
-  artifactKey: Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/NormanGrenade.prefab using Guid(1055349be76b5644fbffbb42510014d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b188f3ccc6470951faeef8e7da24723') in 0.008885 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000819 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '860b5e8d579cb21806bb090332579774') in 0.021105 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003519 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.94 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.026 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1026ms)
-		BeginReloadAssembly (120ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (823ms)
-			LoadAssemblies (71ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (236ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (384ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (71ms)
-				ProcessInitializeOnLoadAttributes (217ms)
-				ProcessInitializeOnLoadMethodAttributes (83ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.14 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5441 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 6133.
-Memory consumption went from 215.4 MB to 214.7 MB.
-Total: 3.751800 ms (FindLiveObjects: 0.393500 ms CreateObjectMapping: 0.319800 ms MarkObjects: 2.612900 ms  DeleteObjects: 0.424700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 6.150598 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067db8500888c44cd8f00418c1077050') in 0.162707 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 59.770693 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca0747df787a7ce13057cfd06146b085') in 0.027229 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 43.528245 seconds.
-  path: Assets/Prefabs/Norman.prefab
-  artifactKey: Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Norman.prefab using Guid(b6188599f84317e4d90c33865f0d868a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ce842f817d4a739d968238c6b2e0b26') in 0.022719 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4830.107562 seconds.
-  path: Assets/ScriptableObjects/Enemy/EVE.asset
-  artifactKey: Guid(73699a1fd6608824f8c049101348b23a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Enemy/EVE.asset using Guid(73699a1fd6608824f8c049101348b23a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fa756fbdbef8e812a95020139936004') in 0.054107 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/ScriptableObjects/Enemy/PistolBot.asset
-  artifactKey: Guid(0779c391ff6be4842aad9004ad26d377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Enemy/PistolBot.asset using Guid(0779c391ff6be4842aad9004ad26d377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c018d5f3d6b2c98ab3d06ce1eb941c6a') in 0.056526 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/ScriptableObjects/Enemy/RifleBot.asset
-  artifactKey: Guid(c48d65a8244a0574c9bc04f4187f3e80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Enemy/RifleBot.asset using Guid(c48d65a8244a0574c9bc04f4187f3e80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5461981263edd102339354421fbec5b0') in 0.009484 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1666.001038 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/Deadeye.prefab
-  artifactKey: Guid(0e97d0bfa64e400429e219d74b645d85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Deadeye.prefab using Guid(0e97d0bfa64e400429e219d74b645d85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15954a9a48acb13d7f037ade2e5d507b') in 0.163518 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
+  Time since last request: 3279.554927 seconds.
   path: Assets/Prefabs/Items/Weapon Items/Speedy Rounds.prefab
   artifactKey: Guid(9d86695065f7f674b94f9468041fc1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Speedy Rounds.prefab using Guid(9d86695065f7f674b94f9468041fc1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e5233d51788789a0c559cf465bd9c3b') in 0.013758 seconds 
+Start importing Assets/Prefabs/Items/Weapon Items/Speedy Rounds.prefab using Guid(9d86695065f7f674b94f9468041fc1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901892b1da562d2309e11a30ed293c90') in 0.236752 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/Weapon Tuner.prefab
-  artifactKey: Guid(67964bbf1b52585419a222f5558b676c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Weapon Tuner.prefab using Guid(67964bbf1b52585419a222f5558b676c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9be25d3e5b67de821c9c0f0542b55854') in 0.014633 seconds 
+  Time since last request: 0.000033 seconds.
+  path: Assets/Prefabs/Items/Weapon Items/Extended Mag.prefab
+  artifactKey: Guid(c408ab43bf879e74bbdd813d420a57d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Items/Weapon Items/Extended Mag.prefab using Guid(c408ab43bf879e74bbdd813d420a57d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e92beae7b6c4385d0de60c1ecfc8aee') in 0.019636 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000087 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/Pointy Rounds.prefab
-  artifactKey: Guid(8454cdd7f4e83e845b221176c27bc448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Pointy Rounds.prefab using Guid(8454cdd7f4e83e845b221176c27bc448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09e7067b1249c2870c84b69e4c50ecaf') in 0.030146 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/Trigger Happy.prefab
-  artifactKey: Guid(e2ba7e901991e7d468a87e7a03c7faac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Trigger Happy.prefab using Guid(e2ba7e901991e7d468a87e7a03c7faac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '535b903b348ca46a600ea2b9e7ad55c7') in 0.033002 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/HighEnergyRounds.prefab
-  artifactKey: Guid(cd82f260a4393654c8b61e9e7d2b01f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/HighEnergyRounds.prefab using Guid(cd82f260a4393654c8b61e9e7d2b01f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ccdcc44dc77fc1446f81e971039bd1e') in 0.015229 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Items/Weapon Items/Stronger Bullets.prefab
-  artifactKey: Guid(cae088cf572bb0e4a905c52657a9d20d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Stronger Bullets.prefab using Guid(cae088cf572bb0e4a905c52657a9d20d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03649aa905e39cb5f23e9b6c93055cb4') in 0.012031 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
+  Time since last request: 0.000045 seconds.
   path: Assets/Prefabs/Items/Weapon Items/Slippery Mags.prefab
   artifactKey: Guid(ae9b3e739e34c3b4eba2a16d37aaadce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Items/Weapon Items/Slippery Mags.prefab using Guid(ae9b3e739e34c3b4eba2a16d37aaadce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '328726aad98db6ee7828a5260be3bc55') in 0.018690 seconds 
+Start importing Assets/Prefabs/Items/Weapon Items/Slippery Mags.prefab using Guid(ae9b3e739e34c3b4eba2a16d37aaadce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2a6000da189d272d98d376c0a2dca0b') in 0.018182 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 50.890427 seconds.
+  path: Assets/Prefabs/Items/Movement Items/Bigger Lunge.prefab
+  artifactKey: Guid(6272d77fc3c5ce74faf69dc6fae2df40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Items/Movement Items/Bigger Lunge.prefab using Guid(6272d77fc3c5ce74faf69dc6fae2df40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57addf7b7a5550b011439f95bc74ab49') in 0.016082 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.394274 seconds.
+  path: Assets/Prefabs/Items/Health Items/Abilit-E Boost.prefab
+  artifactKey: Guid(00eb95c64103a4b40999bd652e970a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Items/Health Items/Abilit-E Boost.prefab using Guid(00eb95c64103a4b40999bd652e970a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a1e48834db65684a868d836438ee5d2') in 0.014543 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003540 seconds.
+Registered in 0.004326 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image S:\Unity Projects\scifi-roguelike-game\SFRL\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.16 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.156 seconds
+- Completed reload, in  1.136 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1157ms)
-		BeginReloadAssembly (217ms)
+	ReloadAssembly (1136ms)
+		BeginReloadAssembly (127ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (29ms)
+			DisableScriptedObjects (7ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (93ms)
-		EndReloadAssembly (856ms)
-			LoadAssemblies (85ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (932ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (254ms)
+			SetupTypeCache (269ms)
 			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (396ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (443ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (1ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (74ms)
-				ProcessInitializeOnLoadAttributes (226ms)
-				ProcessInitializeOnLoadMethodAttributes (81ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (248ms)
+				ProcessInitializeOnLoadMethodAttributes (91ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.05 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 5.23 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5441 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 6177.
+Unloading 5447 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 6096.
 Memory consumption went from 215.5 MB to 214.8 MB.
-Total: 4.076900 ms (FindLiveObjects: 0.437700 ms CreateObjectMapping: 0.405300 ms MarkObjects: 2.869800 ms  DeleteObjects: 0.363200 ms)
+Total: 5.136600 ms (FindLiveObjects: 0.729300 ms CreateObjectMapping: 0.626700 ms MarkObjects: 3.480900 ms  DeleteObjects: 0.298200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
